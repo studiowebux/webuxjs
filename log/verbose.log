@@ -1,0 +1,87 @@
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-16T20:14:57.212Z"}
+{"message":"Listening on port 1337","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.266Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.267Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.267Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.267Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.267Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.267Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.268Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-16T20:14:57.268Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-16T20:16:17.693Z"}
+{"message":"Listening on port 1337","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.778Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.778Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.778Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.779Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.779Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.779Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.779Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:17.780Z"}
+{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:34.001Z"}
+{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","accept-encoding":"gzip, deflate","connection":"keep-alive"},"params":{},"body":{},"time":27.048921999999997,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:16:34.012Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"19\",\"response-time\":\"44.304 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:34.021Z"}
+{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:43.256Z"}
+{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","if-none-match":"W/\"13-2sKCg6MSzDE2vmcjQ3pyOH4Dp1Q\"","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","accept-encoding":"gzip, deflate","connection":"keep-alive"},"params":{},"body":{},"time":2.549937,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:16:43.257Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"304\",\"length\":\"-\",\"response-time\":\"4.862 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:43.258Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:44.383Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","accept-encoding":"gzip, deflate","connection":"keep-alive"},"params":{},"body":{},"time":4.0268809999999995,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:16:44.386Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"7.539 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:44.387Z"}
+{"message":{"method":"GET","url":"/favicon.ico","headers":{"host":"127.0.0.1:1337","connection":"keep-alive","accept":"*/*","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","referer":"http://127.0.0.1:1337/lang","accept-encoding":"gzip, deflate"},"body":{},"time":3.759503,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:16:44.521Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/favicon.ico\",\"status\":\"404\",\"length\":\"150\",\"response-time\":\"5.680 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:44.522Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:55.026Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","accept-encoding":"gzip, deflate","connection":"keep-alive"},"params":{},"body":{},"time":2.56723,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:16:55.028Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"4.578 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:16:55.029Z"}
+{"message":{"method":"POST","url":"/lang","headers":{"content-type":"application/json","lang":"fr","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":3.209154,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:17:57.386Z"}
+{"message":"{\"method\":\"POST\",\"url\":\"/lang\",\"status\":\"404\",\"length\":\"144\",\"response-time\":\"9.499 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:17:57.387Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:35.677Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"fr","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":1.958264,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:18:35.678Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"3.496 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:35.679Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:39.801Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"en","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":1.8624189999999998,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:18:39.801Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"3.028 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:39.802Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:44.181Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"de","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":1.860817,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:18:44.182Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"3.095 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:18:44.182Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:21:21.545Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":5.023276,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:21:21.547Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"7.578 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:21:21.548Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T20:21:28.976Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"fr","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":2.078278,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T20:21:28.977Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"12\",\"response-time\":\"3.810 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T20:21:28.978Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-16T23:31:56.012Z"}
+{"message":"Listening on port 1337","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.101Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.102Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.102Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.103Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.103Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.103Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.103Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-16T23:31:56.103Z"}
+{"message":{"method":"GET","url":"/custom","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"body":{},"time":24.633962999999998,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T23:32:02.646Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/custom\",\"status\":\"404\",\"length\":\"145\",\"response-time\":\"37.600 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T23:32:02.651Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-16T23:33:01.685Z"}
+{"message":"Listening on port 1337","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.773Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.773Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.774Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.774Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.774Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.774Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.774Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:01.775Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:08.169Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":23.214653,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T23:33:08.181Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"40.164 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T23:33:08.191Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-16T23:37:05.168Z"}
+{"message":"Listening on port 1337","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.219Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.220Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.220Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.220Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.220Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.221Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.221Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:05.221Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:08.598Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":20.74175,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T23:37:08.610Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"37.539 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:08.621Z"}
+{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:11.165Z"}
+{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":2.722206,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-16T23:37:11.167Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"54\",\"response-time\":\"5.167 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-16T23:37:11.168Z"}

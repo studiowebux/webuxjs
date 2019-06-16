@@ -1,0 +1,23 @@
+{
+  "name": "webuxjs",
+  "version": "1.0.0",
+  "description": "This is a framework for Studio Webux Projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.webux.lab/studiowebux/webuxjs.git"
+  },
+  "author": "Studio Webux S.E.N.C",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "webux-app": "^1.2.0",
+    "webux-language": "^1.1.0",
+    "webux-security": "^1.1.0",
+    "webux-server": "^1.1.0"
+  }
+}
