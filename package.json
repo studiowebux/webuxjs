@@ -15,9 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.4",
-    "webux-app": "^1.2.0",
-    "webux-language": "^1.1.0",
-    "webux-security": "^1.1.0",
-    "webux-server": "^1.1.0"
+    "path": "^0.12.7",
+    "webux-app": "^2.6.0",
+    "webux-language": "^1.4.0",
+    "webux-loader": "^1.1.0",
+    "webux-security": "^1.3.0",
+    "webux-seed": "^1.0.0",
+    "webux-server": "^1.2.1"
   }
 }
