@@ -153,3 +153,32 @@
 {"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.604Z"}
 {"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":22.508318,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.612Z"}
 {"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"83\",\"response-time\":\"35.525 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.620Z"}
+{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-19T00:12:45.359Z"}
+{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-19T00:12:45.364Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:12:45.380Z"}
+{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.533Z"}
+{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.538Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:07.551Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.639Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.639Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
+{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
+{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.641Z"}
+{"message":"will use locales/fr.json","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:14.275Z"}
+{"message":"read locales/fr.json for locale: fr","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:14.275Z"}
+{"message":"will use locales/en.json","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:14.276Z"}
+{"message":"read locales/en.json for locale: en","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:14.276Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:14.289Z"}
+{"message":"Route Not Found, Please Refer To Documentation.","level":"error","label":"Test01","timestamp":"2019-06-19T00:14:14.291Z"}
+{"message":{"method":"GET","url":"/dfg","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"body":{},"time":27.663294,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-19T00:14:14.302Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/dfg\",\"status\":\"404\",\"length\":\"-\",\"response-time\":\"40.352 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:14.317Z"}
+{"message":"will use locales/fr.json","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:32.554Z"}
+{"message":"read locales/fr.json for locale: fr","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:32.555Z"}
+{"message":"will use locales/en.json","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:32.555Z"}
+{"message":"read locales/en.json for locale: en","level":"debug","label":"Test01","timestamp":"2019-06-19T00:14:32.555Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:32.556Z"}
+{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.558Z"}
+{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":8.0148,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.562Z"}
+{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"10.792 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.565Z"}

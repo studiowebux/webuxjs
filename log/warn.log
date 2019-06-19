@@ -14,3 +14,8 @@
 {"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:43:43.576Z"}
 {"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:45:56.631Z"}
 {"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:46:01.602Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:12:45.380Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:07.551Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:14.289Z"}
+{"message":"Route Not Found, Please Refer To Documentation.","level":"error","label":"Test01","timestamp":"2019-06-19T00:14:14.291Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:32.556Z"}
