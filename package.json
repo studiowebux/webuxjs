@@ -1,21 +1,26 @@
 {
   "name": "webuxjs",
   "version": "1.0.0",
-  "description": "This is a framework for Studio Webux Projects",
+  "description": "This is the framework for Studio Webux Projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "homepage": "https://github.com/studiowebux/webuxjs",
   "repository": {
     "type": "git",
-    "url": "http://git.webux.lab/studiowebux/webuxjs.git"
+    "url": "https://github.com/studiowebux/webuxjs.git"
   },
   "author": "Studio Webux S.E.N.C",
-  "license": "ISC",
+  "license": "SEE LICENSE IN license.txt",
   "dependencies": {
-    "express": "^4.17.1",
+    "joi": "^14.3.1",
     "path": "^0.12.7",
-    "webux-app": "^2.6.2"
+    "webux-app": "^3.0.0",
+    "webux-validator": "^1.2.1"
+  },
+  "devDependencies": {
+    "mongo-in-memory": "0.0.5"
   }
 }

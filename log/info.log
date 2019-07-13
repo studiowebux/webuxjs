@@ -1,136 +1,1139 @@
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T02:57:01.008Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.093Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.093Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.093Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.094Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.094Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.094Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T02:57:01.094Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T03:03:49.787Z"}
-{"message":{"method":"GET","url":"/d","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"body":{},"time":25.603140999999997,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T03:03:49.797Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/d\",\"status\":\"404\",\"length\":\"140\",\"response-time\":\"38.786 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T03:03:49.803Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T03:03:52.886Z"}
-{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-18T03:03:52.887Z"}
-{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":6.2817169999999996,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T03:03:52.891Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"83\",\"response-time\":\"9.582 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T03:03:52.894Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T03:03:59.380Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-18T03:03:59.381Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":3.059631,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T03:03:59.382Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"8.085 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T03:03:59.387Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-18T03:04:18.181Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"fr","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":3.597831,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T03:04:18.182Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"5.325 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T03:04:18.186Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-18T03:04:26.740Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"content-type":"application/json","lang":"en","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","accept-encoding":"gzip, deflate","content-length":"83","connection":"keep-alive"},"params":{},"body":{"notification":{"deviceID":"5cf0524c29b376c575e6005b","message":"Door Open"}},"time":3.6504339999999997,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T03:04:26.741Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"5.720 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T03:04:26.742Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.771Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:20:18.787Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.879Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.880Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.880Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.880Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.880Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.881Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.881Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:20:18.883Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.768Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:38:55.784Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.886Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.887Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.887Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.887Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.887Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.887Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.888Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:38:55.889Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.033Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.038Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:40:41.050Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.138Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.138Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.138Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.139Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.139Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.139Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:41.139Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:40:51.799Z"}
-{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:51.800Z"}
-{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":22.873321999999998,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:40:51.807Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"83\",\"response-time\":\"36.721 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:51.816Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:40:56.017Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:56.018Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"body":{},"time":9.956036,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:40:56.026Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"500\",\"length\":\"-\",\"response-time\":\"12.331 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:40:56.057Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.406Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.411Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:41:16.418Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.479Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:16.480Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:41:18.290Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:18.291Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":28.297112,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:41:18.298Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"41.804 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:18.307Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:41:24.356Z"}
-{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:24.357Z"}
-{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":3.35104,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:41:24.358Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"83\",\"response-time\":\"6.084 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:41:24.360Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.521Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.527Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:43:20.539Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.630Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.631Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.631Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.631Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.631Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.632Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:20.632Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.565Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.568Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:43:43.576Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.628Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:43:43.629Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.621Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.625Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-18T23:45:56.631Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.695Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.695Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.695Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.696Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.696Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.696Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-18T23:45:56.697Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-18T23:46:01.602Z"}
-{"message":"Hello World !","level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.604Z"}
-{"message":{"method":"GET","url":"/","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":22.508318,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.612Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/\",\"status\":\"200\",\"length\":\"83\",\"response-time\":\"35.525 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-18T23:46:01.620Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-19T00:12:45.359Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-19T00:12:45.364Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:12:45.380Z"}
-{"message":"1. Getting all the default value files.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.533Z"}
-{"message":"2. All default values loaded.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.538Z"}
-{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:07.551Z"}
-{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.639Z"}
-{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.639Z"}
-{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
-{"message":"Project : Webuxjs is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
-{"message":"RESTFUL API accessible from : 1.0.0","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
-{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.640Z"}
-{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:07.641Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:14.289Z"}
-{"message":"Route Not Found, Please Refer To Documentation.","level":"error","label":"Test01","timestamp":"2019-06-19T00:14:14.291Z"}
-{"message":{"method":"GET","url":"/dfg","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"body":{},"time":27.663294,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-19T00:14:14.302Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/dfg\",\"status\":\"404\",\"length\":\"-\",\"response-time\":\"40.352 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:14.317Z"}
-{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-06-19T00:14:32.556Z"}
-{"message":"Language getter","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.558Z"}
-{"message":{"method":"GET","url":"/lang","headers":{"host":"127.0.0.1:1337","pragma":"no-cache","connection":"keep-alive","upgrade-insecure-requests":"1","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.1 Safari/605.1.15","accept-language":"en-ca","cache-control":"no-cache","accept-encoding":"gzip, deflate"},"params":{},"body":{},"time":8.0148,"http":"1.1"},"level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.562Z"}
-{"message":"{\"method\":\"GET\",\"url\":\"/lang\",\"status\":\"200\",\"length\":\"132\",\"response-time\":\"10.792 ms\"}\n","level":"info","label":"Test01","timestamp":"2019-06-19T00:14:32.565Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:05.372Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:05.969Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:05.969Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:05.970Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.005Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.008Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.009Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:01:06.035Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.036Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:01:06.041Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.042Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.042Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.043Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.062Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.067Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.069Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:01:06.113Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.120Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.122Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.125Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.129Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.130Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.130Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.139Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.173Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.173Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.173Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.174Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.174Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.174Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:01:06.174Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:35.832Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.928Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.929Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.929Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.975Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.976Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.977Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:06:36.995Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:36.995Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:06:36.999Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.000Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.001Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.057Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.058Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.110Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.111Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.111Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.122Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.127Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.130Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:06:37.139Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.146Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.148Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.151Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.155Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.156Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.156Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.164Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.235Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.236Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.237Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.237Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.237Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.237Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:06:37.237Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:18.876Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:19.999Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.000Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.000Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.047Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.048Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.049Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:12:20.067Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.067Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:12:20.071Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.071Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.072Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.121Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.121Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.163Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.163Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.163Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.175Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.183Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.186Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:12:20.192Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.199Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.200Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.202Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.205Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.206Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.206Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.207Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.207Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.207Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.213Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.213Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.223Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:12:20.264Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:12:25.845Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"415","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"111.737 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:12:25.929Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:09.445Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.355Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.356Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.357Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.415Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.418Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.420Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:13:10.475Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.475Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:13:10.567Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.578Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.579Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.665Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.683Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.788Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.789Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.790Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.823Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.845Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.848Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:13:10.859Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.870Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.872Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.876Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.880Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.882Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.883Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.890Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.892Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.895Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.941Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.942Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.952Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.989Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.989Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.989Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.989Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.990Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.990Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:13:10.990Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:13:30.660Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"415","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"129.860 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:13:30.718Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:13:35.072Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a65869395b8798bdcdbeb","status":"200","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a65869395b8798bdcdbeb"},"query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"362","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"46.587 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:13:35.114Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:13:41.322Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"415","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"8.057 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:13:41.332Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:13:45.579Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a65869395b8798bdcdbec","status":"200","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a65869395b8798bdcdbec"},"query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"199","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"7.922 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:13:45.586Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:38.043Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.006Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.007Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.007Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.046Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.048Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.048Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:16:39.075Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.075Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:16:39.080Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.081Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.082Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.138Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.142Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.185Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.191Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.193Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.226Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.230Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.232Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:16:39.239Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.246Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.248Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.251Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.260Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.262Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.265Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.270Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.270Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.276Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.278Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.279Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.292Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.345Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.345Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.345Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.345Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.346Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.346Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:16:39.346Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:16:41.682Z"}
+{"message":"user not found","devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/5d2a65869395b8798bdcdbec"},"stack":"Error: user not found\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Promise (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/findOne.js:36:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:16:41.724Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a65869395b8798bdcdbec","status":"404","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"547","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"88.503 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:16:41.759Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:16:44.417Z"}
+{"message":"users not found","devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: users not found\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Promise (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:28:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:16:44.424Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"404","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"522","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"10.388 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:16:44.426Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:10.107Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.047Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.048Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.048Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.099Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.100Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.100Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:17:11.126Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.129Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:17:11.142Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.143Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.144Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.207Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.208Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.288Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.289Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.289Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.304Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.326Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.337Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:17:11.364Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.423Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.429Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.474Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.567Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.568Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.572Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.573Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.576Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.577Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.581Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.581Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.603Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:11.642Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:17:13.120Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:25:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:17:13.141Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"621","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"75.269 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:17:13.163Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:39.740Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.704Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.704Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.705Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.762Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.763Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.763Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:17:40.785Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.787Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:17:40.796Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.797Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.798Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.857Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.858Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.925Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.926Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.927Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.947Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.949Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.954Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:17:40.959Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.964Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.966Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.968Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.973Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.974Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.975Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.975Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.979Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.981Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.982Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:40.982Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.007Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.061Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.061Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.062Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.062Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.062Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.062Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:17:41.062Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:17:43.143Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:27:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:17:43.170Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"628","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"117.770 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:17:43.218Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:49.696Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.611Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.612Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.612Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.653Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.654Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.654Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:18:50.677Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.677Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:18:50.691Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.692Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.692Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.750Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.750Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.807Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.808Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.809Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.825Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.828Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.832Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:18:50.848Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.852Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.853Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.856Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.858Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.859Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.860Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.862Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.863Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.864Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.865Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.865Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.878Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:18:50.911Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:18:53.995Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:27:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:18:54.063Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"628","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"142.526 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:18:54.095Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:20:23.744Z"}
+{"level":"error","message":"DB : An error occur while connecting to the mongo in memory database","label":"Test01","timestamp":"2019-07-13T23:20:24.670Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:00.886Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.786Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.787Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.788Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.833Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.834Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.835Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:01.856Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.857Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:01.861Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.862Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.863Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.929Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:01.933Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.003Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.004Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.004Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.017Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.019Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.021Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:02.032Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.043Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.048Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.052Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.061Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.063Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.063Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.064Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.066Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.067Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.067Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.068Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.078Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.118Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.118Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.118Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.118Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.118Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.119Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:02.119Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:04.440Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:27:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:21:04.456Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"628","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"100.968 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:21:04.492Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:16.232Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.216Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.217Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.217Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.287Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.290Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.291Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:17.335Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.336Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:17.343Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.344Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.345Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.558Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.559Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.599Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.600Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.600Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.622Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.627Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.629Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:17.637Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.647Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.652Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.660Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.663Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.664Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.664Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.665Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.666Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.666Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.667Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.667Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.685Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:17.716Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:18.672Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"415","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"59.827 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:21:18.706Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:53.324Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.257Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.258Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.258Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.389Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.391Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.391Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:54.414Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.414Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:21:54.422Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.423Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.424Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.505Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.507Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.551Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.552Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.552Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.562Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.564Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.566Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:54.573Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.582Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.584Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.589Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.594Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.596Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.597Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.598Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.599Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.602Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.603Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.603Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.610Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.693Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.693Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.693Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.693Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.694Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.694Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:21:54.694Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:55.487Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:28:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:21:55.501Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"628","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"69.622 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:21:55.512Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:21:56.563Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:28:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:21:56.568Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"628","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"7.955 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:21:56.570Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:06.788Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.014Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.015Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.015Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.113Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.116Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.116Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:24:08.162Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.163Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:24:08.170Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.177Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.179Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.439Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.450Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.561Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.565Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.566Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.672Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.677Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.682Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:08.698Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.720Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.722Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.725Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.736Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.740Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.743Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.744Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.745Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.746Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.746Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.747Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.761Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:24:08.818Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:09.822Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"67.657 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:09.855Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:19.760Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=name%20asc,created%20desc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"name\",1],[\"created\",-1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"11.448 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:19.770Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:21.283Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=name%20asc,created%20desc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"name\",1],[\"created\",-1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"8.992 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:21.291Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:33.558Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20%20desc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",-1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"12.731 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:33.568Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:37.604Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20desc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",-1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"8.277 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:37.611Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:42.515Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"8.293 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:42.522Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:24:46.497Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"11.392 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:24:46.507Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:21.275Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.628Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.640Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.641Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.762Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.763Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.764Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:25:22.788Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.792Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:25:22.808Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.809Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.809Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.904Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.905Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.954Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.955Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.955Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.981Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.990Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:22.993Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:25:22.999Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.006Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.008Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.010Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.013Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.014Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.015Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.017Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.018Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.019Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.020Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.020Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.051Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:25:23.152Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:25:24.120Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"81.084 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:25:24.157Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:02.897Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.641Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.642Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.642Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.706Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.708Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.708Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:26:03.731Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.732Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:26:03.739Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.740Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.741Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.904Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.905Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.986Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.990Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.991Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:03.999Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.002Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.004Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:26:04.008Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.013Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.015Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.019Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.061Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.062Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.064Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.066Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.067Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.067Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.068Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.069Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.094Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.123Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:04.124Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:26:04.928Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/?sort=email%20asc,"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:28:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:26:04.960Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"646","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"77.409 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:26:04.994Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:26:06.489Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/?sort=email%20asc,"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.select.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:28:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:26:06.495Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"646","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"11.809 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:26:06.499Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.117Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.599Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.600Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.600Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.669Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.671Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.671Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:26:30.693Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.693Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:26:30.697Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.698Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.700Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.753Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.753Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.862Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.862Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.863Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.879Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.890Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.893Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:26:30.898Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.902Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.903Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.907Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.909Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.910Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.910Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.914Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.914Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.915Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.916Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.917Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.925Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:26:30.943Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:26:32.900Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"77.375 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:26:32.937Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:39.713Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.096Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.097Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.098Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.187Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.189Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.189Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:27:41.212Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.213Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:27:41.219Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.220Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.221Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.293Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.294Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.330Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.331Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.332Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.349Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.353Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.358Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:27:41.374Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.381Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.383Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.387Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.392Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.395Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.398Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.400Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.401Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.402Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.403Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.404Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.413Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:27:41.454Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:27:41.879Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"-","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"- ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:27:44.708Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:27:45.640Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:42.886Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.791Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.791Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.792Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.843Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.845Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.845Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:28:43.874Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.874Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:28:43.879Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.880Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.881Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.949Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:43.953Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.031Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.031Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.032Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.048Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.054Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.057Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:28:44.064Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.084Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.087Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.099Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.107Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.110Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.111Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.112Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.113Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.114Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.121Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.127Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.139Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.175Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:28:44.176Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:28:46.351Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1]],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"124.610 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:28:46.496Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:28:51.070Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:50.572Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.573Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.574Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.574Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.661Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.663Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.663Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:29:51.696Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.698Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:29:51.714Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.714Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.715Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.812Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.812Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.861Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.862Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.862Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.884Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.887Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.890Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:29:51.909Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.941Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.946Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.949Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.953Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.954Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.955Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.956Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.956Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:51.957Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.037Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.038Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.052Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:29:52.101Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:29:53.873Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:28.889Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.301Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.302Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.302Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.343Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.345Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.345Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:30:29.363Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.364Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:30:29.367Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.368Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.368Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.426Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.427Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.469Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.469Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.470Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.476Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.479Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.480Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:30:29.483Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.486Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.487Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.500Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.512Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.514Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.516Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.518Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.519Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.520Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.521Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.522Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.531Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:30:29.565Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:30:31.394Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"-","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"- ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:32:31.388Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:44.810Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.778Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.779Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.779Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.821Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.824Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.825Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:32:45.859Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.860Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:32:45.872Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.874Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.875Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.969Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:45.970Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.029Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.029Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.030Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.051Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.054Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.055Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:32:46.062Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.073Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.076Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.079Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.081Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.082Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.082Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.083Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.084Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.084Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.085Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.085Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.093Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:32:46.123Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:32:48.129Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:11.616Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.868Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.869Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.869Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.992Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.993Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:12.994Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:34:13.063Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.064Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:34:13.070Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.071Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.071Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.178Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.179Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.229Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.229Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.229Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.250Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.255Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.257Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:34:13.263Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.270Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.275Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.279Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.282Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.282Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.283Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.283Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.283Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.284Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.284Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.284Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.306Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:34:13.356Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:34:14.073Z"}
+{"message":{"waitedMS":0,"ok":0,"errmsg":">1 field in obj: {}","code":2,"name":"MongoError"},"devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/?sort=email%20asc,"},"stack":"Error: MongoError: >1 field in obj: {}\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Webux.db.User.find.catch.e (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/find.js:29:31)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:34:14.107Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/?sort=email%20asc,","status":"422","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"sort\":[[\"email\",1],\"\"],\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"639","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"90.857 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:34:14.141Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:53.614Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.569Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.570Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.570Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.629Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.630Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.631Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:35:54.669Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.669Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:35:54.676Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.684Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.685Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.769Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.770Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.821Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.822Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.822Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.837Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.852Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.854Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:35:54.860Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.868Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.870Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.874Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.877Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.879Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.879Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.880Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.881Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.881Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.882Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.883Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.895Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:35:54.940Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:35:55.848Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"81.146 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:35:55.884Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:36:08.545Z"}
+{"message":"Cannot read property 'trim' of undefined","devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email,"},"stack":"TypeError: Cannot read property 'trim' of undefined\n    at splObj.forEach (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/parseProjectionString/getProjection.js:34:63)\n    at Array.forEach (<anonymous>)\n    at getProjection (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/parseProjectionString/getProjection.js:16:12)\n    at ParseQuery (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/ParseQuery.js:27:37)\n    at /Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-query/index.js:52:25\n    at Layer.handle [as handle_request] (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:281:22\n    at param (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:354:14)\n    at param (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:365:14)\n    at Function.process_params (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:410:3)\n    at next (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:275:10)\n    at Function.handle (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:174:3)\n    at router (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:47:12)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:36:08.550Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email,","status":"500","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"select\":\"email,\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"26.700 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:36:08.573Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:36:16.863Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:29.199Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.274Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.275Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.275Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.325Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.327Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.328Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:37:30.356Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.357Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:37:30.362Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.363Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.364Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.427Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.428Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.485Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.486Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.486Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.499Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.509Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.512Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:37:30.519Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.523Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.524Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.526Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.532Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.532Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.533Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.535Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.536Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.536Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.537Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.539Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.551Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:37:30.586Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:37:32.265Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email","status":"-","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a6ada0f0f0e7f27deeca2"},"query":"{\"filter\":{},\"projection\":{\"email\":1}}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"- ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:37:46.400Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:37:47.496Z"}
+{"message":"Cannot read property 'trim' of undefined","devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email,"},"stack":"TypeError: Cannot read property 'trim' of undefined\n    at splObj.forEach (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/parseProjectionString/getProjection.js:34:63)\n    at Array.forEach (<anonymous>)\n    at getProjection (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/parseProjectionString/getProjection.js:16:12)\n    at ParseQuery (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/mongo-qp/dist/ParseQuery.js:27:37)\n    at /Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-query/index.js:52:25\n    at Layer.handle [as handle_request] (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/layer.js:95:5)\n    at next (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/route.js:137:13)\n    at Route.dispatch (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/route.js:112:3)\n    at Layer.handle [as handle_request] (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/layer.js:95:5)\n    at /Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:281:22\n    at param (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:354:14)\n    at param (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:365:14)\n    at Function.process_params (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:410:3)\n    at next (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:275:10)\n    at Function.handle (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:174:3)\n    at router (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/express/lib/router/index.js:47:12)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:37:47.498Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email,","status":"500","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"select\":\"email,\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"34.088 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:37:47.554Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:37:52.942Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2?select=email","status":"-","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a6ada0f0f0e7f27deeca2"},"query":"{\"filter\":{},\"projection\":{\"email\":1}}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"- ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:37:54.180Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:38:23.567Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:49.233Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.430Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.431Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.437Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.612Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.613Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.614Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:38:50.652Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.663Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:38:50.669Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.670Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.674Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.877Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.879Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.949Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.950Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.950Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.975Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.978Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.980Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:38:50.987Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.994Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:50.997Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.000Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.014Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.016Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.023Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.024Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.025Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.025Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.026Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.026Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.037Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.072Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.072Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.073Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.073Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.073Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.073Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:38:51.073Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:38:51.217Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6ada0f0f0e7f27deeca2","status":"-","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a6ada0f0f0e7f27deeca2"},"query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"-","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"- ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:38:53.085Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:39:18.553Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"26.698 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:39:18.579Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:39:22.800Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:40.289Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.365Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.366Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.369Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.459Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.461Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.461Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:40:41.496Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.497Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:40:41.502Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.503Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.504Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.626Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.627Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.673Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.674Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.679Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.692Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.721Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.742Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:40:41.761Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.796Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.829Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.831Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.834Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.836Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.837Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.838Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.839Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.839Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.840Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.840Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.853Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.899Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.900Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.901Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.901Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.901Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.901Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:40:41.901Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:40:42.412Z"}
+{"message":"user not found","devMessage":"","extra":{"user":{},"req":{"method":"GET","url":"/api/v1/user/5d2a6b8aa8ecf97fc3697df7"},"stack":"Error: user not found\n    at Webux.errorHandler (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/node_modules/webux-errorhandler/index.js:92:15)\n    at Promise (/Users/tgingras/Documents/Studiowebux/framework/webuxjs/api/v1/actions/user/findOne.js:37:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"},"level":"error","label":"Test01","timestamp":"2019-07-13T23:40:42.463Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6b8aa8ecf97fc3697df7","status":"404","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"547","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"103.510 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:40:42.479Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:40:45.125Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/","status":"200","body":{"user":{"fullname":"Administrator"}},"params":"{}","query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"195","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"11.066 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:40:45.136Z"}
+{"message":"Language not available, undefined","level":"warn","label":"Test01","timestamp":"2019-07-13T23:40:49.459Z"}
+{"message":"Logging using stream function","method":"GET","url":"/api/v1/user/5d2a6bf9372b3a803d8dd583","status":"200","body":{"user":{"fullname":"Administrator"}},"params":{"id":"5d2a6bf9372b3a803d8dd583"},"query":"{\"filter\":{},\"projection\":\"email profileID\"}","headers":{"content-type":"application/json","authorization":"*****","cache-control":"no-cache","user-agent":"PostmanRuntime/7.6.0","accept":"*/*","host":"127.0.0.1:1337","cookie":"connect.sid=s%3A19ijH3C6UYvx-2bjeiIVusJSwuj7Dd9S.J%2FijYq1U66TscKmCSDySSVDL1SNUJaBOx%2FIFaP3yR6M","accept-encoding":"gzip, deflate","content-length":"38","connection":"keep-alive"},"http-version":"1.1","remote-ip":"::ffff:127.0.0.1","remote-user":"-","length":"252","referrer":"-","user-agent":"PostmanRuntime/7.6.0","accept-language":"-","response-time":"22.119 ms","level":"info","label":"Test01","filtered":"Yes","timestamp":"2019-07-13T23:40:49.479Z"}
+{"message":"Socket.io Authentication disabled.","level":"info","label":"Test01","timestamp":"2019-07-13T23:41:31.473Z"}
+{"message":"Creating Mongo in memory database","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:03.816Z"}
+{"message":"DB In Memory : Database successfully started.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.881Z"}
+{"message":"HOST 127.0.0.1","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.881Z"}
+{"message":"PORT 27017","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.882Z"}
+{"message":"DB : mongo in memory Database connection success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.930Z"}
+{"message":"DB : Loading Modules...","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.931Z"}
+{"message":"DB Module :  Load profile","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.931Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:44:04.953Z"}
+{"message":"DB Module :  Load user","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.955Z"}
+{"level":"info","message":"DB Module : ","label":"Test01","timestamp":"2019-07-13T23:44:04.969Z"}
+{"message":"1. Getting all the default value files in /Users/tgingras/Documents/Studiowebux/framework/webuxjs/defaults.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.970Z"}
+{"message":"1.1. Processing file : 00_user.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:04.970Z"}
+{"message":"1.2. File 00_user.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.074Z"}
+{"message":"1.1. Processing file : 01_profile.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.076Z"}
+{"message":"1.2. File 01_profile.js Loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.116Z"}
+{"message":"2. All default values loaded from the directory.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.117Z"}
+{"message":"Configuring the on request handler","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.118Z"}
+{"message":"Configuring morgan","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.137Z"}
+{"message":"Request handler loaded","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.140Z"}
+{"message":"Configuring the body parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.147Z"}
+{"message":"CORS disabled.","level":"warn","label":"Test01","timestamp":"2019-07-13T23:44:05.157Z"}
+{"message":"Configuring cookie parser","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.162Z"}
+{"message":"Set the headers","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.164Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.166Z"}
+{"message":"Creating rate limiter","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.170Z"}
+{"message":"Creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.171Z"}
+{"message":"get /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.172Z"}
+{"message":"post /user/","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.172Z"}
+{"message":"get /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.173Z"}
+{"message":"put /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.173Z"}
+{"message":"delete /user/:id","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.174Z"}
+{"message":"Finished creating routes","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.174Z"}
+{"message":"Starting an HTTP server ...","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.187Z"}
+{"message":"Application started with success.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.264Z"}
+{"message":"Version : 1.0.0","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.264Z"}
+{"message":"Author: Tommy Gingras | Studio Webux S.E.N.C","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.265Z"}
+{"message":"Project : test-webux-app is listening on port 1337...","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.265Z"}
+{"message":"RESTFUL API accessible from : /api/v1","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.265Z"}
+{"message":"Mode : development","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.265Z"}
+{"message":"Working Path : /Users/tgingras/Documents/Studiowebux/framework/webuxjs","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:05.265Z"}
+{"message":"Socket.io Authentication disabled.","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.172Z"}
+{"message":"Creating the resource user/create.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.173Z"}
+{"message":"Creating the resource user/find.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.173Z"}
+{"message":"Creating the resource user/findOne.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.174Z"}
+{"message":"Creating the resource user/remove.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.174Z"}
+{"message":"Creating the resource user/update.js","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.174Z"}
+{"message":"createUser added !","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.175Z"}
+{"message":"findUser added !","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.175Z"}
+{"message":"findOneUser added !","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.176Z"}
+{"message":"removeUser added !","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.176Z"}
+{"message":"updateUser added !","level":"info","label":"Test01","timestamp":"2019-07-13T23:44:08.177Z"}
