@@ -31,10 +31,7 @@ const findUser = query => {
       if (!users || users.length === 0) {
         return reject(Webux.errorHandler(404, "users not found"));
       }
-      return resolve({
-        msg: "Success !",
-        users: users
-      });
+      return resolve(users);
     } catch (e) {
       throw e;
     }
@@ -48,7 +45,7 @@ const route = async (req, res, next) => {
     if (!obj) {
       return next(Webux.errorHandler(404, "User not found."));
     }
-    return res.status(200).json(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }

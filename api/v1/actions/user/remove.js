@@ -4,7 +4,6 @@
 // ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║
 // ██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
-                                               
 
 /**
  * File: remove.js
@@ -35,10 +34,7 @@ const removeOneUser = userID => {
       if (!userRemoved) {
         return reject(Webux.errorHandler(422, "user not removed"));
       }
-      return resolve({
-        msg: "Success !",
-        user: userRemoved
-      });
+      return resolve(userRemoved);
     } catch (e) {
       throw e;
     }
@@ -52,7 +48,7 @@ const route = async (req, res, next) => {
     if (!obj) {
       return next(Webux.errorHandler(422, "User with ID not deleted."));
     }
-    return res.status(204).json(obj);
+    return res.deleted(obj);
   } catch (e) {
     next(e);
   }

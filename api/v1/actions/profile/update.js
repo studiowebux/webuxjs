@@ -15,32 +15,36 @@
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/user");
+const { MongoID, Update } = require("../../validations/profile");
 
 // action
-const updateOneUser = (userID, user) => {
+const updateOneProfile = (profileID, profile) => {
   return new Promise(async (resolve, reject) => {
     try {
       await Webux.isValid
-        .Custom(MongoID)(userID)
+        .Custom(MongoID)(profileID)
         .catch(e => {
           return reject(e); // returned a pre-formatted error
         });
       await Webux.isValid
-        .Custom(Update)(user)
+        .Custom(Update)(profile)
         .catch(e => {
           return reject(e); // returned a pre-formatted error
         });
 
-      const userUpdated = await Webux.db.User.findByIdAndUpdate(userID, user, {
-        new: true
-      }).catch(e => {
+      const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
+        profileID,
+        profile,
+        {
+          new: true
+        }
+      ).catch(e => {
         return reject(Webux.errorHandler(422, e));
       });
-      if (!userUpdated) {
-        return reject(Webux.errorHandler(422, "user not updated"));
+      if (!profileUpdated) {
+        return reject(Webux.errorHandler(422, "profile not updated"));
       }
-      return resolve(userUpdated);
+      return resolve(profileUpdated);
     } catch (e) {
       throw e;
     }
@@ -50,9 +54,9 @@ const updateOneUser = (userID, user) => {
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneUser(req.params.id, req.body.user);
+    const obj = await updateOneProfile(req.params.id, req.body.profile);
     if (!obj) {
-      return next(Webux.errorHandler(422, "User with ID not updated."));
+      return next(Webux.errorHandler(422, "Profile with ID not updated."));
     }
     return res.updated(obj);
   } catch (e) {
@@ -63,18 +67,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (userID, user) => {
+  return async (profileID, profile) => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneUser(userID, user);
+      const obj = await updateOneProfile(profileID, profile);
       if (!obj) {
-        client.emit("gotError", "User with ID not updated");
+        client.emit("gotError", "Profile with ID not updated");
       }
 
-      client.emit("userUpdated", obj);
+      client.emit("profileUpdated", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -82,7 +86,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneUser,
+  updateOneProfile,
   socket,
   route
 };

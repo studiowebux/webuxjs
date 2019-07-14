@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  sort: ['profile', 'user'],
+  sort: ["profile", "user", "status", "category", "part", "part_category"],
   local: true,
   debug: true,
   URL: "@127.0.0.1:27017/framework",

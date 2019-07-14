@@ -6,7 +6,7 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: find.js
  * Author: Tommy Gingras
  * Date: 2019-07-13
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
@@ -15,32 +15,23 @@
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/user");
+const { select } = require("../../constants/profile");
 
 // action
-const updateOneUser = (userID, user) => {
+const findProfile = query => {
   return new Promise(async (resolve, reject) => {
     try {
-      await Webux.isValid
-        .Custom(MongoID)(userID)
+      const profiles = await Webux.db.Profile.find({})
+        .select(query.projection || select)
+        .limit(query.limit)
+        .sort(query.sort)
         .catch(e => {
-          return reject(e); // returned a pre-formatted error
+          return reject(Webux.errorHandler(422, e));
         });
-      await Webux.isValid
-        .Custom(Update)(user)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-
-      const userUpdated = await Webux.db.User.findByIdAndUpdate(userID, user, {
-        new: true
-      }).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!userUpdated) {
-        return reject(Webux.errorHandler(422, "user not updated"));
+      if (!profiles || profiles.length === 0) {
+        return reject(Webux.errorHandler(404, "profiles not found"));
       }
-      return resolve(userUpdated);
+      return resolve(profiles);
     } catch (e) {
       throw e;
     }
@@ -50,11 +41,11 @@ const updateOneUser = (userID, user) => {
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneUser(req.params.id, req.body.user);
+    const obj = await findProfile(req.query);
     if (!obj) {
-      return next(Webux.errorHandler(422, "User with ID not updated."));
+      return next(Webux.errorHandler(404, "Profile not found."));
     }
-    return res.updated(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }
@@ -63,18 +54,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (userID, user) => {
+  return async () => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneUser(userID, user);
+      const obj = await findProfile({});
       if (!obj) {
-        client.emit("gotError", "User with ID not updated");
+        client.emit("gotError", "Profile not found");
       }
 
-      client.emit("userUpdated", obj);
+      client.emit("profileFound", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -82,7 +73,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneUser,
+  findProfile,
   socket,
   route
 };

@@ -6,7 +6,7 @@
 //   ╚═══╝  ╚═╝  ╚═╝╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
 
 /**
- * File: user.js
+ * File: profile.js
  * Author: Tommy Gingras
  * Date: 2019-07-13
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
@@ -18,19 +18,19 @@ const Joi = require("joi");
 
 const Create = Joi.object()
   .keys({
-    email: Joi.string()
-      .email()
+    fullname: Joi.string()
+      .regex(/^([a-zA-Z\u00C0-\u017F]+\ {1}[a-zA-Z\u00C0-\u017F]+)+/i)
       .required(),
-    password: Joi.string()
-      .min(5)
+    userID: Joi.string()
+      .regex(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i)
       .required()
   })
   .required();
 
 const Update = Joi.object()
   .keys({
-    email: Joi.string()
-      .email()
+    fullname: Joi.string()
+      .alphanum()
       .required()
   })
   .required();

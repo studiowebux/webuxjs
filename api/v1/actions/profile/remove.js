@@ -6,7 +6,7 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: remove.js
  * Author: Tommy Gingras
  * Date: 2019-07-13
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
@@ -15,32 +15,26 @@
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/user");
+const { MongoID } = require("../../validations/profile");
 
 // action
-const updateOneUser = (userID, user) => {
+const removeOneProfile = profileID => {
   return new Promise(async (resolve, reject) => {
     try {
       await Webux.isValid
-        .Custom(MongoID)(userID)
+        .Custom(MongoID)(profileID)
         .catch(e => {
           return reject(e); // returned a pre-formatted error
         });
-      await Webux.isValid
-        .Custom(Update)(user)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-
-      const userUpdated = await Webux.db.User.findByIdAndUpdate(userID, user, {
-        new: true
-      }).catch(e => {
+      const profileRemoved = await Webux.db.Profile.findByIdAndRemove(
+        profileID
+      ).catch(e => {
         return reject(Webux.errorHandler(422, e));
       });
-      if (!userUpdated) {
-        return reject(Webux.errorHandler(422, "user not updated"));
+      if (!profileRemoved) {
+        return reject(Webux.errorHandler(422, "profile not removed"));
       }
-      return resolve(userUpdated);
+      return resolve(profileRemoved);
     } catch (e) {
       throw e;
     }
@@ -50,11 +44,11 @@ const updateOneUser = (userID, user) => {
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneUser(req.params.id, req.body.user);
+    const obj = await removeOneProfile(req.params.id);
     if (!obj) {
-      return next(Webux.errorHandler(422, "User with ID not updated."));
+      return next(Webux.errorHandler(422, "Profile with ID not deleted."));
     }
-    return res.updated(obj);
+    return res.deleted(obj);
   } catch (e) {
     next(e);
   }
@@ -63,18 +57,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (userID, user) => {
+  return async profileID => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneUser(userID, user);
+      const obj = await removeOneProfile(profileID);
       if (!obj) {
-        client.emit("gotError", "User with ID not updated");
+        client.emit("gotError", "Profile with ID not deleted");
       }
 
-      client.emit("userUpdated", obj);
+      client.emit("profileRemoved", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -82,7 +76,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneUser,
+  removeOneProfile,
   socket,
   route
 };

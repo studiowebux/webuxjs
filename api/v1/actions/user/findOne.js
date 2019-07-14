@@ -36,10 +36,7 @@ const findOneUser = (userID, query) => {
       if (!user) {
         return reject(Webux.errorHandler(404, "user not found"));
       }
-      return resolve({
-        msg: "Success !",
-        user: user
-      });
+      return resolve(user);
     } catch (e) {
       throw e;
     }
@@ -53,7 +50,7 @@ const route = async (req, res, next) => {
     if (!obj) {
       return next(Webux.errorHandler(404, "User with ID not found."));
     }
-    return res.status(200).json(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }

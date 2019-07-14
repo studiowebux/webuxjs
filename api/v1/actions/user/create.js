@@ -33,10 +33,11 @@ const createUser = user => {
       if (!userCreated) {
         return reject(Webux.errorHandler(422, "user not created"));
       }
-      return resolve({
-        msg: "Success !",
-        user: userCreated
-      });
+
+      let cleaned = userCreated.toObject();
+      delete cleaned["password"];
+
+      return resolve(cleaned);
     } catch (e) {
       throw e;
     }
@@ -50,7 +51,7 @@ const route = async (req, res, next) => {
     if (!obj) {
       return next(Webux.errorHandler(422, "User not created"));
     }
-    return res.status(201).json(obj);
+    return res.created(obj);
   } catch (e) {
     console.error(e);
     next(e);
