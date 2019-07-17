@@ -52,8 +52,20 @@ const MongoID = Joi.string()
   .regex(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i)
   .required();
 
+const File = Joi.object()
+  .keys({
+    picture: Joi.object()
+      .keys({
+        mimetype: Joi.any(),
+        name: Joi.string()
+      })
+      .required()
+  })
+  .required();
+
 module.exports = {
   Create,
   Update,
-  MongoID
+  MongoID,
+  File
 };

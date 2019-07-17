@@ -1,4 +1,6 @@
 const Webux = require("webux-app"); // to access the Webux.query()
+const fileUpload = require("express-fileupload");
+const { File } = require("../api/v1/validations/part");
 const USER = require("../api/v1/constants/user");
 const PROFILE = require("../api/v1/constants/profile");
 const CATEGORY = require("../api/v1/constants/category");
@@ -145,16 +147,11 @@ module.exports = {
   },
   "/part": {
     resources: {
-      "/": [
+      "/:id/picture": [
         {
           method: "get",
-          middlewares: [Webux.query([], PART.select)],
-          action: require(__dirname + "/../api/v1/actions/part/find").route
-        },
-        {
-          method: "post",
           middlewares: [],
-          action: require(__dirname + "/../api/v1/actions/part/create").route
+          action: require(__dirname + "/../api/v1/actions/part/download").route
         }
       ],
       "/:id": [
@@ -172,6 +169,26 @@ module.exports = {
           method: "delete",
           middlewares: [],
           action: require(__dirname + "/../api/v1/actions/part/remove").route
+        },
+        {
+          method: "post",
+          middlewares: [
+            fileUpload(Webux.config.upload),
+            Webux.isValid.Files(File)
+          ],
+          action: require(__dirname + "/../api/v1/actions/part/upload").route
+        }
+      ],
+      "/": [
+        {
+          method: "get",
+          middlewares: [Webux.query([], PART.select)],
+          action: require(__dirname + "/../api/v1/actions/part/find").route
+        },
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/part/create").route
         }
       ]
     }

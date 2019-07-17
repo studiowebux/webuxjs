@@ -19,6 +19,7 @@ module.exports = db => {
     {
       name: { type: String, required: true, unique: true },
       description: { type: String },
+      pictureURL: { type: String },
       userID: { type: db.Schema.Types.ObjectId, ref: "User" },
       statusID: { type: db.Schema.Types.ObjectId, ref: "Status" }
     },

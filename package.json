@@ -15,8 +15,10 @@
   "author": "Studio Webux S.E.N.C",
   "license": "SEE LICENSE IN license.txt",
   "dependencies": {
+    "express-fileupload": "^1.1.5",
     "joi": "^14.3.1",
     "path": "^0.12.7",
+    "sharp": "^0.22.1",
     "webux-app": "^3.0.4"
   },
   "devDependencies": {
