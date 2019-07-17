@@ -1,4 +1,4 @@
-const select = 'fullname';
+const select = "fullname";
 
 module.exports = {
   select

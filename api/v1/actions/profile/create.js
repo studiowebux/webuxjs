@@ -18,39 +18,28 @@ const Webux = require("webux-app");
 const { Create } = require("../../validations/profile");
 
 // action
-const createProfile = profile => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      console.log(profile);
-      await Webux.isValid
-        .Custom(Create)(profile)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
+const createProfile = async profile => {
+  await Webux.isValid.Custom(Create, profile);
 
-      const profileCreated = await Webux.db.Profile.create(profile).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!profileCreated) {
-        return reject(Webux.errorHandler(422, "profile not created"));
-      }
-
-      const profileLinked = await Webux.db.User.findOneAndUpdate(
-        { _id: profile.userID },
-        { profileID: profileCreated._id },
-        { new: true }
-      ).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!profileLinked) {
-        return reject(Webux.errorHandler(422, "profile not linked"));
-      }
-
-      return resolve(profileLinked);
-    } catch (e) {
-      throw e;
-    }
+  const profileCreated = await Webux.db.Profile.create(profile).catch(e => {
+    throw Webux.errorHandler(422, e);
   });
+  if (!profileCreated) {
+    throw Webux.errorHandler(422, "profile not created");
+  }
+
+  const profileLinked = await Webux.db.User.findOneAndUpdate(
+    { _id: profile.userID },
+    { profileID: profileCreated._id },
+    { new: true }
+  ).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+  if (!profileLinked) {
+    throw Webux.errorHandler(422, "profile not linked");
+  }
+
+  return Promise.resolve(profileLinked);
 };
 
 // route
@@ -62,7 +51,6 @@ const route = async (req, res, next) => {
     }
     return res.created(obj);
   } catch (e) {
-    console.error(e);
     next(e);
   }
 };

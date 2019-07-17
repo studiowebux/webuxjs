@@ -17,8 +17,7 @@
   "dependencies": {
     "joi": "^14.3.1",
     "path": "^0.12.7",
-    "webux-app": "^3.0.0",
-    "webux-validator": "^1.2.1"
+    "webux-app": "^3.0.4"
   },
   "devDependencies": {
     "mongo-in-memory": "0.0.5"

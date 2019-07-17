@@ -18,24 +18,18 @@ const Webux = require("webux-app");
 const { select } = require("../../constants/profile");
 
 // action
-const findProfile = query => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const profiles = await Webux.db.Profile.find({})
-        .select(query.projection || select)
-        .limit(query.limit)
-        .sort(query.sort)
-        .catch(e => {
-          return reject(Webux.errorHandler(422, e));
-        });
-      if (!profiles || profiles.length === 0) {
-        return reject(Webux.errorHandler(404, "profiles not found"));
-      }
-      return resolve(profiles);
-    } catch (e) {
-      throw e;
-    }
-  });
+const findProfile = async query => {
+  const profiles = await Webux.db.Profile.find({})
+    .select(query.projection || select)
+    .limit(query.limit)
+    .sort(query.sort)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!profiles || profiles.length === 0) {
+    throw Webux.errorHandler(404, "profiles not found");
+  }
+  return Promise.resolve(profiles);
 };
 
 // route

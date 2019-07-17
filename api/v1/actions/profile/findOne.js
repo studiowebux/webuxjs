@@ -19,27 +19,18 @@ const { MongoID } = require("../../validations/profile");
 const { select } = require("../../constants/profile");
 
 // action
-const findOneProfile = (profileID, query) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(MongoID)(profileID)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-      const profile = await Webux.db.Profile.findById(profileID)
-        .select(query.projection || select)
-        .catch(e => {
-          return reject(Webux.errorHandler(422, e));
-        });
-      if (!profile) {
-        return reject(Webux.errorHandler(404, "profile not found"));
-      }
-      return resolve(profile);
-    } catch (e) {
-      throw e;
-    }
-  });
+const findOneProfile = async (profileID, query) => {
+  await Webux.isValid.Custom(MongoID, profileID);
+
+  const profile = await Webux.db.Profile.findById(profileID)
+    .select(query.projection || select)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!profile) {
+    throw Webux.errorHandler(404, "profile not found");
+  }
+  return Promise.resolve(profile);
 };
 
 // route

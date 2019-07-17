@@ -6,45 +6,62 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: findOne.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { MongoID } = require("../../validations/part");
+const { select } = require("../../constants/part");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
+const findOnePart = async (partID, query) => {
+  await Webux.isValid.Custom(MongoID, partID);
 
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
-    {
-      new: true
-    }
-  ).catch(e => {
-    throw Webux.errorHandler(422, e);
-  });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+  const part = await Webux.db.Part.findById(partID)
+    .select(query.projection || select)
+    .populate("statusID")
+    .populate({
+      path: "userID",
+      populate: {
+        path: "profileID",
+        model: "Profile"
+      }
+    })
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!part) {
+    throw Webux.errorHandler(404, "part not found");
   }
-  return Promise.resolve(profileUpdated);
+
+  const partCategory = await Webux.db.PartCategory.findOne({
+    partID: partID
+  }).populate("categoriesID");
+
+  console.log(partCategory)
+
+  let object = null;
+  if (partCategory) {
+    object = part.toObject();
+    object.categories = partCategory;
+  }
+
+  return Promise.resolve(object || part);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await findOnePart(req.params.id, req.query);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(404, "Part with ID not found."));
     }
-    return res.updated(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }
@@ -53,18 +70,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return async partID => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await findOnePart(partID, {});
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Part with ID not found");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("partFound", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +89,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  findOnePart,
   socket,
   route
 };

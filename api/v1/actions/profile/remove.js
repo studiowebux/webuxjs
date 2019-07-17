@@ -18,27 +18,17 @@ const Webux = require("webux-app");
 const { MongoID } = require("../../validations/profile");
 
 // action
-const removeOneProfile = profileID => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(MongoID)(profileID)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-      const profileRemoved = await Webux.db.Profile.findByIdAndRemove(
-        profileID
-      ).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!profileRemoved) {
-        return reject(Webux.errorHandler(422, "profile not removed"));
-      }
-      return resolve(profileRemoved);
-    } catch (e) {
-      throw e;
-    }
+const removeOneProfile = async profileID => {
+  await Webux.isValid.Custom(MongoID, profileID);
+  const profileRemoved = await Webux.db.Profile.findByIdAndRemove(
+    profileID
+  ).catch(e => {
+    throw Webux.errorHandler(422, e);
   });
+  if (!profileRemoved) {
+    throw Webux.errorHandler(422, "profile not removed");
+  }
+  return Promise.resolve(profileRemoved);
 };
 
 // route

@@ -18,24 +18,18 @@ const Webux = require("webux-app");
 const { select } = require("../../constants/user");
 
 // action
-const findUser = query => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const users = await Webux.db.User.find({})
-        .select(query.projection || select)
-        .limit(query.limit)
-        .sort(query.sort)
-        .catch(e => {
-          return reject(Webux.errorHandler(422, e));
-        });
-      if (!users || users.length === 0) {
-        return reject(Webux.errorHandler(404, "users not found"));
-      }
-      return resolve(users);
-    } catch (e) {
-      throw e;
-    }
-  });
+const findUser = async query => {
+  const users = await Webux.db.User.find({})
+    .select(query.projection || select)
+    .limit(query.limit)
+    .sort(query.sort)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!users || users.length === 0) {
+    throw Webux.errorHandler(404, "users not found");
+  }
+  return Promise.resolve(users);
 };
 
 // route

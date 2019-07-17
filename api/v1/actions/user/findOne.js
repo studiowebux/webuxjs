@@ -19,28 +19,18 @@ const { MongoID } = require("../../validations/user");
 const { select } = require("../../constants/user");
 
 // action
-const findOneUser = (userID, query) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(MongoID)(userID)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-      const user = await Webux.db.User.findById(userID)
-        .select(query.projection || select)
-        .populate("profileID")
-        .catch(e => {
-          return reject(Webux.errorHandler(422, e));
-        });
-      if (!user) {
-        return reject(Webux.errorHandler(404, "user not found"));
-      }
-      return resolve(user);
-    } catch (e) {
-      throw e;
-    }
-  });
+const findOneUser = async (userID, query) => {
+  await Webux.isValid.Custom(MongoID, userID);
+  const user = await Webux.db.User.findById(userID)
+    .select(query.projection || select)
+    .populate("profileID")
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!user) {
+    throw Webux.errorHandler(404, "user not found");
+  }
+  return Promise.resolve(user);
 };
 
 // route

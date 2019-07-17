@@ -18,27 +18,16 @@ const Webux = require("webux-app");
 const { MongoID } = require("../../validations/user");
 
 // action
-const removeOneUser = userID => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(MongoID)(userID)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-      const userRemoved = await Webux.db.User.findByIdAndRemove(userID).catch(
-        e => {
-          return reject(Webux.errorHandler(422, e));
-        }
-      );
-      if (!userRemoved) {
-        return reject(Webux.errorHandler(422, "user not removed"));
-      }
-      return resolve(userRemoved);
-    } catch (e) {
-      throw e;
-    }
+const removeOneUser = async userID => {
+  await Webux.isValid.Custom(MongoID, userID);
+  
+  const userRemoved = await Webux.db.User.findByIdAndRemove(userID).catch(e => {
+    throw Webux.errorHandler(422, e);
   });
+  if (!userRemoved) {
+    throw Webux.errorHandler(422, "user not removed");
+  }
+  return Promise.resolve(userRemoved);
 };
 
 // route

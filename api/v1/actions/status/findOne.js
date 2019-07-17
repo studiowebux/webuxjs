@@ -6,45 +6,42 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: findOne.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { MongoID } = require("../../validations/status");
+const { select } = require("../../constants/status");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
+const findOneStatus = async (statusID, query) => {
+  await Webux.isValid.Custom(MongoID, statusID);
 
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
-    {
-      new: true
-    }
-  ).catch(e => {
-    throw Webux.errorHandler(422, e);
-  });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+  const status = await Webux.db.Statuss.findById(statusID)
+    .select(query.projection || select)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+
+  if (!status) {
+    throw Webux.errorHandler(404, "status not found");
   }
-  return Promise.resolve(profileUpdated);
+  return Promise.resolve(status);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await findOneStatus(req.params.id, req.query);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(404, "Status with ID not found."));
     }
-    return res.updated(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }
@@ -53,18 +50,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return async statusID => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await findOneStatus(statusID, {});
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Status with ID not found");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("statusFound", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +69,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  findOneStatus,
   socket,
   route
 };

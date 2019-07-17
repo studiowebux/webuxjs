@@ -18,33 +18,19 @@ const Webux = require("webux-app");
 const { MongoID, Update } = require("../../validations/user");
 
 // action
-const updateOneUser = (userID, user) => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(MongoID)(userID)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
-      await Webux.isValid
-        .Custom(Update)(user)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
+const updateOneUser = async (userID, user) => {
+  await Webux.isValid.Custom(MongoID, userID);
+  await Webux.isValid.Custom(Update, user);
 
-      const userUpdated = await Webux.db.User.findByIdAndUpdate(userID, user, {
-        new: true
-      }).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!userUpdated) {
-        return reject(Webux.errorHandler(422, "user not updated"));
-      }
-      return resolve(userUpdated);
-    } catch (e) {
-      throw e;
-    }
+  const userUpdated = await Webux.db.User.findByIdAndUpdate(userID, user, {
+    new: true
+  }).catch(e => {
+    throw Webux.errorHandler(422, e);
   });
+  if (!userUpdated) {
+    throw Webux.errorHandler(422, "user not updated");
+  }
+  return Promise.resolve(userUpdated);
 };
 
 // route

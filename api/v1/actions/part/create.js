@@ -6,65 +6,69 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: create.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { Create } = require("../../validations/part");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
+const createPart = async part => {
+  await Webux.isValid.Custom(Create, part);
 
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
-    {
-      new: true
-    }
-  ).catch(e => {
+  const partCreated = await Webux.db.Part.create(part).catch(e => {
     throw Webux.errorHandler(422, e);
   });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+  if (!partCreated) {
+    throw Webux.errorHandler(422, "part not created");
   }
-  return Promise.resolve(profileUpdated);
+
+  const CategoriesLinked = await Webux.db.PartCategory.create({
+    partID: partCreated._id,
+    categoriesID: part.categoriesID
+  }).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+
+  if (!CategoriesLinked) {
+    throw Webux.errorHandler(422, "Categories not linked");
+  }
+
+  return Promise.resolve(partCreated);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await createPart(req.body.part);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(422, "Part not created"));
     }
-    return res.updated(obj);
+    return res.created(obj);
   } catch (e) {
     next(e);
   }
 };
 
 // socket with auth
-
 const socket = client => {
-  return async (profileID, profile) => {
+  return async part => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await createPart(part);
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Part not created");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("partCreated", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +76,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  createPart,
   socket,
   route
 };

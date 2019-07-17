@@ -6,45 +6,40 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: remove.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { MongoID } = require("../../validations/category");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
+const removeOneCategory = async categoryID => {
+  await Webux.isValid.Custom(MongoID, categoryID);
 
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
-    {
-      new: true
-    }
+  const categoryRemoved = await Webux.db.Category.findByIdAndRemove(
+    categoryID
   ).catch(e => {
     throw Webux.errorHandler(422, e);
   });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+  if (!categoryRemoved) {
+    throw Webux.errorHandler(422, "category not removed");
   }
-  return Promise.resolve(profileUpdated);
+  return Promise.resolve(categoryRemoved);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await removeOneCategory(req.params.id);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(422, "Category with ID not deleted."));
     }
-    return res.updated(obj);
+    return res.deleted(obj);
   } catch (e) {
     next(e);
   }
@@ -53,18 +48,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return async categoryID => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await removeOneCategory(categoryID);
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Category with ID not deleted");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("categoryRemoved", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +67,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  removeOneCategory,
   socket,
   route
 };

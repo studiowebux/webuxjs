@@ -15,34 +15,34 @@
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { MongoID, Update } = require("../../validations/status");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
+const updateOneStatus = async (statusID, status) => {
+  await Webux.isValid.Custom(MongoID, statusID);
+  await Webux.isValid.Custom(Update, status);
 
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
+  const statusUpdated = await Webux.db.Status.findByIdAndUpdate(
+    statusID,
+    status,
     {
       new: true
     }
   ).catch(e => {
     throw Webux.errorHandler(422, e);
   });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+  if (!statusUpdated) {
+    throw Webux.errorHandler(422, "status not updated");
   }
-  return Promise.resolve(profileUpdated);
+  return Promise.resolve(statusUpdated);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await updateOneStatus(req.params.id, req.body.status);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(422, "Status with ID not updated."));
     }
     return res.updated(obj);
   } catch (e) {
@@ -53,18 +53,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return async (statusID, status) => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await updateOneStatus(statusID, status);
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Status with ID not updated");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("statusUpdated", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +72,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  updateOneStatus,
   socket,
   route
 };

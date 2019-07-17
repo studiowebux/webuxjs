@@ -1,8 +1,6 @@
-const blacklist = [
-  'password'
-];
+const blacklist = ["password"];
 
-const select = 'email profileID';
+const select = "email profileID";
 
 module.exports = {
   blacklist,

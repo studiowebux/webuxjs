@@ -6,45 +6,40 @@
 // ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 
 /**
- * File: update.js
+ * File: find.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
 "use strict";
 
 const Webux = require("webux-app");
-const { MongoID, Update } = require("../../validations/profile");
+const { select } = require("../../constants/category");
 
 // action
-const updateOneProfile = async (profileID, profile) => {
-  await Webux.isValid.Custom(MongoID, profileID);
-  await Webux.isValid.Custom(Update, profile);
-
-  const profileUpdated = await Webux.db.Profile.findByIdAndUpdate(
-    profileID,
-    profile,
-    {
-      new: true
-    }
-  ).catch(e => {
-    throw Webux.errorHandler(422, e);
-  });
-  if (!profileUpdated) {
-    throw Webux.errorHandler(422, "profile not updated");
+const findCategory = async query => {
+  const categories = await Webux.db.Category.find({})
+    .select(query.projection || select)
+    .limit(query.limit)
+    .sort(query.sort)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!categories || categories.length === 0) {
+    throw Webux.errorHandler(404, "categories not found");
   }
-  return Promise.resolve(profileUpdated);
+  return Promise.resolve(categories);
 };
 
 // route
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOneProfile(req.params.id, req.body.profile);
+    const obj = await findCategory(req.query);
     if (!obj) {
-      return next(Webux.errorHandler(422, "Profile with ID not updated."));
+      return next(Webux.errorHandler(404, "Category not found."));
     }
-    return res.updated(obj);
+    return res.success(obj);
   } catch (e) {
     next(e);
   }
@@ -53,18 +48,18 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return async () => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
+      const obj = await findCategory({});
       if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
+        client.emit("gotError", "Category not found");
       }
 
-      client.emit("profileUpdated", obj);
+      client.emit("categoryFound", obj);
     } catch (e) {
       client.emit("gotError", e);
     }
@@ -72,7 +67,7 @@ const socket = client => {
 };
 
 module.exports = {
-  updateOneProfile,
+  findCategory,
   socket,
   route
 };

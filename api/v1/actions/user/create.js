@@ -18,30 +18,20 @@ const Webux = require("webux-app");
 const { Create } = require("../../validations/user");
 
 // action
-const createUser = user => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      await Webux.isValid
-        .Custom(Create)(user)
-        .catch(e => {
-          return reject(e); // returned a pre-formatted error
-        });
+const createUser = async user => {
+  await Webux.isValid.Custom(Create, user);
 
-      const userCreated = await Webux.db.User.create(user).catch(e => {
-        return reject(Webux.errorHandler(422, e));
-      });
-      if (!userCreated) {
-        return reject(Webux.errorHandler(422, "user not created"));
-      }
-
-      let cleaned = userCreated.toObject();
-      delete cleaned["password"];
-
-      return resolve(cleaned);
-    } catch (e) {
-      throw e;
-    }
+  const userCreated = await Webux.db.User.create(user).catch(e => {
+    throw Webux.errorHandler(422, e);
   });
+  if (!userCreated) {
+    throw Webux.errorHandler(422, "user not created");
+  }
+
+  let cleaned = userCreated.toObject();
+  delete cleaned["password"];
+
+  return Promise.resolve(cleaned);
 };
 
 // route
@@ -53,7 +43,6 @@ const route = async (req, res, next) => {
     }
     return res.created(obj);
   } catch (e) {
-    console.error(e);
     next(e);
   }
 };

@@ -6,9 +6,9 @@
 // ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝         ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝
 
 /**
- * File: 01_profile.js
+ * File: 02_status.js
  * Author: Tommy Gingras
- * Date: 2019-07-13
+ * Date: 2019-07-16
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
@@ -16,26 +16,19 @@
 
 const Webux = require("webux-app");
 
-const administrator = async () => {
-  const profile = new Webux.db.Profile({
-    fullname: "Administrator"
+const New = async () => {
+  const status = new Webux.db.Status({
+    name: "New",
+    description:"New product",
+    color: "00ff11"
   });
-  const profileCreated = await profile.save();
+  const statusCreated = await status.save();
 
-  if (!profileCreated) {
-    throw new Error("Profile not created !");
+  if (!statusCreated) {
+    throw new Error("Status not created !");
   }
 
-  const profileLinked = await Webux.db.User.findOneAndUpdate(
-    { email: "admin@webuxlab.com" },
-    { profileID: profileCreated._id }
-  );
-
-  if (!profileLinked) {
-    throw new Error("Profile not linked !");
-  }
-
-  return Promise.resolve('Default profile "administrator" linked.');
+  return Promise.resolve('Default status "New" created.');
 };
 
-module.exports = Promise.all([administrator()]);
+module.exports = Promise.all([New()]);
