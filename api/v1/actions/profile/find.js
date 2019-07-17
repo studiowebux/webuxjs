@@ -16,10 +16,12 @@
 
 const Webux = require("webux-app");
 const { select } = require("../../constants/profile");
+const toObject = require("../../helpers/toObject");
 
 // action
 const findProfile = async query => {
   const profiles = await Webux.db.Profile.find({})
+    .lean()
     .select(query.projection || select)
     .limit(query.limit)
     .sort(query.sort)
@@ -29,7 +31,7 @@ const findProfile = async query => {
   if (!profiles || profiles.length === 0) {
     throw Webux.errorHandler(404, "profiles not found");
   }
-  return Promise.resolve(profiles);
+  return Promise.resolve(toObject(profiles));
 };
 
 // route

@@ -16,10 +16,12 @@
 
 const Webux = require("webux-app");
 const { select } = require("../../constants/part");
+const toObject = require("../../helpers/toObject");
 
 // action
 const findPart = async query => {
   const parts = await Webux.db.Part.find({})
+    .lean()
     .select(query.projection || select)
     .limit(query.limit)
     .sort(query.sort)
@@ -29,7 +31,7 @@ const findPart = async query => {
   if (!parts || parts.length === 0) {
     throw Webux.errorHandler(404, "parts not found");
   }
-  return Promise.resolve(parts);
+  return Promise.resolve(toObject(parts));
 };
 
 // route

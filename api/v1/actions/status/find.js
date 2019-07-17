@@ -16,10 +16,12 @@
 
 const Webux = require("webux-app");
 const { select } = require("../../constants/status");
+const toObject = require("../../helpers/toObject");
 
 // action
 const findStatus = async query => {
   const status = await Webux.db.Status.find({})
+    .lean()
     .select(query.projection || select)
     .limit(query.limit)
     .sort(query.sort)
@@ -30,7 +32,7 @@ const findStatus = async query => {
   if (!status || status.length === 0) {
     throw Webux.errorHandler(404, "status not found");
   }
-  return Promise.resolve(status);
+  return Promise.resolve(toObject(status));
 };
 
 // route

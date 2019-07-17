@@ -16,10 +16,12 @@
 
 const Webux = require("webux-app");
 const { select } = require("../../constants/category");
+const toObject = require("../../helpers/toObject");
 
 // action
 const findCategory = async query => {
   const categories = await Webux.db.Category.find({})
+    .lean()
     .select(query.projection || select)
     .limit(query.limit)
     .sort(query.sort)
@@ -29,7 +31,7 @@ const findCategory = async query => {
   if (!categories || categories.length === 0) {
     throw Webux.errorHandler(404, "categories not found");
   }
-  return Promise.resolve(categories);
+  return Promise.resolve(toObject(categories));
 };
 
 // route

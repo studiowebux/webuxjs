@@ -17,6 +17,7 @@
 const Webux = require("webux-app");
 const { MongoID } = require("../../validations/part");
 const { select } = require("../../constants/part");
+const toObject = require("../../helpers/toObject");
 
 // action
 const findOnePart = async (partID, query) => {
@@ -41,14 +42,14 @@ const findOnePart = async (partID, query) => {
 
   const partCategory = await Webux.db.PartCategory.findOne({
     partID: partID
-  }).populate("categoriesID");
-
-  console.log(partCategory)
+  })
+    .populate("categoriesID")
+    .lean();
 
   let object = null;
   if (partCategory) {
     object = part.toObject();
-    object.categories = partCategory;
+    object.categories = toObject(partCategory.categoriesID);
   }
 
   return Promise.resolve(object || part);
