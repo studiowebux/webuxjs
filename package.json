@@ -1,6 +1,6 @@
 {
   "name": "webuxjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This is the framework for Studio Webux Projects",
   "main": "index.js",
   "scripts": {
