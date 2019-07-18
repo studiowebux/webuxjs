@@ -38,6 +38,36 @@ const updateOneProfile = async (profileID, profile) => {
 };
 
 // route
+/**
+ * @apiGroup Profile
+ * @api {put} /api/v1/profile/:id Update a profile
+ * @apiParam {string} id
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "profile":{
+ *          "fullname":"John Doe",
+ *          "userID":"5d2fb10059f0587ef1dd06e7"
+ *        }
+ *      }
+ * @apiDescription Update a profile
+ * @apiName Update a profile
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fb10059f0587ef1dd06e7",
+ *               "email": "user@webuxlab.com",
+ *               "created_at": "2019-07-17T23:36:32.271Z",
+ *               "updated_at": "2019-07-17T23:39:50.573Z",
+ *               "__v": 0,
+ *               "profileID": "5d2fb1c659f0587ef1dd06f2"
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await updateOneProfile(req.params.id, req.body.profile);

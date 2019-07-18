@@ -31,6 +31,15 @@ const removeOnePart = async partID => {
 };
 
 // route
+/**
+ * @apiGroup Part
+ * @api {delete} /api/v1/part/:id Delete a part
+ * @apiParam {string} id 
+ * @apiDescription Delete a part
+ * @apiName Delete a part
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 NO CONTENT
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await removeOnePart(req.params.id);

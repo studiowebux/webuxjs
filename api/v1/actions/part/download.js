@@ -31,6 +31,16 @@ const download = async partID => {
 };
 
 // route
+/**
+ * @apiGroup Part
+ * @api {get} /api/v1/part/:id/picture For a specific Part get its picture
+ * @apiParam {string} id
+ * @apiDescription For a specific Part get its picture
+ * @apiName For a specific Part get its picture
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *      -- A picture --
+ **/
 const route = async (req, res, next) => {
   try {
     const pictureURL = await download(req.params.id);

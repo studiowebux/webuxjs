@@ -36,6 +36,28 @@ const findStatus = async query => {
 };
 
 // route
+/**
+ * @apiGroup Status
+ * @api {get} /api/v1/status Get all status
+ * @apiDescription Get all status
+ * @apiName Get all status
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "5d2fb51ec1a7dd82a532dbc8": {
+ *                   "_id": "5d2fb51ec1a7dd82a532dbc8",
+ *                   "name": "New",
+ *                   "description": "New product",
+ *                   "color": "00ff11"
+ *               }
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findStatus(req.query);

@@ -35,6 +35,34 @@ const createUser = async user => {
 };
 
 // route
+/**
+ * @apiGroup User
+ * @api {post} /api/v1/user Create a user
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "user":{
+ *          "email":"User01@webuxlab.com",
+ *          "password": "Password"
+ *        }
+ *      }
+ * @apiDescription Create a user
+ * @apiName Create a user
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 201 CREATED
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 201,
+ *           "body": {
+ *               "_id": "5d2fb25559f0587ef1dd06f4",
+ *               "email": "user01@webuxlab.com",
+ *               "created_at": "2019-07-17T23:42:13.898Z",
+ *               "updated_at": "2019-07-17T23:42:13.898Z",
+ *               "__v": 0
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await createUser(req.body.user);

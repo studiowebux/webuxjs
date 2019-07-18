@@ -43,6 +43,35 @@ const createProfile = async profile => {
 };
 
 // route
+/**
+ * @apiGroup Profile
+ * @api {post} /api/v1/profile Create a profile
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "profile":{
+ *          "fullname":"John Doe",
+ *          "userID":"5d2fb10059f0587ef1dd06e7"
+ *        }
+ *      }
+ * @apiDescription Create a profile
+ * @apiName Create a profile
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 201 CREATED
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 201,
+ *           "body": {
+ *               "_id": "5d2fb10059f0587ef1dd06e7",
+ *               "email": "user@webuxlab.com",
+ *               "created_at": "2019-07-17T23:36:32.271Z",
+ *               "updated_at": "2019-07-17T23:39:50.573Z",
+ *               "__v": 0,
+ *               "profileID": "5d2fb1c659f0587ef1dd06f2"
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await createProfile(req.body.profile);

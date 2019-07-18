@@ -38,6 +38,38 @@ const updateOneCategory = async (categoryID, category) => {
 };
 
 // route
+/**
+ * @apiGroup Category
+ * @api {put} /api/v1/category/:id Update a category
+ * @apiParam {string} id 
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "category":{
+ *          "name":"Category 1",
+ *          "description": "Description for category 1",
+ *          "color": "ffffff"
+ *        }
+ *      }
+ * @apiDescription Update a category
+ * @apiName Update a category
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fafa9f52ba67d93c3b741",
+ *               "name": "Category 1",
+ *               "description": "Description for category 1",
+ *               "color": "ffffff",
+ *               "created_at": "2019-07-17T23:30:49.819Z",
+ *               "updated_at": "2019-07-17T23:30:49.819Z",
+ *               "__v": 0
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await updateOneCategory(req.params.id, req.body.category);

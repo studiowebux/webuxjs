@@ -33,6 +33,15 @@ const removeOneStatus = async statusID => {
 };
 
 // route
+/**
+ * @apiGroup Status
+ * @api {delete} /api/v1/status/:id Delete a status
+ * @apiParam {string} id 
+ * @apiDescription Delete a status
+ * @apiName Delete a status
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 NO CONTENT
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await removeOneStatus(req.params.id);

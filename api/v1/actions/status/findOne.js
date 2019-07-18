@@ -22,7 +22,7 @@ const { select } = require("../../constants/status");
 const findOneStatus = async (statusID, query) => {
   await Webux.isValid.Custom(MongoID, statusID);
 
-  const status = await Webux.db.Statuss.findById(statusID)
+  const status = await Webux.db.Status.findById(statusID)
     .select(query.projection || select)
     .catch(e => {
       throw Webux.errorHandler(422, e);
@@ -35,6 +35,27 @@ const findOneStatus = async (statusID, query) => {
 };
 
 // route
+/**
+ * @apiGroup Status
+ * @api {get} /api/v1/status/:id Get one status
+ * @apiParam {string} id
+ * @apiDescription Get one status
+ * @apiName Get one status
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fb7606df7688537f20b6a",
+ *               "name": "New",
+ *               "description": "New product",
+ *               "color": "00ff11"
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findOneStatus(req.params.id, req.query);

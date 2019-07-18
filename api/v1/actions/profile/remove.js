@@ -32,6 +32,15 @@ const removeOneProfile = async profileID => {
 };
 
 // route
+/**
+ * @apiGroup Profile
+ * @api {delete} /api/v1/profile/:id Delete a profile
+ * @apiParam {string} id 
+ * @apiDescription Delete a profile
+ * @apiName Delete a profile
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 NO CONTENT
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await removeOneProfile(req.params.id);

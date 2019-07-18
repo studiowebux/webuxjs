@@ -34,6 +34,32 @@ const findOneUser = async (userID, query) => {
 };
 
 // route
+/**
+ * @apiGroup User
+ * @api {get} /api/v1/user/:id Get one user
+ * @apiParam {string} id
+ * @apiDescription Get one user
+ * @apiName Get one user
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *         "message": "",
+ *         "devMessage": "",
+ *         "success": true,
+ *         "code": 200,
+ *         "body": {
+ *             "_id": "5d2fb51ec1a7dd82a532dbc5",
+ *             "email": "admin@webuxlab.com",
+ *             "profileID": {
+ *                 "_id": "5d2fb51ec1a7dd82a532dbc7",
+ *                 "fullname": "Administrator",
+ *                 "created_at": "2019-07-17T23:54:06.684Z",
+ *                 "updated_at": "2019-07-17T23:54:06.684Z",
+ *                 "__v": 0
+ *             }
+ *         }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findOneUser(req.params.id, req.query);

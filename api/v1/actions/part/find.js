@@ -35,6 +35,36 @@ const findPart = async query => {
 };
 
 // route
+/**
+ * @apiGroup Part
+ * @api {get} /api/v1/part Get all parts
+ * @apiDescription Get all parts
+ * @apiName Get all parts
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "5d2fb51ec1a7dd82a532dbcb": {
+ *                   "_id": "5d2fb51ec1a7dd82a532dbcb",
+ *                   "name": "Part without categories",
+ *                   "description": "Something",
+ *                   "userID": "5d2fb51ec1a7dd82a532dbc5",
+ *                   "statusID": "5d2fb51ec1a7dd82a532dbc8"
+ *               },
+ *               "5d2fb51ec1a7dd82a532dbcc": {
+ *                   "_id": "5d2fb51ec1a7dd82a532dbcc",
+ *                   "name": "Part With Categories",
+ *                   "description": "Something else",
+ *                   "userID": "5d2fb51ec1a7dd82a532dbc6",
+ *                   "statusID": "5d2fb51ec1a7dd82a532dbc8"
+ *               }
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findPart(req.query);

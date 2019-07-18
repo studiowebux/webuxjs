@@ -32,6 +32,37 @@ const createCategory = async category => {
 };
 
 // route
+/**
+ * @apiGroup Category
+ * @api {post} /api/v1/category Create a category
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "category":{
+ *          "name":"Category 1",
+ *          "description": "Description for category 1",
+ *          "color": "ffffff"
+ *        }
+ *      }
+ * @apiDescription Create a category
+ * @apiName Create a category
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 201 CREATED
+ *     {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 201,
+ *           "body": {
+ *               "_id": "5d2fafa9f52ba67d93c3b741",
+ *               "name": "Category 1",
+ *               "description": "Description for category 1",
+ *               "color": "ffffff",
+ *               "created_at": "2019-07-17T23:30:49.819Z",
+ *               "updated_at": "2019-07-17T23:30:49.819Z",
+ *               "__v": 0
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await createCategory(req.body.category);

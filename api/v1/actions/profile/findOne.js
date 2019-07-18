@@ -34,6 +34,25 @@ const findOneProfile = async (profileID, query) => {
 };
 
 // route
+/**
+ * @apiGroup Profile
+ * @api {get} /api/v1/profile/:id Get one profile
+ * @apiParam {string} id
+ * @apiDescription Get one profile
+ * @apiName Get one profile
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fb7606df7688537f20b69",
+ *               "fullname": "Administrator"
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findOneProfile(req.params.id, req.query);

@@ -31,6 +31,15 @@ const removeOneUser = async userID => {
 };
 
 // route
+/**
+ * @apiGroup User
+ * @api {delete} /api/v1/user/:id Delete a user
+ * @apiParam {string} id 
+ * @apiDescription Delete a user
+ * @apiName Delete a user
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 NO CONTENT
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await removeOneUser(req.params.id);

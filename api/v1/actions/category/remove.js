@@ -33,6 +33,15 @@ const removeOneCategory = async categoryID => {
 };
 
 // route
+/**
+ * @apiGroup Category
+ * @api {delete} /api/v1/category/:id Delete a category
+ * @apiParam {string} id 
+ * @apiDescription Delete a category
+ * @apiName Delete a category
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 NO CONTENT
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await removeOneCategory(req.params.id);

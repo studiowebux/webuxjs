@@ -35,6 +35,31 @@ const findUser = async query => {
 };
 
 // route
+/**
+ * @apiGroup User
+ * @api {get} /api/v1/user Get all users
+ * @apiDescription Get all users
+ * @apiName Get all users
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "5d2fb51ec1a7dd82a532dbc6": {
+ *                   "_id": "5d2fb51ec1a7dd82a532dbc6",
+ *                   "email": "user@webuxlab.com"
+ *               },
+ *               "5d2fb51ec1a7dd82a532dbc5": {
+ *                   "_id": "5d2fb51ec1a7dd82a532dbc5",
+ *                   "email": "admin@webuxlab.com",
+ *                   "profileID": "5d2fb51ec1a7dd82a532dbc7"
+ *               }
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findUser(req.query);

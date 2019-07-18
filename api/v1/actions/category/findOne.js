@@ -34,6 +34,27 @@ const findOneCategory = async (categoryID, query) => {
 };
 
 // route
+/**
+ * @apiGroup Category
+ * @api {get} /api/v1/category/:id Get one category
+ * @apiParam {string} id
+ * @apiDescription Get one category
+ * @apiName Get one category
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fb7606df7688537f20b6b",
+ *               "name": "CPU",
+ *               "description": "Central Processing Unit",
+ *               "color": "161FC4"
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findOneCategory(req.params.id, req.query);

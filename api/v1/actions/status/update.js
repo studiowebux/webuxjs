@@ -38,6 +38,38 @@ const updateOneStatus = async (statusID, status) => {
 };
 
 // route
+/**
+ * @apiGroup Status
+ * @api {put} /api/v1/status/:id Update a status
+ * @apiParam {string} id 
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "status":{
+ *          "name":"Status 1",
+ *          "description": "Description for status 1",
+ *          "color": "ffffff"
+ *        }
+ *      }
+ * @apiDescription Update a status
+ * @apiName Update a status
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fafa9f52ba67d93c3b741",
+ *               "name": "Status 1",
+ *               "description": "Description for status 1",
+ *               "color": "ffffff",
+ *               "created_at": "2019-07-17T23:30:49.819Z",
+ *               "updated_at": "2019-07-17T23:30:49.819Z",
+ *               "__v": 0
+ *           }
+ *       }
+ */
 const route = async (req, res, next) => {
   try {
     const obj = await updateOneStatus(req.params.id, req.body.status);

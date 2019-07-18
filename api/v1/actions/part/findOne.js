@@ -56,6 +56,62 @@ const findOnePart = async (partID, query) => {
 };
 
 // route
+/**
+ * @apiGroup Part
+ * @api {get} /api/v1/part/:id Get one part
+ * @apiParam {string} id
+ * @apiDescription Get one part
+ * @apiName Get one part
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 200,
+ *           "body": {
+ *               "_id": "5d2fb7606df7688537f20b6e",
+ *               "name": "Part With Categories",
+ *               "description": "Something else",
+ *               "userID": {
+ *                   "_id": "5d2fb7606df7688537f20b68",
+ *                   "email": "user@webuxlab.com",
+ *                   "created_at": "2019-07-18T00:03:44.507Z",
+ *                   "updated_at": "2019-07-18T00:03:44.507Z",
+ *                   "__v": 0
+ *               },
+ *               "statusID": {
+ *                   "_id": "5d2fb7606df7688537f20b6a",
+ *                   "name": "New",
+ *                   "description": "New product",
+ *                   "color": "00ff11",
+ *                   "created_at": "2019-07-18T00:03:44.607Z",
+ *                   "updated_at": "2019-07-18T00:03:44.607Z",
+ *                   "__v": 0
+ *               },
+ *               "categories": {
+ *                   "5d2fb7606df7688537f20b6b": {
+ *                       "_id": "5d2fb7606df7688537f20b6b",
+ *                       "name": "CPU",
+ *                       "description": "Central Processing Unit",
+ *                       "color": "161FC4",
+ *                       "created_at": "2019-07-18T00:03:44.628Z",
+ *                       "updated_at": "2019-07-18T00:03:44.628Z",
+ *                       "__v": 0
+ *                   },
+ *                   "5d2fb7606df7688537f20b6c": {
+ *                       "_id": "5d2fb7606df7688537f20b6c",
+ *                       "name": "GPU",
+ *                       "description": "Graphics Processing Unit",
+ *                       "color": "5b62d5",
+ *                       "created_at": "2019-07-18T00:03:44.628Z",
+ *                       "updated_at": "2019-07-18T00:03:44.628Z",
+ *                       "__v": 0
+ *                   }
+ *               }
+ *           }
+ *       }
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await findOnePart(req.params.id, req.query);

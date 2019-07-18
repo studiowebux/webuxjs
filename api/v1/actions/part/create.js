@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 const { Create } = require("../../validations/part");
 
 // action
+
 const createPart = async part => {
   await Webux.isValid.Custom(Create, part);
 
@@ -43,6 +44,40 @@ const createPart = async part => {
 };
 
 // route
+/**
+ * @apiGroup Part
+ * @api {post} /api/v1/part Create a part
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "part":{
+ *          "name":"Part 1",
+ *          "description": "Description for part 1",
+ *          "userID": "5d2faf0cf52ba67d93c3a543",
+ *          "statusID": "5d2faf0cf52ba67d93c3b766",
+ *          "categoriesID": ["5d2faf0cf52ba67d93c3b738","5d2faf0cf52ba67d93c3b739"]
+ *        }
+ *      }
+ * @apiDescription Create a part
+ * @apiName Create a part
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 201 CREATED
+ *     {
+ *         "message": "",
+ *         "devMessage": "",
+ *         "success": true,
+ *         "code": 201,
+ *         "body": {
+ *             "_id": "5d2fb10d59f0587ef1dd06ef",
+ *             "name": "Part 1",
+ *             "description": "Description for part 1",
+ *             "userID": "5d2faf0cf52ba67d93c3a543",
+ *             "statusID": "5d2faf0cf52ba67d93c3b766",
+ *             "created_at": "2019-07-17T23:36:45.467Z",
+ *             "updated_at": "2019-07-17T23:36:45.467Z",
+ *             "__v": 0
+ *         }
+ *     }
+**/
 const route = async (req, res, next) => {
   try {
     const obj = await createPart(req.body.part);
