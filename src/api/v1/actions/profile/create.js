@@ -1,0 +1,110 @@
+// █████╗  ██████╗████████╗██╗ ██████╗ ███╗   ██╗
+// ██╔══██╗██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+// ███████║██║        ██║   ██║██║   ██║██╔██╗ ██║
+// ██╔══██║██║        ██║   ██║██║   ██║██║╚██╗██║
+// ██║  ██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║
+// ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+
+/**
+ * File: create.js
+ * Author: Tommy Gingras
+ * Date: 2019-07-14
+ * License: All rights reserved Studio Webux S.E.N.C 2015-Present
+ */
+
+"use strict";
+
+const Webux = require("webux-app");
+
+// action
+const createProfile = async profile => {
+  await Webux.isValid.Custom(Webux.validators.profile.Create, profile);
+
+  const profileCreated = await Webux.db.Profile.create(profile).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+  if (!profileCreated) {
+    throw Webux.errorHandler(422, "profile not created");
+  }
+
+  const profileLinked = await Webux.db.User.findOneAndUpdate(
+    { _id: profile.userID },
+    { profileID: profileCreated._id },
+    { new: true }
+  ).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+  if (!profileLinked) {
+    throw Webux.errorHandler(422, "profile not linked");
+  }
+
+  return Promise.resolve(profileLinked);
+};
+
+// route
+/**
+ * @apiGroup Profile
+ * @api {post} /api/v1/profile Create a profile
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *        "profile":{
+ *          "fullname":"John Doe",
+ *          "userID":"5d2fb10059f0587ef1dd06e7"
+ *        }
+ *      }
+ * @apiDescription Create a profile
+ * @apiName Create a profile
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 201 CREATED
+ *       {
+ *           "message": "",
+ *           "devMessage": "",
+ *           "success": true,
+ *           "code": 201,
+ *           "body": {
+ *               "_id": "5d2fb10059f0587ef1dd06e7",
+ *               "email": "user@webuxlab.com",
+ *               "created_at": "2019-07-17T23:36:32.271Z",
+ *               "updated_at": "2019-07-17T23:39:50.573Z",
+ *               "__v": 0,
+ *               "profileID": "5d2fb1c659f0587ef1dd06f2"
+ *           }
+ *       }
+ */
+const route = async (req, res, next) => {
+  try {
+    const obj = await createProfile(req.body.profile);
+    if (!obj) {
+      return next(Webux.errorHandler(422, "Profile not created"));
+    }
+    return res.created(obj);
+  } catch (e) {
+    next(e);
+  }
+};
+
+// socket with auth
+const socket = client => {
+  return async profile => {
+    try {
+      if (!client.auth) {
+        client.emit("unauthorized", { message: "Unauthorized" });
+        return;
+      }
+      const obj = await createProfile(profile);
+      if (!obj) {
+        client.emit("gotError", "Profile not created");
+      }
+
+      client.emit("profileCreated", obj);
+    } catch (e) {
+      client.emit("gotError", e);
+    }
+  };
+};
+
+module.exports = {
+  createProfile,
+  socket,
+  route
+};

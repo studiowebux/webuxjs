@@ -1,0 +1,5 @@
+tests/
+ELK/
+.tmp/
+node_modules/
+log/
