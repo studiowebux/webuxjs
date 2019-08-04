@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   backend:
-    build: ./src
+    build: ./backend
     environment:
       - NODE_ENV=production
       - PORT=3030
@@ -10,14 +10,14 @@ services:
       - DB_PASSWORD=password
       - DB_LOCAL=false
       - DB_DEBUG=false
-      # - DB_REPSET=replicaset
+      - DB_REPSET=replicaset
       - APP_ID=Demo01
       - COOKIE_SECRET="Shut don't talk about that secret!"
-      - ORIGIN=http://127.0.0.1 http://localhost
+      - ORIGIN=http://127.0.0.1 http://localhost https://localhost https://127.0.0.1
       - CONSOLE=true
       - LOGSTASH_URL=logstash
     ports:
-      - "3030:3030"
+      - "3030"
     volumes:
       - "./app/logs:/usr/src/app/log"
       - "./app/defaults:/usr/src/app/defaults"
@@ -174,3 +174,26 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch
+
+  app:
+    build:
+      context: ./frontend
+    environment:
+      - URL=http://localhost/api/v1
+      - NODE_ENV=production
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./app/nginx/logs/:/var/log/nginx/"
+    restart: always
+    expose:
+      - "80"
+      - "443"
+    links:
+      - backend
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "80"]
+      interval: 60s
+      timeout: 10s
+      retries: 5
