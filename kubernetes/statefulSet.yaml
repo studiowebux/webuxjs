@@ -1,0 +1,362 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: backend
+  name: backend
+spec:
+  serviceName: "backend"
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "3030"
+        image: hub.webux.lab/framework-backend:latest
+        imagePullPolicy: Always
+        name: backend
+        ports:
+        - containerPort: 3030
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3030
+            httpHeaders:
+            - name: Origin
+              value: http://localhost
+          initialDelaySeconds: 30
+          periodSeconds: 5
+---
+### MongoDB arbiter app
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: mongodb-arbiter
+  name: mongodb-arbiter
+spec:
+  serviceName: "mongodb-arbiter"
+  selector:
+    matchLabels:
+      app: mongodb-arbiter
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongodb-arbiter
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_PRIMARY_HOST
+          value: mongodb-primary
+        - name: MONGODB_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_PRIMARY_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_root_password
+        - name: MONGODB_REPLICA_SET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_replicaset_key
+        - name: MONGODB_REPLICA_SET_MODE
+          value: arbiter
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongodb-arbiter
+        image: bitnami/mongodb:latest
+        name: mongodb-arbiter
+        ports:
+        - containerPort: 27017
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+### MongoDB primary app
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: mongodb-primary
+  name: mongodb-primary
+spec:
+  serviceName: "mongodb-primary"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb-primary
+  template:
+    metadata:
+      labels:
+        app: mongodb-primary
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_database
+        - name: MONGODB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_user
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_password
+        - name: MONGODB_REPLICA_SET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_replicaset_key
+        - name: MONGODB_REPLICA_SET_MODE
+          value: primary
+        - name: MONGODB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_root_password
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongodb-primary
+        image: bitnami/mongodb:latest
+        ports:
+        - containerPort: 27017
+        name: mongodb-primary
+        volumeMounts:
+        - mountPath: /bitnami
+          name: mongodb-primary
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 30
+          periodSeconds: 10
+  volumeClaimTemplates:
+  - metadata:
+      name: mongodb-primary
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 5Gi
+      selector:
+        matchLabels:
+          name: mongodb-primary
+---
+### MongoDB secondary app
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: mongodb-secondary
+  name: mongodb-secondary
+spec:
+  serviceName: "mongodb-secondary"
+  selector:
+    matchLabels:
+      app: mongodb-secondary
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongodb-secondary
+    spec:
+      containers:
+      - env:
+        - name: MONGODB_PRIMARY_HOST
+          value: mongodb-primary
+        - name: MONGODB_PRIMARY_PORT_NUMBER
+          value: "27017"
+        - name: MONGODB_PRIMARY_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_root_password
+        - name: MONGODB_REPLICA_SET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: framework-secret
+              key: mongo_replicaset_key
+        - name: MONGODB_REPLICA_SET_MODE
+          value: secondary
+        - name: MONGODB_ADVERTISED_HOSTNAME
+          value: mongodb-secondary
+        image: bitnami/mongodb:latest
+        name: mongodb-secondary
+        ports:
+        - containerPort: 27017
+        readinessProbe:
+          tcpSocket:
+            port: 27017
+          initialDelaySeconds: 30
+          periodSeconds: 10
+---
+### Frontend app 
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: frontend
+  name: frontend
+spec:
+  serviceName: "frontend"
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: hub.webux.lab/framework-frontend:latest
+        imagePullPolicy: Always
+        name: frontend
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        volumeMounts:
+        - mountPath: /etc/frontend/certs/
+          name: frontend-certs
+          readOnly: true
+        - mountPath: /var/log/frontend/
+          name: frontend-logs
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 5
+  volumeClaimTemplates:
+  - metadata:
+      name: frontend-certs
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 1Gi
+      selector:
+        matchLabels:
+          name: frontend-certs
+  - metadata:
+      name: frontend-logs
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 1Gi
+      selector:
+        matchLabels:
+          name: frontend-logs
+---
+### Elastic Search app 
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: elasticsearch
+  name: elasticsearch
+spec:
+  serviceName: "elasticsearch"
+  selector:
+    matchLabels:
+      app: elasticsearch
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+      - env:
+        - name: ES_JAVA_OPTS
+          value: "-Xmx256m -Xms256m"
+        image: hub.webux.lab/elasticsearch:latest
+        imagePullPolicy: Always
+        name: elasticsearch
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: elasticsearch
+          readOnly: false
+  volumeClaimTemplates:
+  - metadata:
+      name: elasticsearch
+    spec:
+      accessModes: [ "ReadWriteMany" ]
+      resources:
+        requests:
+          storage: 10Gi
+      selector:
+        matchLabels:
+          name: elasticsearch
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: logstash
+  name: logstash
+spec:
+  serviceName: "logstash"
+  selector:
+    matchLabels:
+      app: logstash
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: logstash
+    spec:
+      containers:
+      - env:
+        - name: ES_JAVA_OPTS
+          value: "-Xmx256m -Xms256m"
+        image: hub.webux.lab/logstash:latest
+        imagePullPolicy: Always
+        name: logstash
+        ports:
+        - containerPort: 5000
+        - containerPort: 9600
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: kibana
+  name: kibana
+spec:
+  serviceName: "kibana"
+  selector:
+    matchLabels:
+      app: kibana
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - image: hub.webux.lab/kibana:latest
+        imagePullPolicy: Always
+        name: kibana
+        ports:
+        - containerPort: 5601
+---

@@ -4,6 +4,8 @@ services:
     build: ./backend
     environment:
       - NODE_ENV=production
+      - CLUSTERIZE=true
+      - CORES=4
       - PORT=3030
       - DB_URL=@mongodb-primary:27017/framework
       - DB_USER=user
