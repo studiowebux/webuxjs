@@ -22,6 +22,15 @@ const router = new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "status" */ "./views/Status.vue")
+    },
+    {
+      path: "/category",
+      name: "category",
+      // route level code-splitting
+      // this generates a separate chunk (category.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "category" */ "./views/Category.vue")
     }
   ]
 });

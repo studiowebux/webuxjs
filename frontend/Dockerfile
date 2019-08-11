@@ -2,10 +2,10 @@
 FROM node:10-jessie AS frontendbuilder
 
 WORKDIR /home/node/app
-COPY ./demo/package.json .
+COPY ./web/package.json .
 
 RUN npm install
-COPY ./demo .
+COPY ./web .
 
 RUN npm run build
 

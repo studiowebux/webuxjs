@@ -14,13 +14,23 @@ const mutations = {
       [status._id]: status
     };
   },
-  DELETE_STATUS(state, statusID) {
-    state.status.splice(statusID, 1);
+  EDIT_STATUS(state, status) {
+    const updStatus = { ...state.status };
+    updStatus[status._id] = status;
+    state.status = {
+      ...updStatus
+    };
+  },
+  REMOVE_STATUS(state, statusID) {
+    const status = { ...state.status };
+    delete status[statusID];
+    state.status = status;
   }
 };
 
 const actions = {
   initStatus: ({ commit }) => {
+    commit("IS_LOADING");
     http
       .get("/status")
       .then(response => {
@@ -29,6 +39,9 @@ const actions = {
       })
       .catch(error => {
         commit("SET_ERROR", error);
+      })
+      .finally(() => {
+        commit("DONE_LOADING");
       });
   },
   addStatus: ({ commit }, newStatus) => {
@@ -42,8 +55,27 @@ const actions = {
         commit("SET_ERROR", error);
       });
   },
-  deleteStatus: ({ commit }, statusID) => {
-    commit("DELETE_STATUS", statusID);
+  removeStatus: ({ commit }, statusID) => {
+    http
+      .delete("/status/" + statusID)
+      .then(() => {
+        commit("REMOVE_STATUS", statusID);
+        commit("RESET_ERROR");
+      })
+      .catch(error => {
+        commit("SET_ERROR", error);
+      });
+  },
+  editStatus: ({ commit }, status) => {
+    http
+      .put("/status/" + status._id, status)
+      .then(response => {
+        commit("EDIT_STATUS", response.data.body);
+        commit("RESET_ERROR");
+      })
+      .catch(error => {
+        commit("SET_ERROR", error);
+      });
   }
 };
 

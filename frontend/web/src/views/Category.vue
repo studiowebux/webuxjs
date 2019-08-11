@@ -8,14 +8,14 @@
         <form>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Name" v-model="newStatus.name" />
+              <input type="text" class="form-control" placeholder="Name" v-model="newCategory.name" />
             </div>
             <div class="col">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Description"
-                v-model="newStatus.description"
+                v-model="newCategory.description"
               />
             </div>
             <div class="col">
@@ -24,25 +24,25 @@
                 class="form-control"
                 id="color"
                 name="color"
-                v-model="newStatus.color"
+                v-model="newCategory.color"
               />
             </div>
           </div>
         </form>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-success" @click="createStatus()">Add New Status</button>
+        <button class="btn btn-success" @click="createCategory()">Add New Category</button>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <w-table
-          :rows="status"
+          :rows="category"
           :head="head"
-          :remove="removeStatus"
-          :edit="saveStatus"
+          :remove="removeCategory"
+          :edit="saveCategory"
           :editMode="editMode"
-          v-if="Object.keys(status).length > 0 || !isLoading"
+          v-if="Object.keys(category).length > 0 || !isLoading"
         ></w-table>
         <w-spinner v-else></w-spinner>
       </div>
@@ -61,41 +61,41 @@ export default {
     wSpinner: Spinner
   },
   methods: {
-    ...mapActions(["initStatus", "addStatus", "removeStatus", "editStatus"]),
-    createStatus() {
-      const newStatus = {
-        status: {
-          name: this.newStatus.name,
-          description: this.newStatus.description,
-          color: this.newStatus.color.replace("#", "")
+    ...mapActions(["initCategory", "addCategory", "removeCategory", "editCategory"]),
+    createCategory() {
+      const newCategory = {
+        category: {
+          name: this.newCategory.name,
+          description: this.newCategory.description,
+          color: this.newCategory.color.replace("#", "")
         }
       };
-      this.addStatus(newStatus);
-      this.newStatus.color = "#e66465";
-      this.newStatus.name = "";
-      this.newStatus.description = "";
+      this.addCategory(newCategory);
+      this.newCategory.color = "#e66465";
+      this.newCategory.name = "";
+      this.newCategory.description = "";
     },
-    saveStatus(line) {
-      const updStatus = {
+    saveCategory(line) {
+      const updCategory = {
         _id: line._id,
-        status: {
+        category: {
           name: line.name,
           description: line.description,
           color: line.color.replace("#", "")
         }
       };
-      this.editStatus(updStatus);
+      this.editCategory(updCategory);
     }
   },
   computed: {
-    ...mapGetters(["status", "error_message", "isLoading"])
+    ...mapGetters(["category", "error_message", "isLoading"])
   },
   data() {
     return {
       head: ["name", "description", "color", "action"],
       formHidden: true,
       editMode: false,
-      newStatus: {
+      newCategory: {
         color: "#e66465",
         name: "",
         description: ""
@@ -103,7 +103,7 @@ export default {
     };
   },
   created() {
-    this.initStatus();
+    this.initCategory();
   }
 };
 </script>

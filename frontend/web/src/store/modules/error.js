@@ -1,5 +1,6 @@
 const state = {
-  error_message: ""
+  error_message: "",
+  isLoading: false
 };
 
 const mutations = {
@@ -8,6 +9,12 @@ const mutations = {
   },
   RESET_ERROR(state) {
     state.error_message = "";
+  },
+  IS_LOADING(state) {
+    state.isLoading = true;
+  },
+  DONE_LOADING(state) {
+    state.isLoading = false;
   }
 };
 
@@ -17,12 +24,21 @@ const actions = {
   },
   resetError: ({ commit }) => {
     commit("RESET_ERROR");
+  },
+  isLoading: ({ commit }) => {
+    commit("IS_LOADING");
+  },
+  doneLoading: ({ commit }) => {
+    commit("DONE_LOADING");
   }
 };
 
 const getters = {
   error_message: state => {
     return state.error_message;
+  },
+  isLoading: state => {
+    return state.isLoading;
   }
 };
 
