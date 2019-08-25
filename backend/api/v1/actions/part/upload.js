@@ -15,7 +15,6 @@
 "use strict";
 
 const Webux = require("webux-app");
-const { PrepareFile, DeleteFile } = require("../../helpers/upload");
 
 // action
 const upload = async (partID, filename) => {
@@ -29,7 +28,7 @@ const upload = async (partID, filename) => {
     throw Webux.errorHandler(422, e);
   });
   if (!partUpdated) {
-    DeleteFile(filename);
+    Webux.fileUpload.DeleteFile(filename);
     throw Webux.errorHandler(422, "part not updated");
   }
   return Promise.resolve(partUpdated);
@@ -67,7 +66,11 @@ const upload = async (partID, filename) => {
  */
 const route = async (req, res, next) => {
   try {
-    const filename = await PrepareFile(req.files, req.params.id);
+    const filename = await Webux.fileUpload.PrepareFile(
+      Webux.config.upload,
+      req.files,
+      req.params.id
+    );
 
     if (!filename) {
       return next(Webux.errorHandler(422, "Part with ID not updated."));

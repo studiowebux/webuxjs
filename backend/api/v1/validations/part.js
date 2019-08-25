@@ -14,7 +14,7 @@
 
 "use strict";
 
-const Joi = require("joi");
+const Joi = require("@hapi/joi");
 
 const Create = Joi.object()
   .keys({

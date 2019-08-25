@@ -190,7 +190,7 @@ module.exports = {
         {
           method: "post",
           middlewares: [
-            fileUpload(Webux.config.upload),
+            Webux.fileUpload.fileUploadMiddleware(Webux.config.upload),
             Webux.isValid.Files(Webux.validators.part.File)
           ],
           action: require(__dirname + "/../api/v1/actions/part/upload").route

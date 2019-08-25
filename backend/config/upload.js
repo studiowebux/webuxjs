@@ -8,5 +8,14 @@ module.exports = {
   },
   abortOnLimit: true,
   safeFileNames: true,
-  size: 200
+  size: 200,
+  mimeTypes: [
+    "image/gif",
+    "image/png",
+    "image/jpeg",
+    "image/bmp",
+    "image/webp"
+  ],
+  filetype: ".png",
+  key: "picture"
 };
