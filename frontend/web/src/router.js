@@ -51,6 +51,48 @@ const router = new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "signup" */ "./views/Signup.vue")
+    },
+    {
+      path: "/lost-password",
+      name: "lost-password",
+      // route level code-splitting
+      // this generates a separate chunk (lost-password.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(
+          /* webpackChunkName: "lost-password" */ "./views/LostPassword.vue"
+        )
+    },
+    {
+      path: "/retrieve-password/:code",
+      name: "retrieve-password",
+      // route level code-splitting
+      // this generates a separate chunk (retrieve-password.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(
+          /* webpackChunkName: "retrieve-password" */ "./views/RetrievePassword.vue"
+        )
+    },
+    {
+      path: "/user",
+      name: "user",
+      // route level code-splitting
+      // this generates a separate chunk (user.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "user" */ "./views/User.vue")
+    },
+    {
+      path: "*",
+      name: "not-found",
+      // route level code-splitting
+      // this generates a separate chunk (not-found.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(
+          /* webpackChunkName: "not-found" */ "./views/errors/NotFound.vue"
+        )
     }
   ]
 });

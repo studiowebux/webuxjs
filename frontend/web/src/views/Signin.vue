@@ -27,6 +27,9 @@
         <button type="submit" class="btn btn-primary mb-2" @click="login()">Sign in</button>
       </div>
     </div>
+    <div class="row justify-content-md-center">
+      <router-link to="/lost-password">Lost password ?</router-link>
+    </div>
   </div>
 </template>
 

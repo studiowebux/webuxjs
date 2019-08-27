@@ -6,8 +6,9 @@
       <router-link v-if="accessToken" to="/category">Category</router-link>|
       <router-link v-if="!accessToken" to="/signin">Sign In</router-link>|
       <router-link v-if="!accessToken" to="/signup">Sign Up</router-link>
+      <router-link v-if="accessToken" to="/user">User</router-link>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <router-view />
     </div>
   </div>
@@ -22,7 +23,7 @@ export default {
     ...mapGetters(["accessToken"])
   },
   created() {
-    console.log("created called")
+    console.log("created called");
     this.$store.dispatch("autoLogin");
   }
 };

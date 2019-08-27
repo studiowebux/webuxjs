@@ -6,7 +6,9 @@ import axios from "../../resources/axios";
 const state = {
   accessToken: null,
   id: null,
-  expiresIn: null
+  expiresIn: null,
+  success_message: null,
+  connections: null
 };
 
 const mutations = {
@@ -19,6 +21,12 @@ const mutations = {
     state.accessToken = null;
     state.expiresIn = null;
     state.id = null;
+  },
+  SET_SUCCESS(state, msg) {
+    state.success_message = msg;
+  },
+  LOAD_CONNECTIONS(state, connections) {
+    state.connections = connections;
   }
 };
 
@@ -163,12 +171,52 @@ const actions = {
     });
     commit("RESET_ERROR");
     dispatch("setLogoutTimer", decoded.exp - decoded.iat);
+  },
+  lostPassword: ({ commit }, email) => {
+    axios
+      .post("/lost-password", { email })
+      .then(response => {
+        console.log(response.data);
+        commit("SET_SUCCESS", response.data.msg);
+      })
+      .catch(error => {
+        commit("SET_ERROR", error);
+      });
+  },
+  retrievePassword: ({ commit }, user) => {
+    axios
+      .post("/retrieve-password", user)
+      .then(response => {
+        console.log(response.data);
+        commit("SET_SUCCESS", response.data.info);
+      })
+      .catch(error => {
+        commit("SET_ERROR", error);
+      });
+  },
+  getConnections: ({ commit }) => {
+    axios
+      .get("/my-connection")
+      .then(response => {
+        console.log(response.data);
+        commit("LOAD_CONNECTIONS", response.data.connections);
+      })
+      .catch(error => {
+        console.error(error);
+        commit("SET_ERROR", error);
+      });
   }
 };
 
 const getters = {
   accessToken: state => {
     return state.accessToken;
+  },
+  success_message: state => {
+    return state.success_message;
+  },
+  connections: state => {
+    return state.connections;
   }
 };
 
