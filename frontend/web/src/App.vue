@@ -5,8 +5,9 @@
       <router-link v-if="accessToken" to="/status">Status</router-link>|
       <router-link v-if="accessToken" to="/category">Category</router-link>|
       <router-link v-if="!accessToken" to="/signin">Sign In</router-link>|
-      <router-link v-if="!accessToken" to="/signup">Sign Up</router-link>
-      <router-link v-if="accessToken" to="/user">User</router-link>
+      <router-link v-if="!accessToken" to="/signup">Sign Up</router-link>|
+      <router-link v-if="accessToken" to="/user">User</router-link>|
+      <a v-if="accessToken" href @click.stop="logout">Logout</a>
     </div>
     <div class="container-fluid">
       <router-view />
@@ -15,15 +16,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "app",
   computed: {
     ...mapGetters(["accessToken"])
   },
+  methods: {
+    ...mapActions(["logout"])
+  },
   created() {
-    console.log("created called");
     this.$store.dispatch("autoLogin");
   }
 };

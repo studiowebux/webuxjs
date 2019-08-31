@@ -15,11 +15,17 @@
 "use strict";
 
 const Webux = require("webux-app");
+const bcrypt = require("bcrypt");
 
 const administrator = async () => {
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync("AdminWebuxlab", salt);
+
   const user = new Webux.db.User({
     email: "admin@webuxlab.com",
-    password: "password"
+    password: hash,
+    salt: salt,
+    activated: true
   });
   const userCreated = await user.save();
 
@@ -31,9 +37,14 @@ const administrator = async () => {
 };
 
 const user = async () => {
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync("UserWebuxlab", salt);
+
   const user = new Webux.db.User({
     email: "user@webuxlab.com",
-    password: "password"
+    password: hash,
+    salt: salt,
+    activated: true
   });
   const userCreated = await user.save();
 

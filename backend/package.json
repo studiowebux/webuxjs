@@ -16,11 +16,15 @@
   "author": "Studio Webux S.E.N.C",
   "license": "SEE LICENSE IN license.txt",
   "dependencies": {
-    "apidoc-markdown": "^0.2.1",
-    "express-fileupload": "^1.1.5",
     "@hapi/joi": "^15.1.0",
+    "apidoc-markdown": "^0.2.1",
+    "bcrypt": "^3.0.6",
+    "express-fileupload": "^1.1.5",
+    "mongo-in-memory": "0.0.5",
     "path": "^0.12.7",
-    "webux-app": "latest",
-    "mongo-in-memory": "0.0.5"
+    "webux-app": "^3.4.3"
+  },
+  "devDependencies": {
+    "redis-mock": "^0.46.0"
   }
 }

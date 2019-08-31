@@ -80,8 +80,7 @@ const router = new Router({
       // route level code-splitting
       // this generates a separate chunk (user.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "user" */ "./views/User.vue")
+      component: () => import(/* webpackChunkName: "user" */ "./views/User.vue")
     },
     {
       path: "*",
@@ -102,6 +101,7 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some(record => record.meta.isAuth)) {
     if (store.getters.accessToken || window.$cookies.get("accessToken")) {
+      console.log("the access token is available");
       next();
       return;
     }

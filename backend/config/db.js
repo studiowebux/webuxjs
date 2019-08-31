@@ -1,7 +1,15 @@
 const path = require("path");
 
 module.exports = {
-  sort: ["profile", "user", "status", "category", "part", "partCategory"],
+  sort: [
+    "profile",
+    "connection",
+    "user",
+    "status",
+    "category",
+    "part",
+    "partCategory"
+  ],
   local: process.env.DB_LOCAL && process.env.DB_LOCAL == "false" ? false : true,
   localPort: 27017,
   debug: process.env.DB_DEBUG && process.env.DB_DEBUG == "false" ? false : true,

@@ -1,5 +1,4 @@
 const Webux = require("webux-app"); // to access the Webux.query()
-const fileUpload = require("express-fileupload");
 
 module.exports = {
   "/": {
@@ -21,6 +20,7 @@ module.exports = {
         {
           method: "get",
           middlewares: [
+            Webux.isAuth,
             Webux.query(
               Webux.constants.user.blacklist,
               Webux.constants.user.select
@@ -30,7 +30,7 @@ module.exports = {
         },
         {
           method: "post",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/create").route
         }
       ],
@@ -38,6 +38,7 @@ module.exports = {
         {
           method: "get",
           middlewares: [
+            Webux.isAuth,
             Webux.query(
               Webux.constants.user.blacklist,
               Webux.constants.user.select
@@ -47,12 +48,12 @@ module.exports = {
         },
         {
           method: "put",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/update").route
         },
         {
           method: "delete",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/remove").route
         }
       ]
@@ -63,30 +64,36 @@ module.exports = {
       "/": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.profile.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.profile.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/profile/find").route
         },
         {
           method: "post",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/profile/create").route
         }
       ],
       "/:id": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.profile.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.profile.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/profile/findOne")
             .route
         },
         {
           method: "put",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/profile/update").route
         },
         {
           method: "delete",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/profile/remove").route
         }
       ]
@@ -97,12 +104,15 @@ module.exports = {
       "/": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.category.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.category.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/category/find").route
         },
         {
           method: "post",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/category/create")
             .route
         }
@@ -110,19 +120,22 @@ module.exports = {
       "/:id": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.category.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.category.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/category/findOne")
             .route
         },
         {
           method: "put",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/category/update")
             .route
         },
         {
           method: "delete",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/category/remove")
             .route
         }
@@ -134,29 +147,35 @@ module.exports = {
       "/": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.status.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.status.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/status/find").route
         },
         {
           method: "post",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/status/create").route
         }
       ],
       "/:id": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.status.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.status.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/status/findOne").route
         },
         {
           method: "put",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/status/update").route
         },
         {
           method: "delete",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/status/remove").route
         }
       ]
@@ -167,29 +186,33 @@ module.exports = {
       "/:id/picture": [
         {
           method: "get",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/part/download").route
         }
       ],
       "/:id": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.part.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.part.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/part/findOne").route
         },
         {
           method: "put",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/part/update").route
         },
         {
           method: "delete",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/part/remove").route
         },
         {
           method: "post",
           middlewares: [
+            Webux.isAuth,
             Webux.fileUpload.fileUploadMiddleware(Webux.config.upload),
             Webux.isValid.Files(Webux.validators.part.File)
           ],
@@ -199,13 +222,83 @@ module.exports = {
       "/": [
         {
           method: "get",
-          middlewares: [Webux.query([], Webux.constants.part.select)],
+          middlewares: [
+            Webux.isAuth,
+            Webux.query([], Webux.constants.part.select)
+          ],
           action: require(__dirname + "/../api/v1/actions/part/find").route
         },
         {
           method: "post",
-          middlewares: [],
+          middlewares: [Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/part/create").route
+        }
+      ]
+    }
+  },
+  "/auth": {
+    resources: {
+      "/signin": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/signin")
+        }
+      ],
+      "/signup": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/signup")
+        }
+      ],
+      "/lost-password": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/lostPassword")
+        }
+      ],
+      "/recover-password": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/recoverPassword")
+        }
+      ],
+      "/activate-account": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/activateAccount")
+        }
+      ],
+      "/lost-activation": [
+        {
+          method: "post",
+          middlewares: [],
+          action: require(__dirname + "/../api/v1/actions/auth/lostActivation")
+        }
+      ],
+      "/logout": [
+        {
+          method: "post",
+          middlewares: [Webux.isAuth],
+          action: require(__dirname + "/../api/v1/actions/auth/logout")
+        }
+      ],
+      "/revoke": [
+        {
+          method: "post",
+          middlewares: [Webux.isAuth],
+          action: require(__dirname + "/../api/v1/actions/auth/revoke")
+        }
+      ],
+      "/refresh": [
+        {
+          method: "post",
+          middlewares: [Webux.isAuth],
+          action: require(__dirname + "/../api/v1/actions/auth/refresh")
         }
       ]
     }

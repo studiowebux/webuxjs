@@ -14,5 +14,5 @@ module.exports = {
     debug: "log/debug.log",
     silly: "log/silly.log"
   },
-  blacklist: ["password", "authorization"]
+  blacklist: ["password", "authorization", "refreshToken"]
 };

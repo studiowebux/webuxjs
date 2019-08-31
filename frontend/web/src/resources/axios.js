@@ -1,7 +1,32 @@
 import axios from "axios";
+import store from "../store";
+import router from "../router";
 
-axios.defaults.withCredentials = true;
-
-export default axios.create({
-  baseURL: process.env.API_URL || "http://localhost:1337"
+const http = axios.create({
+  baseURL: process.env.API_URL || "http://localhost:1337/api/v1"
 });
+
+http.interceptors.request.use(config => {
+  config.headers.Authorization = `Bearer ${window.$cookies.get("accessToken")}`;
+  return config;
+});
+
+http.interceptors.response.use(
+  function(response) {
+    // Do something with response data
+    console.log(response);
+    return response;
+  },
+  function(error) {
+    // Do something with response error
+    if (error.response && error.response.status === 403) {
+      store.dispatch("logout");
+      router.push("/signin").catch(e => {
+        /* Nothing to do */
+      });
+    }
+    return Promise.reject(error);
+  }
+);
+
+export default http;

@@ -1,7 +1,6 @@
 import http from "../../resources/axios";
 import jwtDecode from "jwt-decode";
 import router from "../../router";
-import axios from "../../resources/axios";
 
 const state = {
   accessToken: null,
@@ -21,6 +20,7 @@ const mutations = {
     state.accessToken = null;
     state.expiresIn = null;
     state.id = null;
+    state.connections = null;
   },
   SET_SUCCESS(state, msg) {
     state.success_message = msg;
@@ -38,7 +38,7 @@ const actions = {
   },
   signIn: ({ commit, dispatch }, credentials) => {
     http
-      .post("/signin", {
+      .post("/auth/signin", {
         email: credentials.email,
         password: credentials.password
       })
@@ -75,13 +75,14 @@ const actions = {
         router.replace("/");
       })
       .catch(error => {
-        commit("CLEAR_AUTH");
-        commit("SET_ERROR", error);
+        console.log(error)
+        dispatch("logout");
+        commit("SET_ERROR", error.response.message);
       });
   },
   signUp: ({ commit, dispatch }, user) => {
     http
-      .post("/signup", user)
+      .post("/auth/signup", user)
       .then(response => {
         const decoded = jwtDecode(response.data.tokens.access);
         const decodedRefresh = jwtDecode(response.data.tokens.refresh);
@@ -115,13 +116,13 @@ const actions = {
         router.replace("/");
       })
       .catch(error => {
-        commit("CLEAR_AUTH");
-        commit("SET_ERROR", error);
+        dispatch("logout");
+        commit("SET_ERROR", error.response.message);
       });
   },
   refreshToken: ({ commit, dispatch }, user) => {
-    axios
-      .post("/refresh", {
+    http
+      .post("/auth/refresh", {
         refreshToken: user.refreshToken,
         userID: user.id
       })
@@ -142,8 +143,8 @@ const actions = {
         dispatch("setLogoutTimer", user.expiresIn);
       })
       .catch(error => {
-        commit("CLEAR_AUTH");
-        commit("SET_ERROR", error);
+        dispatch("logout");
+        commit("SET_ERROR", error.response.message);
       });
   },
   autoLogin: ({ commit, dispatch }) => {
@@ -163,6 +164,7 @@ const actions = {
     const now = new Date();
 
     if (now >= decoded.exp * 1000) {
+      commit("CLEAR_AUTH");
       return;
     }
     commit("AUTH", {
@@ -173,38 +175,62 @@ const actions = {
     dispatch("setLogoutTimer", decoded.exp - decoded.iat);
   },
   lostPassword: ({ commit }, email) => {
-    axios
-      .post("/lost-password", { email })
+    http
+      .post("/auth/lost-password", { email })
       .then(response => {
         console.log(response.data);
         commit("SET_SUCCESS", response.data.msg);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        commit("SET_ERROR", error.response.message);
       });
   },
   retrievePassword: ({ commit }, user) => {
-    axios
-      .post("/retrieve-password", user)
+    http
+      .post("/auth/retrieve-password", user)
       .then(response => {
         console.log(response.data);
         commit("SET_SUCCESS", response.data.info);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        commit("SET_ERROR", error.response.message);
       });
   },
   getConnections: ({ commit }) => {
-    axios
-      .get("/my-connection")
+    http
+      .get("/auth/my-connection")
       .then(response => {
         console.log(response.data);
         commit("LOAD_CONNECTIONS", response.data.connections);
       })
       .catch(error => {
-        console.error(error);
-        commit("SET_ERROR", error);
+        commit("SET_ERROR", error.response.message);
       });
+  },
+  logout: ({ commit }) => {
+    if (
+      window.$cookies.get("accessToken") &&
+      window.$cookies.get("refreshToken")
+    ) {
+      http
+        .post("/auth/logout", {
+          accessToken: window.$cookies.get("accessToken"),
+          refreshToken: window.$cookies.get("refreshToken")
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          commit("SET_ERROR", error.response.message);
+        })
+        .finally(() => {
+          commit("CLEAR_AUTH");
+          window.$cookies.remove("accessToken");
+          window.$cookies.remove("refreshToken");
+          window.$cookies.remove("userID");
+          router.push("/").catch(e => {});
+        });
+    }
   }
 };
 
