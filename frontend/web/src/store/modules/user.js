@@ -37,6 +37,10 @@ const actions = {
     }, expirationTime * 1000);
   },
   signIn: ({ commit, dispatch }, credentials) => {
+    dispatch("isLoading");
+    if (!credentials.email || !credentials.password) {
+      return;
+    }
     http
       .post("/auth/signin", {
         email: credentials.email,
@@ -75,12 +79,15 @@ const actions = {
         router.replace("/");
       })
       .catch(error => {
-        console.log(error)
         dispatch("logout");
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
       });
   },
   signUp: ({ commit, dispatch }, user) => {
+    dispatch("isLoading");
     http
       .post("/auth/signup", user)
       .then(response => {
@@ -117,7 +124,10 @@ const actions = {
       })
       .catch(error => {
         dispatch("logout");
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
       });
   },
   refreshToken: ({ commit, dispatch }, user) => {
@@ -144,7 +154,7 @@ const actions = {
       })
       .catch(error => {
         dispatch("logout");
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
       });
   },
   autoLogin: ({ commit, dispatch }) => {
@@ -155,6 +165,9 @@ const actions = {
     if (!accessToken) {
       if (!refreshToken) {
         commit("CLEAR_AUTH");
+        window.$cookies.remove("accessToken");
+        window.$cookies.remove("refreshToken");
+        window.$cookies.remove("userID");
         return;
       }
       dispatch("refreshToken", { refreshToken, id: userID });
@@ -165,6 +178,7 @@ const actions = {
 
     if (now >= decoded.exp * 1000) {
       commit("CLEAR_AUTH");
+      window.$cookies.remove("accessToken");
       return;
     }
     commit("AUTH", {
@@ -182,7 +196,7 @@ const actions = {
         commit("SET_SUCCESS", response.data.msg);
       })
       .catch(error => {
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
       });
   },
   retrievePassword: ({ commit }, user) => {
@@ -193,7 +207,7 @@ const actions = {
         commit("SET_SUCCESS", response.data.info);
       })
       .catch(error => {
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
       });
   },
   getConnections: ({ commit }) => {
@@ -204,7 +218,7 @@ const actions = {
         commit("LOAD_CONNECTIONS", response.data.connections);
       })
       .catch(error => {
-        commit("SET_ERROR", error.response.message);
+        commit("SET_ERROR", error);
       });
   },
   logout: ({ commit }) => {
@@ -217,19 +231,22 @@ const actions = {
           accessToken: window.$cookies.get("accessToken"),
           refreshToken: window.$cookies.get("refreshToken")
         })
-        .then(response => {
-          console.log(response);
-        })
         .catch(error => {
-          commit("SET_ERROR", error.response.message);
+          commit("SET_ERROR", error);
         })
         .finally(() => {
           commit("CLEAR_AUTH");
           window.$cookies.remove("accessToken");
           window.$cookies.remove("refreshToken");
           window.$cookies.remove("userID");
-          router.push("/").catch(e => {});
+          router.push("/").catch(() => {
+            return;
+          });
         });
+    } else {
+      window.$cookies.remove("accessToken");
+      window.$cookies.remove("refreshToken");
+      window.$cookies.remove("userID");
     }
   }
 };

@@ -16,33 +16,50 @@
 
 const Webux = require("webux-app");
 
+/**
+ * @apiGroup Auth
+ * @api {post} /api/v1/auth/logout Logout the current user
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *       "accessToken":"JWT-TOKEN",
+ *       "refreshToken": "JWT-TOKEN",
+ *      }
+ * @apiDescription Logout the current user
+ * @apiName Logout the current user
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "message": "Successfully logged out",
+ *         "devMessage": "",
+ *         "success": true,
+ *         "code": 200
+ *     }
+ **/
 const logout = async (req, res, next) => {
   try {
-    const refreshToken = await Webux.Auth.RevokeRefreshToken(req.body.refreshToken).catch(
-      e => {
-        throw e;
-      }
-    );
+    const refreshToken = await Webux.Auth.RevokeToken(
+      req.body.refreshToken
+    ).catch(e => {
+      throw e;
+    });
     if (!refreshToken) {
       throw new Error("Refresh token not removed");
     }
 
-    const accessRemoved = await Webux.Auth.RevokeAccessToken(req.body.accessToken).catch(
-      e => {
-        throw e;
-      }
-    );
+    const accessRemoved = await Webux.Auth.RevokeToken(
+      req.body.accessToken
+    ).catch(e => {
+      throw e;
+    });
     if (!accessRemoved) {
       throw new Error("Access token not removed");
     }
-    return res.status(200).json({
-      msg: "Successfully logged out"
-    });
+    return res.success({ message: "Successfully logged out" });
   } catch (e) {
-    return next(Webux.errorHandler(400, "An error occur while logging out", {}, e));
+    return next(
+      Webux.errorHandler(400, "An error occur while logging out", {}, e)
+    );
   }
 };
 
 module.exports = logout;
-
-

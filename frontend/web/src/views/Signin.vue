@@ -24,7 +24,7 @@
           id="password"
           placeholder="P@5sw0rd"
         />
-        <button type="submit" class="btn btn-primary mb-2" @click="login()">Sign in</button>
+        <submit text="Sign in" :onClick="login"></submit>
       </div>
     </div>
     <div class="row justify-content-md-center">
@@ -35,6 +35,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Submit from "../components/Submit";
 
 export default {
   data() {
@@ -45,8 +46,11 @@ export default {
       }
     };
   },
+  components: {
+    Submit
+  },
   computed: {
-    ...mapGetters(["error_message"])
+    ...mapGetters(["error_message", "isLoading"])
   },
   methods: {
     ...mapActions(["signIn"]),

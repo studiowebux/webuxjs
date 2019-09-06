@@ -21,11 +21,13 @@ http.interceptors.response.use(
     // Do something with response error
     if (error.response && error.response.status === 403) {
       store.dispatch("logout");
-      router.push("/signin").catch(e => {
+      router.push("/signin").catch(() => {
         /* Nothing to do */
       });
     }
-    return Promise.reject(error);
+
+    const msg = error.response.data.message || error.response.data;
+    return Promise.reject(msg);
   }
 );
 

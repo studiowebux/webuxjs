@@ -101,7 +101,6 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some(record => record.meta.isAuth)) {
     if (store.getters.accessToken || window.$cookies.get("accessToken")) {
-      console.log("the access token is available");
       next();
       return;
     }

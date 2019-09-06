@@ -17,6 +17,25 @@
 const Webux = require("webux-app");
 const { accountActivationFn } = require("../../plugins/auth/accountActivation");
 
+/**
+ * @apiGroup Auth
+ * @api {post} /api/v1/auth/activate-account Activate the user account
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *       "code":"123456789qwertysfghj567",
+ *       "email": "admin@webuxlab.com",
+ *      }
+ * @apiDescription Activate the user account
+ * @apiName Activate the user account
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *         "message": "Account successfully activated",
+ *         "devMessage": "",
+ *         "success": true,
+ *         "code": 200
+ *     }
+ **/
 const activateAccount = async (req, res, next) => {
   try {
     const info = await Webux.Auth.activateAccount(
@@ -29,9 +48,7 @@ const activateAccount = async (req, res, next) => {
     if (!info) {
       throw new Error("An error occurs while activating the account");
     }
-    return res.status(200).json({
-      info
-    });
+    return res.success(info);
   } catch (e) {
     return next(
       Webux.errorHandler(

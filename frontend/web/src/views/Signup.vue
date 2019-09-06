@@ -34,12 +34,7 @@
           />
           <div v-if="invalid" class="alert alert-danger" role="alert">{{invalid}}</div>
           <br />
-          <button
-            type="submit"
-            class="btn btn-success mb-2"
-            @click.prevent="register()"
-            :disabled="!isValid"
-          >Sign up</button>
+          <submit text="Sign up" :onClick="register" :disabled="!isValid"></submit>
         </div>
       </form>
     </div>
@@ -48,6 +43,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Submit from "../components/Submit";
 
 export default {
   data() {
@@ -78,6 +74,9 @@ export default {
       this.invalid = null;
       this.isValid = true;
     }
+  },
+  components: {
+    Submit
   }
 };
 </script>
