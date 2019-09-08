@@ -11,11 +11,14 @@
           <td v-for="h in head" :key="h">
             <div class="content" v-if="h !== 'action'">
               <span
-                 @click="setEditMode(index)"
+                @click="setEditMode(index)"
                 v-if="!isEditMode(index)"
                 :class="{dot: isColor(h)}"
                 :style="[isColor(h) ? {'background-color': '#'+line[h]}: {}]"
-              >{{isColor(h) ? '' : line[h]}}</span>
+              >
+                {{isColor(h) ? '' : line[h]}}
+                <font-awesome-icon v-if="!isColor(h)" icon="pencil-alt" />
+              </span>
               <input v-else type="text" v-model="line[h]" />
             </div>
             <div class="actions" v-else>

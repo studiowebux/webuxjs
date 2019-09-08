@@ -297,7 +297,7 @@ module.exports = {
       "/refresh": [
         {
           method: "post",
-          middlewares: [Webux.isAuth],
+          middlewares: [],
           action: require(__dirname + "/../api/v1/actions/auth/refresh")
         }
       ]

@@ -1,6 +1,4 @@
 import axios from "axios";
-import store from "../store";
-import router from "../router";
 
 const http = axios.create({
   baseURL: process.env.API_URL || "http://localhost:1337/api/v1"
@@ -19,14 +17,13 @@ http.interceptors.response.use(
   },
   function(error) {
     // Do something with response error
-    if (error.response && error.response.status === 403) {
-      store.dispatch("logout");
-      router.push("/signin").catch(() => {
-        /* Nothing to do */
-      });
+    console.error(error);
+    let msg = "";
+    if (error.response) {
+      msg =
+        error.response.data.message || error.response.data || "An error occur";
     }
 
-    const msg = error.response.data.message || error.response.data;
     return Promise.reject(msg);
   }
 );

@@ -20,14 +20,14 @@ const loginFn = (email, password, req) => {
     try {
       if (email && password) {
         const user = await Webux.db.User.findOne(
-          { email, activated: true },
+          { email: email.toLowerCase(), activated: true },
           { email: 1, password: 1, salt: 1 }
         ).catch(e => {
           return reject(e);
         });
 
         if (!user) {
-          console.log("Maybe the account isn't activated")
+          console.log("Maybe the account isn't activated");
           return reject(
             new Error(
               "Incorrect credentials or check if your account is activated"
@@ -60,7 +60,7 @@ const registerFn = (email, password, req) => {
         const hash = bcrypt.hashSync(password, salt);
 
         const newUser = await Webux.db.User.create({
-          email,
+          email: email.toLowerCase(),
           password: hash,
           salt: salt
         }).catch(e => {

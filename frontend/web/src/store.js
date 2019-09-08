@@ -6,7 +6,7 @@ import category from "./store/modules/category";
 import profile from "./store/modules/profile";
 import status from "./store/modules/status";
 import error from "./store/modules/error";
-import user from "./store/modules/user";
+import auth from "./store/modules/auth";
 
 Vue.use(Vuex);
 
@@ -17,6 +17,6 @@ export default new Vuex.Store({
     profile,
     status,
     error,
-    user
+    auth
   }
 });

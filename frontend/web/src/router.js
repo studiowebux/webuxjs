@@ -97,10 +97,8 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  store.dispatch("resetError");
-
   if (to.matched.some(record => record.meta.isAuth)) {
-    if (store.getters.accessToken || window.$cookies.get("accessToken")) {
+    if (store.getters.userID) {
       next();
       return;
     }

@@ -1,5 +1,10 @@
 <template>
-  <button type="submit" class="btn btn-primary mb-2" @click.prevent="onClick()" :disabled="isLoading">
+  <button
+    type="submit"
+    class="btn btn-primary mb-2"
+    @click.prevent="onClick()"
+    :disabled="isLoading"
+  >
     <spinner-button v-if="isLoading"></spinner-button>
     <span v-if="!isLoading">{{text}}</span>
   </button>

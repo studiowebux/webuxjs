@@ -34,7 +34,7 @@
           />
           <div v-if="invalid" class="alert alert-danger" role="alert">{{invalid}}</div>
           <br />
-          <submit text="Sign up" :onClick="register" :disabled="!isValid"></submit>
+          <submit text="Sign up" :onClick="register"></submit>
         </div>
       </form>
     </div>
@@ -63,6 +63,10 @@ export default {
   methods: {
     ...mapActions(["signUp"]),
     register() {
+      console.log("clicked");
+      if (!this.user.email || !this.user.password) {
+        return;
+      }
       this.signUp(this.user);
     },
     checkPassword() {

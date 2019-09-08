@@ -1,3 +1,5 @@
+import http from "../../resources/axios";
+
 const state = {
   profile: {}
 };
@@ -11,6 +13,20 @@ const mutations = {
 const actions = {
   setProfile: ({ commit }, profile) => {
     commit("SET_PROFILE", profile);
+  },
+  createProfile: ({ commit, dispatch }, profile) => {
+    dispatch("isLoading");
+    http
+      .post("/profile", { profile })
+      .then(response => {
+        commit("SET_PROFILE", response.data.profile);
+      })
+      .catch(error => {
+        dispatch("setError", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
+      });
   }
 };
 

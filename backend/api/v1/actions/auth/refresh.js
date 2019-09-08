@@ -35,7 +35,7 @@ const refresh = async (req, res, next) => {
     return next(
       Webux.errorHandler(
         403,
-        "An error occur while refreshing the token",
+        "An error occur while refreshing the token" + e.message,
         {},
         e
       )
