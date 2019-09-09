@@ -75,11 +75,34 @@ export default {
   },
   created() {
     console.log("App has been created + call autologin");
-    this.$store.dispatch("autoLogin");
+  },
+  sockets: {
+    connect() {
+      console.log("Try to connect");
+      console.log(this.$store);
+      if (this.$store.getters.userID) {
+        this.$socket.emit("authentication", {
+          accessToken: window.$cookies.get("accessToken")
+        });
+      } else {
+        console.log("Unable to connect");
+      }
+    },
+    authenticated() {
+      console.log("User authorized to use the socket");
+      this.$socket.emit("findCategory");
+      this.$socket.on("categoryFound", categories => {
+        console.log(categories);
+      });
+      this.$socket.emit("categoryFind");
+      this.$socket.emit("findCategories");
+    },
+    unauthorized(err) {
+      console.error("There was an error with the authentication:", err.message);
+    }
   }
 };
 </script>
-
 
 <style lang="scss">
 #app {

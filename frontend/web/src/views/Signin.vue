@@ -5,7 +5,9 @@
         v-if="error_message"
         class="col-md-12 col-sm-12 alert alert-danger"
         role="alert"
-      >{{error_message}}</div>
+      >
+        {{ error_message }}
+      </div>
     </div>
     <div class="row justify-content-md-center">
       <form @keyup.enter="login">

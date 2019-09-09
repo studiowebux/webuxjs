@@ -97,11 +97,17 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+  store.dispatch("autoLogin");
+  store.dispatch("resetMsg");
   if (to.matched.some(record => record.meta.isAuth)) {
+    console.log("before entering in the route, check if the userID is present");
     if (store.getters.userID) {
+      console.log("User id present");
       next();
       return;
     }
+
+    console.log("User id not present");
     next("/signin");
   } else {
     next();

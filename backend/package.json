@@ -22,7 +22,7 @@
     "express-fileupload": "^1.1.5",
     "mongo-in-memory": "0.0.5",
     "path": "^0.12.7",
-    "webux-app": "^3.4.3"
+    "webux-app": "^3.4.7"
   },
   "devDependencies": {
     "redis-mock": "^0.46.0"

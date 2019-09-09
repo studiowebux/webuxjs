@@ -1,4 +1,4 @@
-import http from "../../resources/axios";
+import http from "../../resources/http";
 
 const state = {
   status: {}
@@ -35,7 +35,6 @@ const actions = {
       .get("/status")
       .then(response => {
         commit("INIT_STATUS", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -49,7 +48,6 @@ const actions = {
       .post("/status", newStatus)
       .then(response => {
         commit("ADD_STATUS", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -60,7 +58,6 @@ const actions = {
       .delete("/status/" + statusID)
       .then(() => {
         commit("REMOVE_STATUS", statusID);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -71,7 +68,6 @@ const actions = {
       .put("/status/" + status._id, status)
       .then(response => {
         commit("EDIT_STATUS", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);

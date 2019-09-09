@@ -2,13 +2,20 @@
   <div class="container">
     <div class="row justify-content-end actions">
       <div class="col-md-4">
-        <div v-if="error_message" class="alert alert-danger" role="alert">{{error_message}}</div>
+        <div v-if="error_message" class="alert alert-danger" role="alert">
+          {{ error_message }}
+        </div>
       </div>
       <div class="col-md-6">
         <form>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Name" v-model="newCategory.name" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                v-model="newCategory.name"
+              />
             </div>
             <div class="col">
               <input
@@ -31,7 +38,9 @@
         </form>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-success" @click="createCategory()">Add New Category</button>
+        <button class="btn btn-success" @click="createCategory()">
+          Add New Category
+        </button>
       </div>
     </div>
     <div class="row">
@@ -56,12 +65,18 @@ import Spinner from "../components/Spinner";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  name: "category",
   components: {
     wTable: Table,
     wSpinner: Spinner
   },
   methods: {
-    ...mapActions(["initCategory", "addCategory", "removeCategory", "editCategory"]),
+    ...mapActions([
+      "SOCKET_categoryFound",
+      "addCategory",
+      "removeCategory",
+      "editCategory"
+    ]),
     createCategory() {
       const newCategory = {
         category: {
@@ -103,7 +118,24 @@ export default {
     };
   },
   created() {
-    this.initCategory();
+    console.log("created");
+  },
+  mounted() {
+    console.log("Mounted !");
+    this.$socket.emit("findCategory");
+  },
+  sockets: {
+    connect() {
+      console.log("Connected ...");
+    },
+    categoryFound(data) {
+      console.log("emit find category");
+      console.log(data);
+    },
+    authenticated() {
+      console.log("try to retrieve the categories");
+      this.$socket.emit("findCategory");
+    }
   }
 };
 </script>

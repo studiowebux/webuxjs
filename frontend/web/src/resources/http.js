@@ -21,7 +21,9 @@ http.interceptors.response.use(
     let msg = "";
     if (error.response) {
       msg =
-        error.response.data.message || error.response.data || "An error occur";
+        error.response.data.message ||
+        error.response.data ||
+        "An error occured while contacting the server.";
     }
 
     return Promise.reject(msg);

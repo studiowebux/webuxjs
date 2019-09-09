@@ -1,4 +1,4 @@
-import http from "../../resources/axios";
+import http from "../../resources/http";
 
 const state = {
   category: {}
@@ -29,13 +29,13 @@ const mutations = {
 };
 
 const actions = {
-  initCategory: ({ commit }) => {
+  SOCKET_categoryFound: ({ commit }) => {
+    console.log("ACTION CALLED !");
     commit("IS_LOADING");
     http
       .get("/category")
       .then(response => {
         commit("INIT_CATEGORY", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -49,7 +49,6 @@ const actions = {
       .post("/category", newCategory)
       .then(response => {
         commit("ADD_CATEGORY", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -60,7 +59,6 @@ const actions = {
       .delete("/category/" + categoryID)
       .then(() => {
         commit("REMOVE_CATEGORY", categoryID);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);
@@ -71,7 +69,6 @@ const actions = {
       .put("/category/" + category._id, category)
       .then(response => {
         commit("EDIT_CATEGORY", response.data.body);
-        commit("RESET_ERROR");
       })
       .catch(error => {
         commit("SET_ERROR", error);

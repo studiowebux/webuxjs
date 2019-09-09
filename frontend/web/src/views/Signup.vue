@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="row justify-content-md-center">
-      <div v-if="error_message" class="alert alert-danger" role="alert">{{error_message}}</div>
+      <div v-if="error_message" class="alert alert-danger" role="alert">
+        {{ error_message }}
+      </div>
     </div>
     <div class="row justify-content-md-center">
       <form>
@@ -32,7 +34,9 @@
             id="passwordCheck"
             placeholder="P@5sw0rd"
           />
-          <div v-if="invalid" class="alert alert-danger" role="alert">{{invalid}}</div>
+          <div v-if="invalid" class="alert alert-danger" role="alert">
+            {{ invalid }}
+          </div>
           <br />
           <submit text="Sign up" :onClick="register"></submit>
         </div>

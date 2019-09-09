@@ -1,4 +1,4 @@
-const select = "name description statusID userID";
+const select = "name description pictureURL serialNumber statusID userID";
 
 const blacklist = [];
 

@@ -1,6 +1,33 @@
-import http from "../../resources/axios";
+import http from "../../resources/http";
 import jwtDecode from "jwt-decode";
 import router from "../../router";
+
+/* LOCAL Functions */
+function setCookies(accessToken = null, refreshToken = null, userID = null) {
+  if (accessToken) {
+    window.$cookies.set(
+      "accessToken",
+      accessToken.token,
+      accessToken.expiresIn
+    );
+  }
+
+  if (refreshToken) {
+    window.$cookies.set(
+      "refreshToken",
+      refreshToken.token,
+      refreshToken.expiresIn
+    );
+  }
+
+  if (userID) {
+    window.$cookies.set("userID", userID.id, userID.expiresIn);
+  }
+
+  return;
+}
+
+/* STORE Functions */
 
 const state = {
   accessToken: null,
@@ -57,7 +84,6 @@ const actions = {
         password: credentials.password
       })
       .then(response => {
-        dispatch("resetError");
         const decoded = jwtDecode(response.data.tokens.access);
         const decodedRefresh = jwtDecode(response.data.tokens.refresh);
         const now = Date.now() / 1000;
@@ -67,23 +93,20 @@ const actions = {
           userID: decoded._id
         };
 
-        window.$cookies.set(
-          "accessToken",
-          response.data.tokens.access,
-          decoded.exp - now
+        setCookies(
+          { token: response.data.tokens.access, expiresIn: decoded.exp - now },
+          {
+            token: response.data.tokens.refresh,
+            expiresIn: decodedRefresh.exp - now
+          },
+          { id: decoded._id, expiresIn: decodedRefresh.exp - now }
         );
-        window.$cookies.set(
-          "refreshToken",
-          response.data.tokens.refresh,
-          decodedRefresh.exp - now
-        );
-        window.$cookies.set("userID", decoded._id, decodedRefresh.exp - now);
 
         commit("AUTH", user);
         console.log("SIGNIN - Dispatch setAutoRefresh " + (decoded.exp - now));
         dispatch("setAutoRefresh", decoded.exp - now);
 
-        router.replace("/");
+        router.replace("/").catch(() => {});
       })
       .catch(error => {
         dispatch("setError", error);
@@ -97,23 +120,19 @@ const actions = {
     http
       .post("/auth/signup", user)
       .then(response => {
-        dispatch("resetError");
         const userID = response.data._id;
         const decoded = jwtDecode(response.data.tokens.access);
         const decodedRefresh = jwtDecode(response.data.tokens.refresh);
         const now = Date.now() / 1000;
 
-        window.$cookies.set(
-          "accessToken",
-          response.data.tokens.access,
-          decoded.exp - now
+        setCookies(
+          { token: response.data.tokens.access, expiresIn: decoded.exp - now },
+          {
+            token: response.data.tokens.refresh,
+            expiresIn: decodedRefresh.exp - now
+          },
+          { id: userID, expiresIn: decodedRefresh.exp - now }
         );
-        window.$cookies.set(
-          "refreshToken",
-          response.data.tokens.refresh,
-          decodedRefresh.exp - now
-        );
-        window.$cookies.set("userID", userID, decodedRefresh.exp - now);
 
         commit("AUTH", {
           accessToken: response.data.tokens.access,
@@ -123,7 +142,7 @@ const actions = {
           "SIGNUP - dispatch setAutoRefresh with " + (decoded.exp - now)
         );
         dispatch("setAutoRefresh", decoded.exp - now);
-        router.replace("/");
+        router.replace("/").catch(() => {});
       })
       .catch(error => {
         commit("setError", error);
@@ -157,18 +176,17 @@ const actions = {
         console.log(
           "REFRESHTOKEN - access token refreshed " + response.data.token
         );
-        dispatch("resetError");
         const decoded = jwtDecode(response.data.token);
         const now = Date.now() / 1000;
         console.log(
           "REFRESHTOKEN - Set access token cookie with expiration time of " +
             (decoded.exp - now)
         );
-        window.$cookies.set(
-          "accessToken",
-          response.data.token,
-          decoded.exp - now
-        );
+
+        setCookies({
+          token: response.data.token,
+          expiresIn: decoded.exp - now
+        });
 
         console.log("REFRESHTOKEN - Commit REFRESHED");
 

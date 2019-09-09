@@ -27,6 +27,9 @@ const actions = {
   setError: ({ commit }, errorMSG) => {
     commit("SET_ERROR", errorMSG);
   },
+  SOCKET_gotError: ({ commit }, errorMSG) => {
+    commit("SET_ERROR", errorMSG);
+  },
   setSuccess: ({ commit }, successMSG) => {
     commit("SET_SUCCESS", successMSG);
   },

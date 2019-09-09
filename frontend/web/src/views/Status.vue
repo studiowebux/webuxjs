@@ -2,13 +2,20 @@
   <div class="container">
     <div class="row justify-content-end actions">
       <div class="col-md-4">
-        <div v-if="error_message" class="alert alert-danger" role="alert">{{error_message}}</div>
+        <div v-if="error_message" class="alert alert-danger" role="alert">
+          {{ error_message }}
+        </div>
       </div>
       <div class="col-md-6">
         <form>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="Name" v-model="newStatus.name" />
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                v-model="newStatus.name"
+              />
             </div>
             <div class="col">
               <input
@@ -31,7 +38,9 @@
         </form>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-success" @click="createStatus()">Add New Status</button>
+        <button class="btn btn-success" @click="createStatus()">
+          Add New Status
+        </button>
       </div>
     </div>
     <div class="row">
@@ -56,6 +65,7 @@ import Spinner from "../components/Spinner";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  name: "status",
   components: {
     wTable: Table,
     wSpinner: Spinner

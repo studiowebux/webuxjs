@@ -1,4 +1,4 @@
-import http from "../../resources/axios";
+import http from "../../resources/http";
 
 const state = {
   profile: {}

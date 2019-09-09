@@ -20,6 +20,7 @@ const Create = Joi.object()
   .keys({
     name: Joi.string().required(),
     description: Joi.string().required(),
+    serialNumber: Joi.string().required(),
     statusID: Joi.string()
       .regex(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i)
       .required(),
@@ -36,6 +37,7 @@ const Update = Joi.object()
   .keys({
     name: Joi.string().required(),
     description: Joi.string().required(),
+    serialNumber: Joi.string().required(),
     statusID: Joi.string()
       .regex(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i)
       .required(),

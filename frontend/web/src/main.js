@@ -3,6 +3,7 @@ import App from "./App.vue";
 import "./resources/cookies";
 import router from "./router";
 import store from "./store";
+import "./resources/socket";
 import "./registerServiceWorker";
 import "./resources/font-awesome";
 

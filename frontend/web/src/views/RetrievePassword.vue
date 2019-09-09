@@ -5,11 +5,22 @@
         v-if="error_message"
         class="col-md-6 col-sm-12 alert alert-danger"
         role="alert"
-      >{{error_message}}</div>
+      >
+        {{ error_message }}
+      </div>
     </div>
     <div class="row justify-content-md-center">
-      <p>Enter your email address associated with the code to update your password.</p>
-      <input type="email" v-model="email" name="email" id="email" class="form-control" />
+      <p>
+        Enter your email address associated with the code to update your
+        password.
+      </p>
+      <input
+        type="email"
+        v-model="email"
+        name="email"
+        id="email"
+        class="form-control"
+      />
       <input
         v-if="email"
         class="form-control form-control-lg mb-2"
@@ -30,23 +41,28 @@
         id="passwordCheck"
         placeholder="P@5sw0rd"
       />
-      <div v-if="invalid" class="alert alert-danger" role="alert">{{invalid}}</div>
+      <div v-if="invalid" class="alert alert-danger" role="alert">
+        {{ invalid }}
+      </div>
       <br />
-      <button @click="changePassword" class="btn btn-primary">Update Password</button>
+      <button @click="changePassword" class="btn btn-primary">
+        Update Password
+      </button>
     </div>
     <div class="row justify-content-md-center">
       <div
         class="col-md-6 col-sm-12 alert alert-success"
         role="alert"
         v-if="success_message"
-      >{{success_message}}</div>
+      >
+        {{ success_message }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { router } from "../router";
 
 export default {
   data() {
