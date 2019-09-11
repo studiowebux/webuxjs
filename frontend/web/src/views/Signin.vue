@@ -40,6 +40,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Submit from "../components/Submit";
+import checkAuth from "../helpers/checkAuth";
 
 export default {
   data() {
@@ -64,6 +65,10 @@ export default {
       }
       this.signIn(this.user);
     }
+  },
+  created() {
+    console.log("Sign in created !");
+    checkAuth();
   }
 };
 </script>

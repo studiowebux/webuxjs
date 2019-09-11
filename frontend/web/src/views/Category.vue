@@ -71,12 +71,12 @@ export default {
     wSpinner: Spinner
   },
   methods: {
-    ...mapActions([
-      "SOCKET_categoryFound",
-      "addCategory",
-      "removeCategory",
-      "editCategory"
-    ]),
+    // ...mapActions([
+    //   // "initCategory",
+    //   "addCategory",
+    //   "removeCategory",
+    //   "editCategory"
+    // ]),
     createCategory() {
       const newCategory = {
         category: {
@@ -85,7 +85,10 @@ export default {
           color: this.newCategory.color.replace("#", "")
         }
       };
-      this.addCategory(newCategory);
+
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("createCategory", newCategory.category);
+      // this.addCategory(newCategory);
       this.newCategory.color = "#e66465";
       this.newCategory.name = "";
       this.newCategory.description = "";
@@ -99,7 +102,15 @@ export default {
           color: line.color.replace("#", "")
         }
       };
-      this.editCategory(updCategory);
+      //this.editCategory(updCategory);
+
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("updateCategory", updCategory);
+    },
+    removeCategory(id) {
+      console.log(id);
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("removeCategory", id);
     }
   },
   computed: {
@@ -118,23 +129,14 @@ export default {
     };
   },
   created() {
-    console.log("created");
-  },
-  mounted() {
-    console.log("Mounted !");
-    this.$socket.emit("findCategory");
+    // this.initCategory(); to use the API call.
+    console.log("try to retrieve the categories");
+    this.$store.dispatch("isLoading");
+    this.$socket.client.emit("findCategory");
   },
   sockets: {
     connect() {
-      console.log("Connected ...");
-    },
-    categoryFound(data) {
-      console.log("emit find category");
-      console.log(data);
-    },
-    authenticated() {
-      console.log("try to retrieve the categories");
-      this.$socket.emit("findCategory");
+      console.log("Socket connection -> category");
     }
   }
 };

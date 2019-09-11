@@ -10,6 +10,7 @@
 <script>
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
+import socket from "./resources/socket";
 
 export default {
   name: "app",
@@ -74,31 +75,17 @@ export default {
     ...mapActions(["logout"])
   },
   created() {
-    console.log("App has been created + call autologin");
-  },
-  sockets: {
-    connect() {
-      console.log("Try to connect");
-      console.log(this.$store);
-      if (this.$store.getters.userID) {
-        this.$socket.emit("authentication", {
-          accessToken: window.$cookies.get("accessToken")
-        });
-      } else {
-        console.log("Unable to connect");
-      }
-    },
-    authenticated() {
-      console.log("User authorized to use the socket");
-      this.$socket.emit("findCategory");
-      this.$socket.on("categoryFound", categories => {
-        console.log(categories);
+    console.log("App has been created");
+    if (this.$store.getters.accessToken) {
+      console.log("Open the socket connection");
+      socket.open();
+      socket.emit("authentication", {
+        accessToken: window.$cookies.get("accessToken")
       });
-      this.$socket.emit("categoryFind");
-      this.$socket.emit("findCategories");
-    },
-    unauthorized(err) {
-      console.error("There was an error with the authentication:", err.message);
+      socket.on("authenticated", data => {
+        console.log("Authenticated !!");
+        console.log(data);
+      });
     }
   }
 };

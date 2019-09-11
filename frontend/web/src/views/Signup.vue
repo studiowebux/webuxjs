@@ -48,6 +48,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Submit from "../components/Submit";
+import checkAuth from "../helpers/checkAuth";
 
 export default {
   data() {
@@ -85,6 +86,9 @@ export default {
   },
   components: {
     Submit
+  },
+  created() {
+    checkAuth();
   }
 };
 </script>

@@ -76,10 +76,8 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  console.log("caleed !!")
   return async () => {
     try {
-      console.log("Hum this is strange in both cases...")
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;

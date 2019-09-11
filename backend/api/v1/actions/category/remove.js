@@ -55,7 +55,7 @@ const route = async (req, res, next) => {
 
 // socket with auth
 
-const socket = client => {
+const socket = (client, io) => {
   return async categoryID => {
     try {
       if (!client.auth) {
@@ -67,7 +67,7 @@ const socket = client => {
         client.emit("gotError", "Category with ID not deleted");
       }
 
-      client.emit("categoryRemoved", obj);
+      io.emit("categoryRemoved", obj);
     } catch (e) {
       client.emit("gotError", e);
     }

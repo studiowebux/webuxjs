@@ -75,7 +75,7 @@ const route = async (req, res, next) => {
 };
 
 // socket with auth
-const socket = client => {
+const socket = (client, io) => {
   return async category => {
     try {
       if (!client.auth) {
@@ -87,7 +87,7 @@ const socket = client => {
         client.emit("gotError", "Category not created");
       }
 
-      client.emit("categoryCreated", obj);
+      io.emit("categoryCreated", obj);
     } catch (e) {
       client.emit("gotError", e);
     }

@@ -1,6 +1,7 @@
 import http from "../../resources/http";
 import jwtDecode from "jwt-decode";
 import router from "../../router";
+import socket from "../../resources/socket";
 
 /* LOCAL Functions */
 function setCookies(accessToken = null, refreshToken = null, userID = null) {
@@ -54,6 +55,10 @@ const mutations = {
 };
 
 const actions = {
+  socket_unauthorized: ({ dispatch }, data) => {
+    console.log(data);
+    dispatch("setError", "Unauthorized");
+  },
   setAutoRefresh: ({ dispatch }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
     console.log(
@@ -105,7 +110,15 @@ const actions = {
         commit("AUTH", user);
         console.log("SIGNIN - Dispatch setAutoRefresh " + (decoded.exp - now));
         dispatch("setAutoRefresh", decoded.exp - now);
-
+        console.log(
+          "SIGNIN - Init the socket.io with access token " + user.accessToken
+        );
+        socket.open();
+        socket.emit("authentication", { accessToken: user.accessToken });
+        socket.on("authenticated", data => {
+          console.log(data);
+          console.log("Authenticated !");
+        });
         router.replace("/").catch(() => {});
       })
       .catch(error => {
@@ -142,6 +155,15 @@ const actions = {
           "SIGNUP - dispatch setAutoRefresh with " + (decoded.exp - now)
         );
         dispatch("setAutoRefresh", decoded.exp - now);
+
+        console.log("SIGNUP - Init the socket.io");
+        socket.open();
+        socket.emit("authentication", { accessToken: user.accessToken });
+
+        socket.on("authenticated", data => {
+          console.log(data);
+          console.log("Authenticated !");
+        });
         router.replace("/").catch(() => {});
       })
       .catch(error => {

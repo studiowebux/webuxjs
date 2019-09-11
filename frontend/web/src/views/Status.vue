@@ -62,7 +62,7 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "status",
@@ -71,7 +71,6 @@ export default {
     wSpinner: Spinner
   },
   methods: {
-    ...mapActions(["initStatus", "addStatus", "removeStatus", "editStatus"]),
     createStatus() {
       const newStatus = {
         status: {
@@ -80,7 +79,9 @@ export default {
           color: this.newStatus.color.replace("#", "")
         }
       };
-      this.addStatus(newStatus);
+      // this.addStatus(newStatus);
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("createStatus", newStatus.status);
       this.newStatus.color = "#e66465";
       this.newStatus.name = "";
       this.newStatus.description = "";
@@ -94,7 +95,14 @@ export default {
           color: line.color.replace("#", "")
         }
       };
-      this.editStatus(updStatus);
+      // this.editStatus(updStatus);
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("updateStatus", updStatus);
+    },
+    removeStatus(id) {
+      console.log(id);
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("removeStatus", id);
     }
   },
   computed: {
@@ -113,7 +121,15 @@ export default {
     };
   },
   created() {
-    this.initStatus();
+    // this.initStatus(); to use the API call.
+    console.log("try to retrieve the status");
+    this.$store.dispatch("isLoading");
+    this.$socket.client.emit("findStatus");
+  },
+  sockets: {
+    connect() {
+      console.log("Socket connection -> status");
+    }
   }
 };
 </script>

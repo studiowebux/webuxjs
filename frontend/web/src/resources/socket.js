@@ -1,18 +1,21 @@
+import SocketIO from "socket.io-client";
+import VueSocketIO from "vue-socket.io-extended";
 import Vue from "vue";
-import socketio from "socket.io-client";
-import VueSocketIO from "vue-socket.io";
 import store from "../store";
 
-const options = { path: "/socket.io" };
+let URL = process.env.VUE_APP_IO_URL || "http://192.168.2.10:1337";
+let path = process.env.VUE_APP_IO_PATH || "/socket.io";
 
-Vue.use(
-  new VueSocketIO({
-    debug: true,
-    connection: socketio("http://localhost:1337", options)
-    // vuex: {
-    //   store,
-    //   actionPrefix: "SOCKET_",
-    //   mutationPrefix: "SOCKET_"
-    // }
-  })
-);
+const options = { path, transports: ["websocket"], autoConnect: false };
+
+const socket = SocketIO(URL, options);
+
+Vue.use(VueSocketIO, socket, {
+  store,
+  actionPrefix: "socket_",
+  eventToActionTransformer: str => {
+    return str;
+  }
+});
+
+export default socket;

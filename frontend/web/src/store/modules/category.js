@@ -29,49 +29,84 @@ const mutations = {
 };
 
 const actions = {
-  SOCKET_categoryFound: ({ commit }) => {
-    console.log("ACTION CALLED !");
-    commit("IS_LOADING");
+  socket_categoryFound({ commit, dispatch }, data) {
+    console.log("GET CATEGORIES - Using the socket");
+    commit("INIT_CATEGORY", data);
+    dispatch("doneLoading");
+  },
+  socket_categoryCreated({ commit, dispatch }, data) {
+    console.log("CREATE CATEGORY - Using the socket");
+    commit("ADD_CATEGORY", data);
+    dispatch("doneLoading");
+  },
+  socket_categoryUpdated({ commit, dispatch }, data) {
+    console.log("UPDATE CATEGORY - Using the socket");
+    commit("EDIT_CATEGORY", data);
+    dispatch("doneLoading");
+  },
+  socket_categoryRemoved({ commit, dispatch }, data) {
+    console.log("REMOVE CATEGORY - Using the socket");
+    commit("REMOVE_CATEGORY", data);
+    dispatch("doneLoading");
+  },
+  initCategory: ({ commit, dispatch }) => {
+    console.log("GET CATEGORIES - Using the API Call");
+    dispatch("isLoading");
     http
       .get("/category")
       .then(response => {
         commit("INIT_CATEGORY", response.data.body);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        dispatch("setError", error);
       })
       .finally(() => {
-        commit("DONE_LOADING");
+        dispatch("doneLoading");
       });
   },
-  addCategory: ({ commit }, newCategory) => {
+  addCategory: ({ commit, dispatch }, newCategory) => {
+    console.log("CREATE CATEGORY - Using the API Call");
+    dispatch("isLoading");
     http
       .post("/category", newCategory)
       .then(response => {
         commit("ADD_CATEGORY", response.data.body);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        dispatch("setError", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
       });
   },
-  removeCategory: ({ commit }, categoryID) => {
+  removeCategory: ({ commit, dispatch }, categoryID) => {
+    console.log("REMOVE CATEGORY - Using the API Call");
+    dispatch("isLoading");
     http
       .delete("/category/" + categoryID)
       .then(() => {
         commit("REMOVE_CATEGORY", categoryID);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        dispatch("setError", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
       });
   },
-  editCategory: ({ commit }, category) => {
+  editCategory: ({ commit, dispatch }, category) => {
+    console.log("EDIT CATEGORY - Using the API Call");
+    dispatch("isLoading");
     http
       .put("/category/" + category._id, category)
       .then(response => {
         commit("EDIT_CATEGORY", response.data.body);
       })
       .catch(error => {
-        commit("SET_ERROR", error);
+        dispatch("setError", error);
+      })
+      .finally(() => {
+        dispatch("doneLoading");
       });
   }
 };

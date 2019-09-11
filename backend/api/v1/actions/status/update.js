@@ -84,7 +84,7 @@ const route = async (req, res, next) => {
 
 // socket with auth
 
-const socket = client => {
+const socket = (client, io) => {
   return async (statusID, status) => {
     try {
       if (!client.auth) {
@@ -96,7 +96,7 @@ const socket = client => {
         client.emit("gotError", "Status with ID not updated");
       }
 
-      client.emit("statusUpdated", obj);
+      io.emit("statusUpdated", obj);
     } catch (e) {
       client.emit("gotError", e);
     }

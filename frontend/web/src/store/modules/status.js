@@ -1,5 +1,3 @@
-import http from "../../resources/http";
-
 const state = {
   status: {}
 };
@@ -29,49 +27,25 @@ const mutations = {
 };
 
 const actions = {
-  initStatus: ({ commit }) => {
-    commit("IS_LOADING");
-    http
-      .get("/status")
-      .then(response => {
-        commit("INIT_STATUS", response.data.body);
-      })
-      .catch(error => {
-        commit("SET_ERROR", error);
-      })
-      .finally(() => {
-        commit("DONE_LOADING");
-      });
+  socket_statusFound({ commit, dispatch }, data) {
+    console.log("GET STATUS - Using the socket");
+    commit("INIT_STATUS", data);
+    dispatch("doneLoading");
   },
-  addStatus: ({ commit }, newStatus) => {
-    http
-      .post("/status", newStatus)
-      .then(response => {
-        commit("ADD_STATUS", response.data.body);
-      })
-      .catch(error => {
-        commit("SET_ERROR", error);
-      });
+  socket_statusCreated({ commit, dispatch }, data) {
+    console.log("CREATE STATUS - Using the socket");
+    commit("ADD_STATUS", data);
+    dispatch("doneLoading");
   },
-  removeStatus: ({ commit }, statusID) => {
-    http
-      .delete("/status/" + statusID)
-      .then(() => {
-        commit("REMOVE_STATUS", statusID);
-      })
-      .catch(error => {
-        commit("SET_ERROR", error);
-      });
+  socket_statusUpdated({ commit, dispatch }, data) {
+    console.log("UPDATE STATUS - Using the socket");
+    commit("EDIT_STATUS", data);
+    dispatch("doneLoading");
   },
-  editStatus: ({ commit }, status) => {
-    http
-      .put("/status/" + status._id, status)
-      .then(response => {
-        commit("EDIT_STATUS", response.data.body);
-      })
-      .catch(error => {
-        commit("SET_ERROR", error);
-      });
+  socket_statusRemoved({ commit, dispatch }, data) {
+    console.log("REMOVE STATUS - Using the socket");
+    commit("REMOVE_STATUS", data);
+    dispatch("doneLoading");
   }
 };
 
