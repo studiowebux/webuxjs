@@ -5,7 +5,7 @@ pipeline {
         stage('Build image') {
             parallel {
                 stage('Build Frontend') {
-                    steps { sh 'docker build -f ./frontend/Dockerfile -t webuxjs-frontend./frontend' }
+                    steps { sh 'docker build -f ./frontend/Dockerfile -t webuxjs-frontend ./frontend' }
                 }
 
                 stage('Build Backend') {
