@@ -4,6 +4,8 @@ FROM node:10-jessie AS frontendbuilder
 WORKDIR /home/node/app
 COPY ./web/package.json .
 
+ENV NODE_ENV=development
+
 RUN npm install
 COPY ./web .
 

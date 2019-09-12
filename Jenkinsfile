@@ -21,7 +21,7 @@ pipeline {
                 }
 
                 stage('Build Logstash') {
-                    steps { sh 'docker build -f ./ELK/logstah/Dockerfile -t webuxjs-logstah ./ELK/logstah' }
+                    steps { sh 'docker build -f ./ELK/logstash/Dockerfile -t webuxjs-logstah ./ELK/logstah' }
                 }
             }
         }
