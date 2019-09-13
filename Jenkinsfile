@@ -50,6 +50,30 @@ pipeline {
             }
         }
 
+        stage('Push Image') {
+            parallel {
+                stage('Push Frontend') {
+                    steps { sh 'docker tag webuxjs-frontend hub.webux.lab/webuxjs-frontend; docker push hub.webux.lab/webuxjs-frontend' }
+                }
+
+                stage('Push Backend') {
+                    steps { sh 'docker tag webuxjs-backend hub.webux.lab/webuxjs-backend; docker push hub.webux.lab/webuxjs-backend' }
+                }
+
+                stage('Push Elastic Search') {
+                    steps { sh 'docker tag webuxjs-elasticsearch hub.webux.lab/webuxjs-elasticsearch; docker push hub.webux.lab/webuxjs-elasticsearch' }
+                }
+
+                stage('Push Kibana') {
+                    steps { sh 'docker tag webuxjs-kibana hub.webux.lab/webuxjs-kibana; docker push hub.webux.lab/webuxjs-kibana' }
+                }
+
+                stage('Push Logstash') {
+                    steps { sh 'docker tag webuxjs-logstash hub.webux.lab/webuxjs-logstash; docker push hub.webux.lab/webuxjs-logstash' }
+                }
+            }
+        }
+
         stage("Archive") {
             steps {
                 archiveArtifacts(
