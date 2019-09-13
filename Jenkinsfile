@@ -21,7 +21,7 @@ pipeline {
                 }
 
                 stage('Build Logstash') {
-                    steps { sh 'docker build -f ./ELK/logstash/Dockerfile -t webuxjs-logstah ./ELK/logstah' }
+                    steps { sh 'docker build -f ./ELK/logstash/Dockerfile -t webuxjs-logstash ./ELK/logstash' }
                 }
             }
         }
@@ -29,23 +29,23 @@ pipeline {
         stage('Export Image') {
             parallel {
                 stage('Export Frontend') {
-                    steps { sh 'docker save webuxjs-frontend:latest > "webuxjs-frontend.tar"' }
+                    steps { sh 'docker save --output="webuxjs-frontend.tar" webuxjs-frontend' }
                 }
 
                 stage('Export Backend') {
-                    steps { sh 'docker save webuxjs-backend:latest > "webuxjs-backend.tar"' }
+                    steps { sh 'docker save --output="webuxjs-backend.tar" webuxjs-backend' }
                 }
 
                 stage('Export Elastic Search') {
-                    steps { sh 'docker save webuxjs-elasticsearch:latest > "webuxjs-elasticsearch.tar"' }
+                    steps { sh 'docker save --output="webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
                 }
 
                 stage('Export Kibana') {
-                    steps { sh 'docker save webuxjs-kibana:latest > "webuxjs-kibana.tar"' }
+                    steps { sh 'docker save --output="webuxjs-kibana.tar" webuxjs-kibana' }
                 }
 
                 stage('Export Logstash') {
-                    steps { sh 'docker save webuxjs-logstash:latest > "webuxjs-logstash.tar"' }
+                    steps { sh 'docker save --output="webuxjs-logstash.tar" webuxjs-logstash' }
                 }
             }
         }
