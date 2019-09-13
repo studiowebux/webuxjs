@@ -29,23 +29,23 @@ pipeline {
         stage('Export Image') {
             parallel {
                 stage('Export Frontend') {
-                    steps { sh 'docker save --output="./webuxjs-frontend.tar" webuxjs-frontend' }
+                    steps { sh 'docker save webuxjs-frontend:latest > "webuxjs-frontend.tar"' }
                 }
 
                 stage('Export Backend') {
-                    steps { sh 'docker save --output="./webuxjs-backend.tar" webuxjs-backend' }
+                    steps { sh 'docker save webuxjs-backend:latest > "webuxjs-backend.tar"' }
                 }
 
                 stage('Export Elastic Search') {
-                    steps { sh 'docker save --output="./webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
+                    steps { sh 'docker save webuxjs-elasticsearch:latest > "webuxjs-elasticsearch.tar"' }
                 }
 
                 stage('Export Kibana') {
-                    steps { sh 'docker save --output="./webuxjs-kibana.tar" webuxjs-kibana' }
+                    steps { sh 'docker save webuxjs-kibana:latest > "webuxjs-kibana.tar"' }
                 }
 
                 stage('Export Logstash') {
-                    steps { sh 'docker save --output="./webuxjs-logstash.tar" webuxjs-logstash' }
+                    steps { sh 'docker save webuxjs-logstash:latest > "webuxjs-logstash.tar"' }
                 }
             }
         }
