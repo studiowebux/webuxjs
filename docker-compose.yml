@@ -240,14 +240,12 @@ services:
       - 6379
     volumes:
       - "./app/redis:/bitnami"
+    depends_on:
+      fix_redis_permissions:
+        condition: service_started
     restart: always
     links:
       - backend
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "6379"]
-      interval: 60s
-      timeout: 10s
-      retries: 5
 
   redis-replica:
     image: 'bitnami/redis:latest'
