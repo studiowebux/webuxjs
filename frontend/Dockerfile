@@ -6,6 +6,7 @@ COPY ./web/package.json .
 
 ## Need the development tools too.
 RUN npm install
+RUN npm install -g @vue/cli
 
 COPY ./web .
 
