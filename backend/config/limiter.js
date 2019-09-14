@@ -1,7 +1,7 @@
 module.exports = {
   Auth: {
-    time: 3600,
-    maxReq: 150,
+    time: 600,
+    maxReq: 20,
     skip: "/api/v1/auth" // if not contains that, then skip !
   },
   Global: {

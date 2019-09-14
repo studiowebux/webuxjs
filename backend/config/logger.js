@@ -1,5 +1,7 @@
+const os = require('os');
+
 module.exports = {
-  application_id: process.env.APP_ID || "Application01",
+  application_id: os.hostname() + "_" + process.env.APP_ID || "Application01",
   forceConsole:
     process.env.CONSOLE && process.env.CONSOLE == "false" ? false : true,
   logstash: {

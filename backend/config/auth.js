@@ -20,10 +20,10 @@ module.exports = {
     serializeUser: ["_id", "email", "profileID"]
   },
   redis: {
-    mock: true,
-    host: "127.0.0.1",
-    port: "6379",
-    auth_pass: "",
-    no_ready_check: true
+    mock: process.env.REDIS_MOCK || true,
+    host: process.env.REDIS_HOST || "127.0.0.1",
+    port: process.env.REDIS_PORT || "6379",
+    auth_pass: process.env.REDIS_PASSWORD || "",
+    no_ready_check: process.env.REDIS_NO_READY_CHECK || true
   }
 };
