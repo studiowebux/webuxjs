@@ -26,30 +26,6 @@ pipeline {
             }
         }
 
-        stage('Export Image') {
-            parallel {
-                stage('Export Frontend') {
-                    steps { sh 'docker save --output="webuxjs-frontend.tar" webuxjs-frontend' }
-                }
-
-                stage('Export Backend') {
-                    steps { sh 'docker save --output="webuxjs-backend.tar" webuxjs-backend' }
-                }
-
-                stage('Export Elastic Search') {
-                    steps { sh 'docker save --output="webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
-                }
-
-                stage('Export Kibana') {
-                    steps { sh 'docker save --output="webuxjs-kibana.tar" webuxjs-kibana' }
-                }
-
-                stage('Export Logstash') {
-                    steps { sh 'docker save --output="webuxjs-logstash.tar" webuxjs-logstash' }
-                }
-            }
-        }
-
         stage('Push Image') {
             parallel {
                 stage('Push Frontend') {
@@ -70,6 +46,30 @@ pipeline {
 
                 stage('Push Logstash') {
                     steps { sh 'docker tag webuxjs-logstash hub.webux.lab/webuxjs-logstash:latest; docker push hub.webux.lab/webuxjs-logstash:latest' }
+                }
+            }
+        }
+
+        stage('Export Image') {
+            parallel {
+                stage('Export Frontend') {
+                    steps { sh 'docker save --output="webuxjs-frontend.tar" webuxjs-frontend' }
+                }
+
+                stage('Export Backend') {
+                    steps { sh 'docker save --output="webuxjs-backend.tar" webuxjs-backend' }
+                }
+
+                stage('Export Elastic Search') {
+                    steps { sh 'docker save --output="webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
+                }
+
+                stage('Export Kibana') {
+                    steps { sh 'docker save --output="webuxjs-kibana.tar" webuxjs-kibana' }
+                }
+
+                stage('Export Logstash') {
+                    steps { sh 'docker save --output="webuxjs-logstash.tar" webuxjs-logstash' }
                 }
             }
         }
