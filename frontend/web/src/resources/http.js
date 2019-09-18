@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || "http://192.168.2.10:1337/api/v1"
+  baseURL: process.env.VUE_APP_API_URL || "http://192.168.10.50:1337/api/v1"
 });
 
 http.interceptors.request.use(config => {

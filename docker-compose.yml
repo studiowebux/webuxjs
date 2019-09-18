@@ -18,7 +18,7 @@ services:
       - DB_REPSET=replicaset
       - APP_ID=Demo01
       - COOKIE_SECRET="Shut don't talk about that secret!"
-      - ORIGIN=http://demo.webux.lab http://localhost http://demo.webux.lab:8080 https://demo.webux.lab:6443
+      - ORIGIN=http://demo.webux.lab http://localhost http://demo.webux.lab https://demo.webux.lab
       - CONSOLE=true
       - LOGSTASH_URL=logstash
       - JWT_ACCESS_SECRET=RIWW11OEl2N2JrRTNtbFZIVnhUQXI3b283TmtBRm82dTBnc2ZHDQp1TVRwK1Fjdkh1VzA3UFdyQVFJUmNvNU5nVXN2VVdqUnZNK0pYRXphRHR5K1ZMWnlUSksyYTBtU3JlTStRM29WDQpsTVdLVVZ2RE1wdXBPbExIeVI5Q1ljaEJxb3ZSa3JFPQ0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQ0K
