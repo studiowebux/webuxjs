@@ -21,7 +21,7 @@ const loginFn = (email, password, req) => {
       if (email && password) {
         const user = await Webux.db.User.findOne(
           { email: email.toLowerCase(), activated: true },
-          { email: 1, password: 1, salt: 1 }
+          { email: 1, password: 1, salt: 1, profileID: 1 }
         ).catch(e => {
           return reject(e);
         });

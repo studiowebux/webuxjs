@@ -1,32 +1,33 @@
-import http from "../../resources/http";
-
 const state = {
-  profile: {}
+  profile: null
 };
 
 const mutations = {
-  SET_PROFILE(state, profile) {
+  INIT_PROFILE(state, profile) {
     state.profile = profile;
   }
 };
 
 const actions = {
-  setProfile: ({ commit }, profile) => {
-    commit("SET_PROFILE", profile);
+  socket_profileFound: ({ commit, dispatch }, data) => {
+    console.log("PROFILE FOUND");
+    console.log(data);
+    commit("INIT_PROFILE", data);
+    dispatch("doneLoading");
   },
-  createProfile: ({ commit, dispatch }, profile) => {
-    dispatch("isLoading");
-    http
-      .post("/profile", { profile })
-      .then(response => {
-        commit("SET_PROFILE", response.data.profile);
-      })
-      .catch(error => {
-        dispatch("setError", error);
-      })
-      .finally(() => {
-        dispatch("doneLoading");
-      });
+  socket_profileCreated: ({ commit, dispatch }, data) => {
+    console.log("PROFILE Created");
+
+    console.log(data);
+    commit("INIT_PROFILE", data.profileID); // because the populate using mongoose wraps the user in profileID
+    dispatch("doneLoading");
+  },
+  socket_profileUpdated: ({ commit, dispatch }, data) => {
+    console.log("PROFILE Updated !");
+
+    console.log(data);
+    commit("INIT_PROFILE", data);
+    dispatch("doneLoading");
   }
 };
 

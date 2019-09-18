@@ -7,13 +7,21 @@
       <ul class="nav nav-pills">
         <li class="nav-item" v-for="entry in entries" :key="entry.name">
           <template v-if="entry.auth && accessToken">
-            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{entry.name}}</router-link>
-            <a v-else href="#" class="nav-link" @click="entry.action">{{entry.name}}</a>
+            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{
+              entry.name
+            }}</router-link>
+            <a v-else href="#" class="nav-link" @click="entry.action">{{
+              entry.name
+            }}</a>
           </template>
 
           <template v-if="!entry.auth && !accessToken">
-            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{entry.name}}</router-link>
-            <a v-else href="#" class="nav-link" @click="entry.action">{{entry.name}}</a>
+            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{
+              entry.name
+            }}</router-link>
+            <a v-else href="#" class="nav-link" @click="entry.action">{{
+              entry.name
+            }}</a>
           </template>
         </li>
       </ul>

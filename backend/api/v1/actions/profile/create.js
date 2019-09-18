@@ -23,6 +23,7 @@ const createProfile = async profile => {
   const profileCreated = await Webux.db.Profile.create(profile).catch(e => {
     throw Webux.errorHandler(422, e);
   });
+
   if (!profileCreated) {
     throw Webux.errorHandler(422, "profile not created");
   }
@@ -31,9 +32,13 @@ const createProfile = async profile => {
     { _id: profile.userID },
     { profileID: profileCreated._id },
     { new: true }
-  ).catch(e => {
-    throw Webux.errorHandler(422, e);
-  });
+  )
+    .select(Webux.constants.user.select)
+    .populate("profileID", Webux.constants.profile.select)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+
   if (!profileLinked) {
     throw Webux.errorHandler(422, "profile not linked");
   }
@@ -48,8 +53,7 @@ const createProfile = async profile => {
  * @apiParamExample {json} Request-Example:
  *     {
  *        "profile":{
- *          "fullname":"John Doe",
- *          "userID":"5d2fb10059f0587ef1dd06e7"
+ *          "fullname":"John Doe"
  *        }
  *      }
  * @apiDescription Create a profile
@@ -73,7 +77,11 @@ const createProfile = async profile => {
  */
 const route = async (req, res, next) => {
   try {
-    const obj = await createProfile(req.body.profile);
+    const profile = {
+      ...req.body.profile,
+      userID: req.user[Webux.config.auth.jwt.id]
+    };
+    const obj = await createProfile(profile);
     if (!obj) {
       return next(Webux.errorHandler(422, "Profile not created"));
     }
@@ -85,18 +93,34 @@ const route = async (req, res, next) => {
 
 // socket with auth
 const socket = client => {
-  return async profile => {
+  return async data => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await createProfile(profile);
-      if (!obj) {
-        client.emit("gotError", "Profile not created");
-      }
 
-      client.emit("profileCreated", obj);
+      Webux.Auth.CheckAuth(data.accessToken, async (err, user) => {
+        if (err || !user) {
+          throw err || new Error("Unauthorized");
+        }
+
+        const profile = {
+          fullname: data.fullname,
+          userID: user[Webux.config.auth.jwt.id]
+        };
+
+        const obj = await createProfile(profile).catch(e => {
+          client.emit("gotError", e);
+          return;
+        });
+
+        if (!obj) {
+          client.emit("gotError", "Profile not created");
+        }
+
+        client.emit("profileCreated", obj);
+      });
     } catch (e) {
       client.emit("gotError", e);
     }

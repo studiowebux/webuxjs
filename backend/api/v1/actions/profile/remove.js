@@ -14,6 +14,8 @@
 
 "use strict";
 
+// TODO : REMOVE THIS FUNCTION
+
 const Webux = require("webux-app");
 
 // action

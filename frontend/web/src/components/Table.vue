@@ -3,7 +3,7 @@
     <table class="table table-striped shadow">
       <thead>
         <tr>
-          <th scope="col" v-for="h in head" :key="h">{{h}}</th>
+          <th scope="col" v-for="h in head" :key="h">{{ h }}</th>
         </tr>
       </thead>
       <transition-group name="slide" mode="out-in" :tag="'tbody'">
@@ -13,10 +13,12 @@
               <span
                 @click="setEditMode(index)"
                 v-if="!isEditMode(index)"
-                :class="{dot: isColor(h)}"
-                :style="[isColor(h) ? {'background-color': '#'+line[h]}: {}]"
+                :class="{ dot: isColor(h) }"
+                :style="[
+                  isColor(h) ? { 'background-color': '#' + line[h] } : {}
+                ]"
               >
-                {{isColor(h) ? '' : line[h]}}
+                {{ isColor(h) ? "" : line[h] }}
                 <font-awesome-icon v-if="!isColor(h)" icon="pencil-alt" />
               </span>
               <input v-else type="text" v-model="line[h]" />
@@ -27,8 +29,17 @@
                 type="button"
                 class="btn btn-danger"
                 @click="remove(line._id)"
-              >Remove</button>
-              <button v-else type="button" class="btn btn-primary" @click="save(line)">Save</button>
+              >
+                Remove
+              </button>
+              <button
+                v-else
+                type="button"
+                class="btn btn-primary"
+                @click="save(line)"
+              >
+                Save
+              </button>
             </div>
           </td>
         </tr>
@@ -113,4 +124,3 @@ export default {
   }
 }
 </style>
-

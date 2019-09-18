@@ -25,12 +25,11 @@ const mutations = {
 
 const actions = {
   socket_gotError: ({ commit }, errorMSG) => {
-    commit("SET_ERROR", errorMSG);
+    console.log(errorMSG);
+    commit("SET_ERROR", errorMSG.message);
+    commit("DONE_LOADING");
   },
   setError: ({ commit }, errorMSG) => {
-    commit("SET_ERROR", errorMSG);
-  },
-  SOCKET_gotError: ({ commit }, errorMSG) => {
     commit("SET_ERROR", errorMSG);
   },
   setSuccess: ({ commit }, successMSG) => {
@@ -56,6 +55,9 @@ const getters = {
   },
   isLoading: state => {
     return state.isLoading;
+  },
+  doneLoading: state => {
+    return state.doneLoading;
   }
 };
 

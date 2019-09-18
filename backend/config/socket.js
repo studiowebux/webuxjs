@@ -9,7 +9,7 @@ module.exports = {
     "plugins",
     "auth",
     "isAuth.js"
-  ))(),
+  )),
   accessKey: "accessToken",
   timeout: 3000,
   options: {

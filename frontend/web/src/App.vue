@@ -55,7 +55,7 @@ export default {
         },
         {
           name: "Profile",
-          to: "/user",
+          to: "/profile",
           auth: true,
           action: false
         },
@@ -77,13 +77,13 @@ export default {
   created() {
     console.log("App has been created");
     if (this.$store.getters.accessToken) {
-      console.log("Open the socket connection");
+      console.log("APP - Open the socket connection");
       socket.open();
       socket.emit("authentication", {
         accessToken: window.$cookies.get("accessToken")
       });
       socket.on("authenticated", data => {
-        console.log("Authenticated !!");
+        console.log("APP - Authenticated !!");
         console.log(data);
       });
     }

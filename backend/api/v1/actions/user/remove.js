@@ -12,6 +12,8 @@
  * License: All rights reserved Studio Webux S.E.N.C 2015-Present
  */
 
+// TODO : REMOVE THIS FUNCTION
+
 "use strict";
 
 const Webux = require("webux-app");

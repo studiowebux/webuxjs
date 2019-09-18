@@ -33,7 +33,8 @@ function setCookies(accessToken = null, refreshToken = null, userID = null) {
 const state = {
   accessToken: null,
   userID: null,
-  connections: null
+  connections: null,
+  timeout: false
 };
 
 const mutations = {
@@ -51,32 +52,45 @@ const mutations = {
   },
   SET_CONNECTIONS(state, connections) {
     state.connections = connections;
+  },
+  TIMEOUT(state, status) {
+    state.timeout = status;
   }
 };
 
 const actions = {
   socket_unauthorized: ({ dispatch }, data) => {
     console.log(data);
-    dispatch("setError", "Unauthorized");
+    dispatch("setError", "You are not authenticated");
+    dispatch("doneLoading");
+    dispatch("logout");
   },
-  setAutoRefresh: ({ dispatch }, timer) => {
+  setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
     console.log(
       "SETAUTOREFRESH - Create the timeout function with value of " + timeout
     );
-    setTimeout(() => {
-      console.log("SETAUTOREFRESH - TIMEOUT CALLED ! ");
-      const refreshToken = window.$cookies.get("refreshToken");
-      const userID = window.$cookies.get("userID");
+    console.log(state);
+    if (!state.timeout) {
+      console.log("set timeout...");
+      commit("TIMEOUT", true);
+      setTimeout(() => {
+        console.log("SETAUTOREFRESH - TIMEOUT CALLED ! ");
+        const refreshToken = window.$cookies.get("refreshToken");
+        const userID = window.$cookies.get("userID");
 
-      console.log(
-        "SETAUTOREFRESH - Dispatch refreshToken with values + " +
-          refreshToken +
-          " || " +
-          userID
-      );
-      dispatch("refreshToken", { refreshToken, userID });
-    }, timeout);
+        console.log(
+          "SETAUTOREFRESH - Dispatch refreshToken with values + " +
+            refreshToken +
+            " || " +
+            userID
+        );
+        commit("TIMEOUT", false);
+        dispatch("refreshToken", { refreshToken, userID });
+      }, timeout);
+    } else {
+      console.log("Timeout already there...");
+    }
   },
   signIn: ({ commit, dispatch }, credentials) => {
     dispatch("isLoading");
@@ -117,7 +131,7 @@ const actions = {
         socket.emit("authentication", { accessToken: user.accessToken });
         socket.on("authenticated", data => {
           console.log(data);
-          console.log("Authenticated !");
+          console.log("SIGNIN - Authenticated !");
         });
         router.replace("/").catch(() => {});
       })
@@ -162,7 +176,7 @@ const actions = {
 
         socket.on("authenticated", data => {
           console.log(data);
-          console.log("Authenticated !");
+          console.log("SIGNUP - Authenticated !");
         });
         router.replace("/").catch(() => {});
       })

@@ -15,12 +15,23 @@
 "use strict";
 
 const Webux = require("webux-app");
+const jwt = require("jsonwebtoken");
 
 // action
-const findOneProfile = async (profileID, query) => {
-  await Webux.isValid.Custom(Webux.validators.profile.MongoID, profileID);
+const findOneProfile = async (userID, query) => {
+  await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
 
-  const profile = await Webux.db.Profile.findById(profileID)
+  const myUser = await Webux.db.User.findById(userID)
+    .select("profileID")
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+
+  if (!myUser) {
+    throw Webux.errorHandler(404, "profile not found");
+  }
+
+  const profile = await Webux.db.Profile.findById(myUser.profileID)
     .select(query.projection || Webux.constants.profile.select)
     .catch(e => {
       throw Webux.errorHandler(422, e);
@@ -66,18 +77,32 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async profileID => {
+  return async accessToken => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await findOneProfile(profileID, {});
-      if (!obj) {
-        client.emit("gotError", "Profile with ID not found");
-      }
 
-      client.emit("profileFound", obj);
+      Webux.Auth.CheckAuth(accessToken, async (err, user) => {
+        if (err || !user) {
+          throw err || new Error("Unauthorized");
+        }
+
+        const obj = await findOneProfile(
+          user[Webux.config.auth.jwt.id],
+          {}
+        ).catch(e => {
+          client.emit("gotError", e);
+          return;
+        });
+
+        if (!obj) {
+          client.emit("gotError", "Profile with ID not found");
+        }
+
+        client.emit("profileFound", obj);
+      });
     } catch (e) {
       client.emit("gotError", e);
     }

@@ -74,7 +74,11 @@ const socket = client => {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await findProfile({});
+      const obj = await findProfile({}).catch(e => {
+        client.emit("gotError", e);
+        return;
+      });
+
       if (!obj) {
         client.emit("gotError", "Profile not found");
       }

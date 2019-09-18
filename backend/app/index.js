@@ -17,7 +17,7 @@
 const path = require("path");
 const Webux = require("webux-app");
 const { loginFn, registerFn } = require("../api/v1/plugins/auth/local");
-const { deserializeFn } = require("../api/v1/plugins/auth/local"); // if required
+// const { deserializeFn } = require("../api/v1/plugins/auth/local"); // if required
 const jwtOptions = require(path.join(__dirname, "..", "config", "auth")).jwt;
 
 /**
@@ -88,6 +88,8 @@ async function LoadApp() {
 
   // start sockets
   await Webux.StartSocket();
+
+  Webux.Auth.CheckAuth = require("../api/v1/plugins/auth/isAuth");
 }
 
 module.exports = LoadApp;

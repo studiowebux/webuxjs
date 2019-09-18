@@ -82,19 +82,39 @@ const route = async (req, res, next) => {
 // socket with auth
 
 const socket = client => {
-  return async (profileID, profile) => {
+  return data => {
     try {
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
       }
-      const obj = await updateOneProfile(profileID, profile);
-      if (!obj) {
-        client.emit("gotError", "Profile with ID not updated");
-      }
 
-      client.emit("profileUpdated", obj);
+      Webux.Auth.CheckAuth(data.accessToken, async (err, user) => {
+        try {
+          if (err || !user) {
+            throw err || new Error("Unauthorized");
+          }
+
+          const profile = {
+            fullname: data.fullname,
+            userID: user[Webux.config.auth.jwt.id]
+          };
+
+          const obj = await updateOneProfile(user.profileID, {
+            fullname: profile.fullname
+          });
+
+          if (!obj) {
+            throw new Error("Profile with ID not updated");
+          }
+
+          client.emit("profileUpdated", obj);
+        } catch (e) {
+          client.emit("gotError", e);
+        }
+      });
     } catch (e) {
+      console.log(e);
       client.emit("gotError", e);
     }
   };
