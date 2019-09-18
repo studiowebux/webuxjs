@@ -87,17 +87,12 @@ export default {
       this.newStatus.description = "";
     },
     saveStatus(line) {
-      const updStatus = {
-        _id: line._id,
-        status: {
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("updateStatus", line._id, {
           name: line.name,
           description: line.description,
           color: line.color.replace("#", "")
-        }
-      };
-      // this.editStatus(updStatus);
-      this.$store.dispatch("isLoading");
-      this.$socket.client.emit("updateStatus", updStatus);
+        });
     },
     removeStatus(id) {
       console.log(id);

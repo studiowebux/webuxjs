@@ -62,7 +62,11 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
+<<<<<<< HEAD
 import { mapGetters /*mapActions*/ } from "vuex";
+=======
+import { mapGetters, /*mapActions*/ } from "vuex";
+>>>>>>> 7746c80feb9bccaf6144ba80dc1c7bd6c16aeb36
 
 export default {
   name: "category",
@@ -105,7 +109,7 @@ export default {
       //this.editCategory(updCategory);
 
       this.$store.dispatch("isLoading");
-      this.$socket.client.emit("updateCategory", updCategory);
+      this.$socket.client.emit("updateCategory", updCategory._id, updCategory.category);
     },
     removeCategory(id) {
       console.log(id);

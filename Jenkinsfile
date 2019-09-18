@@ -5,7 +5,7 @@ pipeline {
         stage('Build image') {
             parallel {
                 stage('Build Frontend') {
-                    steps { sh 'docker build -f ./frontend/Dockerfile -t webuxjs-frontend./frontend' }
+                    steps { sh 'docker build -f ./frontend/Dockerfile -t webuxjs-frontend ./frontend' }
                 }
 
                 stage('Build Backend') {
@@ -21,7 +21,31 @@ pipeline {
                 }
 
                 stage('Build Logstash') {
-                    steps { sh 'docker build -f ./ELK/logstah/Dockerfile -t webuxjs-logstah ./ELK/logstah' }
+                    steps { sh 'docker build -f ./ELK/logstash/Dockerfile -t webuxjs-logstash ./ELK/logstash' }
+                }
+            }
+        }
+
+        stage('Push Image') {
+            parallel {
+                stage('Push Frontend') {
+                    steps { sh 'docker tag webuxjs-frontend hub.webux.lab/webuxjs-frontend:latest; docker push hub.webux.lab/webuxjs-frontend:latest' }
+                }
+
+                stage('Push Backend') {
+                    steps { sh 'docker tag webuxjs-backend hub.webux.lab/webuxjs-backend:latest; docker push hub.webux.lab/webuxjs-backend:latest' }
+                }
+
+                stage('Push Elastic Search') {
+                    steps { sh 'docker tag webuxjs-elasticsearch hub.webux.lab/webuxjs-elasticsearch:latest; docker push hub.webux.lab/webuxjs-elasticsearch:latest' }
+                }
+
+                stage('Push Kibana') {
+                    steps { sh 'docker tag webuxjs-kibana hub.webux.lab/webuxjs-kibana:latest; docker push hub.webux.lab/webuxjs-kibana:latest' }
+                }
+
+                stage('Push Logstash') {
+                    steps { sh 'docker tag webuxjs-logstash hub.webux.lab/webuxjs-logstash:latest; docker push hub.webux.lab/webuxjs-logstash:latest' }
                 }
             }
         }

@@ -4,8 +4,13 @@ FROM node:10-jessie AS frontendbuilder
 WORKDIR /home/node/app
 COPY ./web/package.json .
 
+## Need the development tools too.
 RUN npm install
+RUN npm install -g @vue/cli
+
 COPY ./web .
+
+ENV NODE_ENV=production
 
 RUN npm run build
 

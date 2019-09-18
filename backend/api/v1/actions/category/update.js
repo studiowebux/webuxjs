@@ -40,7 +40,7 @@ const updateOneCategory = async (categoryID, category) => {
 /**
  * @apiGroup Category
  * @api {put} /api/v1/category/:id Update a category
- * @apiParam {string} id 
+ * @apiParam {string} id
  * @apiParamExample {json} Request-Example:
  *     {
  *        "category":{
