@@ -18,7 +18,9 @@ const Webux = require("webux-app");
 
 // action
 const findPart = async query => {
-  const parts = await Webux.db.Part.find({})
+  console.log(query)
+  const filter = query.filter || {};
+  const parts = await Webux.db.Part.find(filter)
     .lean()
     .select(query.projection || Webux.validators.part.select)
     .limit(query.limit)

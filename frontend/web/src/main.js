@@ -6,7 +6,7 @@ import store from "./store";
 import "./resources/socket";
 import "./registerServiceWorker";
 import "./resources/font-awesome";
-import "@trevoreyre/autocomplete-vue/dist/style.css";
+import "vue-simple-suggest/dist/styles.css";
 
 Vue.config.productionTip = false;
 
