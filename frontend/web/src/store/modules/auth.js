@@ -246,7 +246,7 @@ const actions = {
         dispatch("doneLoading");
       });
   },
-  autoLogin: ({ commit, dispatch }) => {
+  autoLogin: ({ commit, dispatch, state }) => {
     console.log("AUTOLOGIN - Get the cookie values");
     const accessToken = window.$cookies.get("accessToken");
     const userID = window.$cookies.get("userID");
@@ -255,6 +255,9 @@ const actions = {
 
     if (!accessToken || !userID) {
       console.log("AUTOLOGIN - No access token or userID, exit");
+      if (state.userID || state.accessToken) {
+        dispatch("logout");
+      }
       return;
     }
 

@@ -62,23 +62,19 @@
             </div>
           </div>
 
-          <div
-            class="misc-item"
-            slot="misc-item-below"
-            slot-scope="{ suggestions }"
-            v-if="loading"
-          >
+          <div class="misc-item" slot="misc-item-below" v-if="loading">
             <span>Loading...</span>
           </div>
         </vue-suggest>
       </form>
     </nav>
     <div class="row">
-      <div class="col-md-4 col-sm-6 mb-3" v-for="n in 10" :key="n">
+      <div class="col-md-4 col-sm-6 mb-3" v-for="part in parts" :key="part._id">
         <div class="card">
+          <part-image :id="part._id" class="card-img-top " :alt="part.name" />
           <div class="card-body">
-            <h5 class="card-title">Test #{{ n }}</h5>
-            <p class="card-text">Some Texts</p>
+            <h5 class="card-title">{{ part.name }}</h5>
+            <p class="card-text">{{ part.description }}</p>
             <a href="#" class="card-link">Action 1</a>
             <a href="#" class="card-link">Action 2</a>
             <a href="#" class="card-link">Action 3</a>
@@ -91,11 +87,14 @@
 
 <script>
 import VueSuggest from "vue-simple-suggest/lib";
+import PartImage from "../components/PartImage";
 import http from "../resources/http";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
-    VueSuggest
+    VueSuggest,
+    PartImage
   },
   data() {
     return {
@@ -105,15 +104,35 @@ export default {
       loading: false
     };
   },
+
+  created() {
+    console.log(
+      "Try to find parts if any, otherwise show a big ADD button ..."
+    );
+    this.$store.dispatch("isLoading");
+    this.$socket.client.emit("findPart");
+  },
+  sockets: {
+    connect() {
+      console.log("Part - Socket.io connected");
+    }
+  },
+  computed: {
+    ...mapGetters([
+      "parts",
+      "error_message",
+      "success_message",
+      "isLoading",
+      "doneLoading"
+    ])
+  },
   methods: {
     boldenSuggestion(scope) {
       if (!scope) return scope;
       const { suggestion, query } = scope;
-      let result = this.$refs.suggestComponent.displayProperty(
-        "<h5>" + suggestion.name + "</h5><p>" + suggestion.description + "</p>"
-      );
+      let result = this.$refs.suggestComponent.displayProperty(suggestion);
       if (!query) return result;
-      const texts = query.split(/[\s-_/\\|\.]/gm).filter(t => !!t) || [""];
+      const texts = query.split(/[\s-_/\\|.]/gm).filter(t => !!t) || [""];
       return result.replace(
         new RegExp("(.*?)(" + texts.join("|") + ")(.*?)", "gi"),
         "$1<b>$2</b>$3"
@@ -148,7 +167,6 @@ export default {
 
             resolve(
               Object.values(response.data.body).map(part => {
-                console.log(part);
                 return part;
               })
             );
@@ -188,5 +206,11 @@ export default {
 .vue-simple-suggest-enter.suggestions,
 .vue-simple-suggest-leave-to.suggestions {
   opacity: 0 !important;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 </style>
