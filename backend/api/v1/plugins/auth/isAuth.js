@@ -3,6 +3,11 @@
 const Webux = require("webux-app");
 const jwt = require("jsonwebtoken");
 
+console.log("********************************************************")
+console.log("LOADING IS AUTH")
+console.log("********************************************************")
+
+
 /**
  * This function is used to authenticate the user using the socket.io.
  * The function also check if the access token is not blacklisted in Redis.

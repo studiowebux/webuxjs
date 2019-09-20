@@ -11,5 +11,5 @@ module.exports = {
   version: require("../package.json")["version"],
   port: process.env.PORT || 1337,
   cores: process.env.CORES || null,
-  clusterize: process.env.CLUSTERIZE && process.env.CLUSTERIZE == "false" ? false : true,
+  clusterize: process.env.CLUSTERIZE && process.env.CLUSTERIZE == "true" ? true : false,
 };
