@@ -19,7 +19,6 @@ const Webux = require("webux-app");
 const { loginFn, registerFn } = require("../api/v1/plugins/auth/local");
 // const { deserializeFn } = require("../api/v1/plugins/auth/local"); // if required
 const jwtOptions = require(path.join(__dirname, "..", "config", "auth")).jwt;
-const async = require("async");
 
 /**
  * It initializes the application.
@@ -27,153 +26,55 @@ const async = require("async");
  */
 
 async function LoadApp() {
-  async.series(
-    [
-      callback => {
-        // load isAuth middleware
-        Webux.CreateIsAuth(jwtOptions);
-        callback();
-      },
-      callback => {
-        async.parallel(
-          [
-            callback => {
-              // Load constants
-              Webux.LoadConstants(
-                path.join(__dirname, "..", "api", "v1", "constants")
-              ).then(() => callback());
-            },
-            callback => {
-              // Load validators
-              Webux.LoadValidators(
-                path.join(__dirname, "..", "api", "v1", "validations")
-              ).then(() => callback());
-            },
-            callback => {
-              // Load configuration
-              Webux.LoadConfiguration(path.join(__dirname, "..", "config"));
-              callback();
-            }
-          ],
-          err => {
-            callback(err);
-          }
-        );
-      },
-      callback => {
-        // Create logger
-        Webux.CreateLogger();
-        callback();
-      },
-      callback => {
-        // initialize the Database
-        Webux.InitDB().then(() => callback());
-      },
-      callback => {
-        // initialize the Database Models
-        Webux.LoadModels().then(() => callback());
-      },
-      callback => {
-        // load default values
-        if (Webux.config.seed.enabled) {
-          Webux.LoadSeed().then(() => callback());
-        } else {
-          callback();
-        }
-      },
-      callback => {
-        async.parallel(
-          [
-            callback => {
-              // request logger
-              Webux.OnRequest();
-              callback();
-            },
-            callback => {
-              // Load security
-              Webux.LoadSecurity();
-              callback();
-            },
-            callback => {
-              // Load Language
-              Webux.LoadLanguage();
-              callback();
-            },
-            callback => {
-              // Create Limiter
-              Webux.CreateLimiter().then(() => callback());
-            }
-          ],
-          err => {
-            callback(err);
-          }
-        );
-      },
-      callback => {
-        async.parallel(
-          [
-            callback => {
-              // Initialize the authentication module
-              Webux.InitLocalStrategy(loginFn, registerFn).then(() =>
-                callback()
-              );
-            },
-            callback => {
-              Webux.InitJWTStrategy(/*deserializeFn*/).then(() => callback());
-            },
-            callback => {
-              Webux.InitRedis().then(() => callback());
-            }
-          ],
-          err => {
-            callback(err);
-          }
-        );
-      },
-      callback => {
-        // routes
-        Webux.CreateRoutes().then(() => {
-          callback();
-        });
-      },
-      callback => {
-        // static routes
-        Webux.LoadStaticResources().then(() => {
-          callback();
-        });
-      },
-      callback => {
-        // sockets
-        Webux.CreateSockets().then(() => {
-          callback();
-        });
-      },
-      callback => {
-        // error handling
-        Webux.GlobalErrorHandler();
-        callback();
-      },
-      callback => {
-        // start server
-        Webux.StartServer().then(() => {
-          callback();
-        });
-      },
-      callback => {
-        // start sockets
-        Webux.StartSocket();
-        callback();
-      },
-      callback => {
-        Webux.Auth.CheckAuth = require("../api/v1/plugins/auth/isAuth");
-        callback();
-      }
-    ],
-    err => {
-      console.error(err);
-      console.log("App Ready !");
-    }
-  );
+  Webux.LoadResponses();
+
+  // load isAuth middleware
+  Webux.InitIsAuth(jwtOptions);
+
+  Webux.LoadConstants(path.join(__dirname, "..", "api", "v1", "constants"));
+
+  Webux.LoadValidators(path.join(__dirname, "..", "api", "v1", "validations"));
+
+  Webux.LoadConfiguration(path.join(__dirname, "..", "config"));
+
+  await Webux.InitLogger();
+
+  await Webux.InitDB();
+
+  await Webux.LoadModels();
+
+  await Webux.LoadSeed();
+
+  Webux.OnRequest();
+
+  Webux.OnResponse();
+
+  await Webux.LoadSecurity();
+
+  Webux.LoadLanguage();
+
+  await Webux.LoadLimiters();
+
+  await Webux.LoadStaticResources();
+
+  await Webux.LoadRoutes();
+
+  await Webux.LoadGlobalErrorHandler();
+
+  await Webux.InitSocket();
+
+  await Webux.InitServer();
+
+  Webux.OnSocket();
+
+  // Initialize the authentication module
+  await Webux.InitLocalStrategy(loginFn, registerFn);
+  await Webux.InitJWTStrategy(/*deserializeFn*/);
+  await Webux.InitRedis();
+
+  Webux.Auth.CheckAuth = require("../api/v1/plugins/auth/isAuth");
+
+  console.log("Application Ready !")
 }
 
 module.exports = LoadApp;

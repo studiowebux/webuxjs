@@ -3,13 +3,13 @@ let client;
 
 //initialize the Redis connection depending of the node env.
 if (process.env.NODE_ENV !== "production") {
-  console.log("\x1b[33m", "Webux-auth - Starting redis mock", "\x1b[0m");
+  console.log(`\x1b[33mWebux-auth - Starting redis mock\x1b[0m`);
   redis = require("redis-mock");
   client = redis.createClient();
 
   client.on("error", function(err) {
-    console.error("\x1b[31m", "Webux-auth - Redis error", "\x1b[0m");
-    console.error("\x1b[31m", err, "\x1b[0m");
+    console.error(`\x1b[31mWebux-auth - Redis error\x1b[0m`);
+    console.error(`\x1b[31m${err}\x1b[0m`);
   });
 } else {
   // TODO implement the real redis instance...
