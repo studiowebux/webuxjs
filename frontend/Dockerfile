@@ -10,7 +10,7 @@ RUN npm install -g @vue/cli
 
 COPY ./web .
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 RUN npm run build
 
