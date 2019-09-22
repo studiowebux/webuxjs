@@ -23,6 +23,7 @@ module.exports = {
     replicaSet: process.env.DB_REPLSET || "",
     autoIndex: true,
     useNewUrlParser: true,
-    reconnectTries: 30
+    reconnectTries: 30,
+    useUnifiedTopology: true
   }
 };
