@@ -50,37 +50,37 @@ pipeline {
             }
         }
 
-        stage('Export Image') {
-            parallel {
-                stage('Export Frontend') {
-                    steps { sh 'docker save --output="webuxjs-frontend.tar" webuxjs-frontend' }
-                }
+        // stage('Export Image') {
+        //     parallel {
+        //         stage('Export Frontend') {
+        //             steps { sh 'docker save --output="webuxjs-frontend.tar" webuxjs-frontend' }
+        //         }
 
-                stage('Export Backend') {
-                    steps { sh 'docker save --output="webuxjs-backend.tar" webuxjs-backend' }
-                }
+        //         stage('Export Backend') {
+        //             steps { sh 'docker save --output="webuxjs-backend.tar" webuxjs-backend' }
+        //         }
 
-                stage('Export Elastic Search') {
-                    steps { sh 'docker save --output="webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
-                }
+        //         stage('Export Elastic Search') {
+        //             steps { sh 'docker save --output="webuxjs-elasticsearch.tar" webuxjs-elasticsearch' }
+        //         }
 
-                stage('Export Kibana') {
-                    steps { sh 'docker save --output="webuxjs-kibana.tar" webuxjs-kibana' }
-                }
+        //         stage('Export Kibana') {
+        //             steps { sh 'docker save --output="webuxjs-kibana.tar" webuxjs-kibana' }
+        //         }
 
-                stage('Export Logstash') {
-                    steps { sh 'docker save --output="webuxjs-logstash.tar" webuxjs-logstash' }
-                }
-            }
-        }
+        //         stage('Export Logstash') {
+        //             steps { sh 'docker save --output="webuxjs-logstash.tar" webuxjs-logstash' }
+        //         }
+        //     }
+        // }
 
-        stage("Archive") {
-            steps {
-                archiveArtifacts(
-                    artifacts: 'webuxjs-*.tar',
-                    onlyIfSuccessful: true
-                )
-            }
-        }
+        // stage("Archive") {
+        //     steps {
+        //         archiveArtifacts(
+        //             artifacts: 'webuxjs-*.tar',
+        //             onlyIfSuccessful: true
+        //         )
+        //     }
+        // }
     }
 }
