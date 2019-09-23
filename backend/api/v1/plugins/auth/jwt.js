@@ -1,15 +1,16 @@
+const Webux = require("webux-app");
 let redis;
 let client;
 
 //initialize the Redis connection depending of the node env.
 if (process.env.NODE_ENV !== "production") {
-  console.log(`\x1b[33mWebux-auth - Starting redis mock\x1b[0m`);
+  Webux.log.info(`\x1b[33mWebux-auth - Starting redis mock\x1b[0m`);
   redis = require("redis-mock");
   client = redis.createClient();
 
   client.on("error", function(err) {
-    console.error(`\x1b[31mWebux-auth - Redis error\x1b[0m`);
-    console.error(`\x1b[31m${err}\x1b[0m`);
+    Webux.log.error(`\x1b[31mWebux-auth - Redis error\x1b[0m`);
+    Webux.log.error(`\x1b[31m${err}\x1b[0m`);
   });
 } else {
   // TODO implement the real redis instance...
@@ -20,9 +21,9 @@ const getConnections = userID => {
   return new Promise((resolve, reject) => {
     try {
       if (userID) {
-        console.log("ID present ! ===> " + userID);
+        Webux.log.debug("ID present ! ===> " + userID);
 
-        console.log(
+        Webux.log.debug(
           "you should store the access/refresh token in a mongo DB instead, you will be able to get only the wanted tokens easily..."
         );
         client.keys("*", (err, obj) => {

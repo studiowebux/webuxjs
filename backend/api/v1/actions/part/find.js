@@ -18,7 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findPart = async query => {
-  console.log(query)
+  Webux.log.debug(query)
   const filter = query.filter || {};
   const parts = await Webux.db.Part.find(filter)
     .lean()

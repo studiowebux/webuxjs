@@ -29,7 +29,7 @@ async function LoadApp() {
   Webux.LoadResponses();
 
   // load isAuth middleware
-  Webux.InitIsAuth(jwtOptions);
+  await Webux.InitIsAuth(jwtOptions);
 
   Webux.LoadConstants(path.join(__dirname, "..", "api", "v1", "constants"));
 
@@ -74,7 +74,7 @@ async function LoadApp() {
 
   Webux.Auth.CheckAuth = require("../api/v1/plugins/auth/isAuth");
 
-  console.log("Application Ready !")
+  Webux.log.info("Application Ready !");
 }
 
 module.exports = LoadApp;

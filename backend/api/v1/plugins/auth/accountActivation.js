@@ -20,8 +20,8 @@ const activationCodeFn = (email, code) => {
         );
       }
 
-      console.log("*** Send the new code by EMAIL/SMS");
-      console.log("Your Code : " + code);
+      Webux.log.debug("*** Send the new code by EMAIL/SMS");
+      Webux.log.debug("Your Code : " + code);
 
       return resolve("Activation code sent successfully"); // this function must return something !
     } catch (e) {

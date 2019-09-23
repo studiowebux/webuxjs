@@ -17,5 +17,9 @@ module.exports = {
     debug: "log/debug.log",
     silly: "log/silly.log"
   },
-  blacklist: ["password", "authorization", "refreshToken", "accessToken"]
+  blacklist: ["password", "authorization", "refreshToken", "accessToken"],
+  meta: {
+    service: "Demo Backend Instance",
+    Location: "eldir.webux.lab"
+  }
 };

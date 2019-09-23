@@ -114,7 +114,7 @@ const socket = client => {
         }
       });
     } catch (e) {
-      console.log(e);
+      Webux.log.error(e);
       client.emit("gotError", e);
     }
   };

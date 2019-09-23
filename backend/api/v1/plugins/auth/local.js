@@ -4,8 +4,8 @@ const Webux = require("webux-app");
 const deserializeFn = user => {
   return new Promise((resolve, reject) => {
     try {
-      console.log(user);
-      console.log(
+      Webux.log.debug(user);
+      Webux.log.debug(
         "Based on that ID do an API call/database to retrieve all the user information..."
       );
       return resolve({ _id: 1, fullname: "Bob", city: "Montreal" });
@@ -27,7 +27,7 @@ const loginFn = (email, password, req) => {
         });
 
         if (!user) {
-          console.log("Maybe the account isn't activated");
+          Webux.log.debug("Maybe the account isn't activated");
           return reject(
             new Error(
               "Incorrect credentials or check if your account is activated"

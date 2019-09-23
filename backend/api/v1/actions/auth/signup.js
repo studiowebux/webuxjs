@@ -43,7 +43,7 @@ const signup = (req, res, next) => {
               Webux.log
             )
               .then(code => {
-                console.log(code);
+                Webux.log.debug(code);
               })
               .catch(e => {
                 throw e;

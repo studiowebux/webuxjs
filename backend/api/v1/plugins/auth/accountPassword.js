@@ -21,9 +21,9 @@ const lostPasswordFn = (email, code) => {
         );
       }
 
-      console.log("*** Send A MAIL/SMS containing the code");
+      Webux.log.debug("*** Send A MAIL/SMS containing the code");
 
-      console.log("Your code : " + code);
+      Webux.log.debug("Your code : " + code);
 
       return resolve("Password recovery procedure sent successfully"); // this function must return something !
     } catch (e) {
