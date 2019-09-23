@@ -16,9 +16,9 @@ module.exports = {
   cookieParser: {
     secret: process.env.COOKIE_SECRET || "SHUUUT!"
   },
-  trustProxy: '192.168.10.171',
-  allowedMethods: "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+  trustProxy: "192.168.10.171",
+  allowedMethods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
   allowedCredentials: true,
   allowedHeaders:
-    "Origin, X-Requested-with, Accept, Authorization, Content-Type, Accept-Language"
+    "Origin,X-Requested-with,Accept,Authorization,Content-Type,Accept-Language"
 };
