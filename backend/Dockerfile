@@ -3,6 +3,8 @@ FROM node:10-jessie AS backendbuilder
 
 WORKDIR /usr/src/app
 COPY ./package.json .
+RUN apt install -y libvips-dev
+
 RUN npm install --production
 
 
