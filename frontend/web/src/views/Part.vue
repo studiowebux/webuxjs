@@ -68,10 +68,10 @@
         </vue-suggest>
       </form>
     </nav>
-    <div class="row">
+    <div class="row" v-if="parts && Object.keys(parts).length > 0">
       <div class="col-md-4 col-sm-6 mb-3" v-for="part in parts" :key="part._id">
         <div class="card">
-          <part-image :id="part._id" class="card-img-top " :alt="part.name" />
+          <part-image :id="part._id" class="card-img-top" :alt="part.name" />
           <div class="card-body">
             <h5 class="card-title">{{ part.name }}</h5>
             <p class="card-text">{{ part.description }}</p>
@@ -82,19 +82,24 @@
         </div>
       </div>
     </div>
+    <div class="row justify-content-md-center" v-else>
+      <Error></Error>
+    </div>
   </div>
 </template>
 
 <script>
 import VueSuggest from "vue-simple-suggest/lib";
 import PartImage from "../components/PartImage";
+import Error from "../components/Error";
 import http from "../resources/http";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     VueSuggest,
-    PartImage
+    PartImage,
+    Error
   },
   data() {
     return {
@@ -118,13 +123,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      "parts",
-      "error_message",
-      "success_message",
-      "isLoading",
-      "doneLoading"
-    ])
+    ...mapGetters(["parts", "success_message", "isLoading", "doneLoading"])
   },
   methods: {
     boldenSuggestion(scope) {
@@ -209,8 +208,8 @@ export default {
 }
 
 .card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
 }
 </style>

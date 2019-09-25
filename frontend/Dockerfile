@@ -1,5 +1,5 @@
 # Compile the frontend react app
-FROM node:10-jessie AS frontendbuilder
+FROM node:lts-jessie AS frontendbuilder
 
 WORKDIR /home/node/app
 COPY ./web/package.json .
@@ -10,13 +10,15 @@ RUN npm install -g @vue/cli
 
 COPY ./web .
 
-ENV NODE_ENV=development
+# In production the env. will apply and the console.log will be removed.
+ENV NODE_ENV=production
 
 RUN npm run build
 
 # Create the frontend container with Nginx
-FROM nginx:1.15.8-alpine
+FROM nginx:stable-alpine
 
+# To do health check
 RUN apk add --update netcat-openbsd && rm -rf /var/cache/apk/*
 
 COPY --from=frontendbuilder /home/node/app/dist /var/www

@@ -1,26 +1,25 @@
 <template>
   <div class="container">
+    <Error></Error>
     <div class="row justify-content-md-center">
-      <div
-        v-if="error_message"
-        class="col-md-6 col-sm-12 alert alert-danger"
-        role="alert"
-      >
-        {{ error_message }}
-      </div>
-    </div>
-    <div class="row justify-content-md-center">
-      <p>
-        Enter your email address to get the instruction to reset your password.
-      </p>
-      <input
-        type="email"
-        v-model="email"
-        name="email"
-        id="email"
-        class="form-control"
-      />
-      <Submit text="Send Instruction" :onClick="SendEmail"></Submit>
+      <form @keyup.enter.prevent="SendEmail">
+        <p>
+          Enter your email address to get the instruction to reset your
+          password.
+        </p>
+        <input
+          type="email"
+          v-model="email"
+          name="email"
+          id="email"
+          class="form-control"
+        />
+        <Submit
+          class="mt-3"
+          text="Send Instruction"
+          :onClick="SendEmail"
+        ></Submit>
+      </form>
     </div>
     <div class="row justify-content-md-center">
       <div
@@ -37,6 +36,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import Submit from "../components/Submit";
+import Error from "../components/Error";
 
 export default {
   data() {
@@ -45,7 +45,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["success_message", "error_message"])
+    ...mapGetters(["success_message"])
   },
   methods: {
     ...mapActions(["lostPassword"]),
@@ -57,7 +57,8 @@ export default {
     }
   },
   components: {
-    Submit
+    Submit,
+    Error
   }
 };
 </script>

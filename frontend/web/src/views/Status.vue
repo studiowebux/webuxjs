@@ -1,11 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-end actions">
-      <div class="col-md-4">
-        <div v-if="error_message" class="alert alert-danger" role="alert">
-          {{ error_message }}
-        </div>
-      </div>
+      <Error></Error>
       <div class="col-md-6">
         <form>
           <div class="row">
@@ -62,13 +58,15 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
+import Error from "../components/Error";
 import { mapGetters } from "vuex";
 
 export default {
   name: "status",
   components: {
     wTable: Table,
-    wSpinner: Spinner
+    wSpinner: Spinner,
+    Error
   },
   methods: {
     createStatus() {
@@ -89,10 +87,10 @@ export default {
     saveStatus(line) {
       this.$store.dispatch("isLoading");
       this.$socket.client.emit("updateStatus", line._id, {
-          name: line.name,
-          description: line.description,
-          color: line.color.replace("#", "")
-        });
+        name: line.name,
+        description: line.description,
+        color: line.color.replace("#", "")
+      });
     },
     removeStatus(id) {
       console.log(id);
@@ -101,7 +99,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["status", "error_message", "isLoading"])
+    ...mapGetters(["status", "isLoading"])
   },
   data() {
     return {

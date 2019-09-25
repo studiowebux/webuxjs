@@ -1,12 +1,8 @@
 <template>
   <div class="container">
+    <Error></Error>
     <div class="row justify-content-md-center">
-      <div v-if="error_message" class="alert alert-danger" role="alert">
-        {{ error_message }}
-      </div>
-    </div>
-    <div class="row justify-content-md-center">
-      <form>
+      <form @keyup.enter="register">
         <div class="form-group">
           <input
             class="form-control form-control-lg mb-2"
@@ -37,17 +33,21 @@
           <div v-if="invalid" class="alert alert-danger" role="alert">
             {{ invalid }}
           </div>
-          <br />
-          <submit text="Sign up" :onClick="register"></submit>
+
+          <submit class="mb-2 mt-3" text="Sign up" :onClick="register"></submit>
         </div>
       </form>
+      <router-link class="col-md-12" to="/signin"
+        >Already Registered ?</router-link
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import Submit from "../components/Submit";
+import Error from "../components/Error";
 import checkAuth from "../helpers/checkAuth";
 
 export default {
@@ -62,13 +62,9 @@ export default {
       isValid: true
     };
   },
-  computed: {
-    ...mapGetters(["error_message"])
-  },
   methods: {
     ...mapActions(["signUp"]),
     register() {
-      console.log("clicked");
       if (!this.user.email || !this.user.password) {
         return;
       }
@@ -85,7 +81,8 @@ export default {
     }
   },
   components: {
-    Submit
+    Submit,
+    Error
   },
   created() {
     checkAuth();

@@ -172,7 +172,9 @@ const actions = {
 
         console.log("SIGNUP - Init the socket.io");
         socket.open();
-        socket.emit("authentication", { accessToken: user.accessToken });
+        socket.emit("authentication", {
+          accessToken: response.data.tokens.access
+        });
 
         socket.on("authenticated", data => {
           console.log(data);

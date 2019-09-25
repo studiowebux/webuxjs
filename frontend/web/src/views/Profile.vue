@@ -1,19 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-md-center">
-      <div
-        v-if="error_message"
-        class="col-md-4 col-sm-12 alert alert-danger"
-        role="alert"
-      >
-        {{ error_message }}
-        <font-awesome-icon
-          icon="times-circle"
-          class="float-right"
-          @click="hide"
-        />
-      </div>
-    </div>
+    <Error></Error>
     <div v-if="isLoading">
       <div class="row justify-content-md-center">
         <spinner></spinner>
@@ -88,9 +75,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 import Submit from "../components/Submit";
 import Spinner from "../components/Spinner";
+import Error from "../components/Error";
 
 export default {
   data() {
@@ -103,17 +91,12 @@ export default {
     ...mapGetters([
       "getProfile",
       "accessToken",
-      "error_message",
       "success_message",
       "isLoading",
       "doneLoading"
     ])
   },
   methods: {
-    ...mapActions(["setError"]),
-    hide() {
-      this.$store.dispatch("setError", "");
-    },
     createProfile() {
       if (!this.fullname) {
         return;
@@ -145,7 +128,8 @@ export default {
   },
   components: {
     Submit,
-    Spinner
+    Spinner,
+    Error
   },
   created() {
     console.log(

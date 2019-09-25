@@ -1,17 +1,9 @@
 <template>
   <div class="container">
-    <div class="row justify-content-md-center">
-      <div
-        v-if="error_message"
-        class="col-md-12 col-sm-12 alert alert-danger"
-        role="alert"
-      >
-        {{ error_message }}
-      </div>
-    </div>
+    <Error></Error>
     <div class="row justify-content-md-center">
       <form @keyup.enter="login">
-        <div class="form-group col-md-12 col-sm-12">
+        <div class="form-group">
           <input
             class="form-control form-control-lg mb-2"
             v-model="user.email"
@@ -27,12 +19,14 @@
             id="password"
             placeholder="P@5sw0rd"
           />
-          <submit text="Sign in" :onClick="login"></submit>
+          <submit class="mb-2 mt-3" text="Sign in" :onClick="login"></submit>
         </div>
       </form>
     </div>
     <div class="row justify-content-md-center">
-      <router-link to="/lost-password">Lost password ?</router-link>
+      <router-link class="col-md-12" to="/lost-password"
+        >Lost Password ?</router-link
+      >
     </div>
   </div>
 </template>
@@ -40,6 +34,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Submit from "../components/Submit";
+import Error from "../components/Error";
 import checkAuth from "../helpers/checkAuth";
 
 export default {
@@ -52,10 +47,11 @@ export default {
     };
   },
   components: {
-    Submit
+    Submit,
+    Error
   },
   computed: {
-    ...mapGetters(["error_message", "isLoading"])
+    ...mapGetters(["isLoading"])
   },
   methods: {
     ...mapActions(["signIn"]),

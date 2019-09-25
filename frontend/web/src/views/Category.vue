@@ -1,11 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-end actions">
-      <div class="col-md-4">
-        <div v-if="error_message" class="alert alert-danger" role="alert">
-          {{ error_message }}
-        </div>
-      </div>
+      <Error></Error>
       <div class="col-md-6">
         <form>
           <div class="row">
@@ -62,13 +58,15 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
+import Error from "../components/Error";
 import { mapGetters /*mapActions*/ } from "vuex";
 
 export default {
   name: "category",
   components: {
     wTable: Table,
-    wSpinner: Spinner
+    wSpinner: Spinner,
+    Error
   },
   methods: {
     // ...mapActions([
@@ -105,7 +103,11 @@ export default {
       //this.editCategory(updCategory);
 
       this.$store.dispatch("isLoading");
-      this.$socket.client.emit("updateCategory", updCategory._id, updCategory.category);
+      this.$socket.client.emit(
+        "updateCategory",
+        updCategory._id,
+        updCategory.category
+      );
     },
     removeCategory(id) {
       console.log(id);
@@ -114,7 +116,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["category", "error_message", "isLoading"])
+    ...mapGetters(["category", "isLoading"])
   },
   data() {
     return {

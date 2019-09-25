@@ -8,6 +8,9 @@ const mutations = {
   SET_ERROR(state, error) {
     state.error_message = error;
   },
+  RESET_ERROR(state) {
+    state.error_message = "";
+  },
   SET_SUCCESS(state, success) {
     state.success_message = success;
   },
@@ -31,6 +34,9 @@ const actions = {
   },
   setError: ({ commit }, errorMSG) => {
     commit("SET_ERROR", errorMSG);
+  },
+  resetError: ({ commit }) => {
+    commit("RESET_ERROR");
   },
   setSuccess: ({ commit }, successMSG) => {
     commit("SET_SUCCESS", successMSG);

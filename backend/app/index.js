@@ -43,7 +43,9 @@ async function LoadApp() {
 
   await Webux.LoadModels();
 
-  await Webux.LoadSeed();
+  if (Webux.config.seed.enabled) {
+    await Webux.LoadSeed();
+  }
 
   Webux.OnRequest();
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="mt-5">
       <img src="/img/logo.png" alt="Logo" class="logo" />
     </div>
     <nav class="nav justify-content-center">
