@@ -13,6 +13,21 @@ module.exports = {
   accessKey: "accessToken",
   timeout: 3000,
   options: {
-    path: "/socket.io"
+    path: "/socket.io",
+    redis: {
+      mock:
+        process.env.REDIS_MOCK && process.env.REDIS_MOCK == "false"
+          ? false
+          : true,
+      host: process.env.REDIS_HOST || "127.0.0.1",
+      port: process.env.REDIS_PORT || "6379",
+      password: process.env.REDIS_PASSWORD || "",
+      no_ready_check:
+        process.env.REDIS_NO_READY_CHECK &&
+        process.env.REDIS_NO_READY_CHECK == "false"
+          ? false
+          : true,
+      enabled: true
+    }
   }
 };

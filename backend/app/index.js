@@ -63,11 +63,9 @@ async function LoadApp() {
 
   await Webux.LoadGlobalErrorHandler();
 
-  await Webux.InitSocket();
-
   await Webux.InitServer();
 
-  Webux.OnSocket();
+  await Webux.InitSocket();
 
   // Initialize the authentication module
   await Webux.InitLocalStrategy(loginFn, registerFn);
