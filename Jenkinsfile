@@ -9,7 +9,7 @@ pipeline {
                 }
 
                 stage('Build Backend') {
-                    steps { sh 'docker build -f ./backend/Dockerfile -t webuxjs-backend ./backend' }
+                    steps { sh 'docker build --no-cache -f ./backend/Dockerfile -t webuxjs-backend ./backend' }
                 }
 
                 stage('Build Elastic Search') {

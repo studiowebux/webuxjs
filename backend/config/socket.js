@@ -18,10 +18,10 @@ module.exports = {
       mock:
         process.env.REDIS_MOCK && process.env.REDIS_MOCK == "false"
           ? false
-          : true,
+          : false,
       host: process.env.REDIS_HOST || "127.0.0.1",
       port: process.env.REDIS_PORT || "6379",
-      password: process.env.REDIS_PASSWORD || "",
+      password: process.env.REDIS_PASSWORD || "password123",
       no_ready_check:
         process.env.REDIS_NO_READY_CHECK &&
         process.env.REDIS_NO_READY_CHECK == "false"
