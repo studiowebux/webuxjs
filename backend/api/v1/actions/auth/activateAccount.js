@@ -41,7 +41,8 @@ const activateAccount = async (req, res, next) => {
     const info = await Webux.Auth.activateAccount(
       req.body.email,
       req.body.code,
-      accountActivationFn
+      accountActivationFn,
+      Webux.log
     ).catch(e => {
       throw e;
     });

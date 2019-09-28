@@ -39,7 +39,8 @@ const lostActivation = async (req, res, next) => {
   try {
     const info = await Webux.Auth.activationCode(
       req.body.email,
-      lostActivationFn
+      lostActivationFn,
+      Webux.log
     ).catch(e => {
       throw e;
     });

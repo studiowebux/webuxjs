@@ -5,11 +5,11 @@ pipeline {
         stage('Build image') {
             parallel {
                 stage('Build Frontend') {
-                    steps { sh 'docker build --no-cache -f ./frontend/Dockerfile -t webuxjs-frontend ./frontend' }
+                    steps { sh 'docker build -f ./frontend/Dockerfile -t webuxjs-frontend ./frontend' }
                 }
 
                 stage('Build Backend') {
-                    steps { sh 'docker build --no-cache -f ./backend/Dockerfile -t webuxjs-backend ./backend' }
+                    steps { sh 'docker build -f ./backend/Dockerfile -t webuxjs-backend ./backend' }
                 }
 
                 stage('Build Elastic Search') {

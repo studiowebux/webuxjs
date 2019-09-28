@@ -21,7 +21,9 @@ const refresh = async (req, res, next) => {
     const newAccess = await Webux.Auth.refreshAccessToken(
       Webux.config.auth.jwt,
       req.body.refreshToken,
-      req.body.userID
+      req.body.userID,
+      Webux.setIp(req),
+      Webux.log
     );
 
     if (!newAccess) {

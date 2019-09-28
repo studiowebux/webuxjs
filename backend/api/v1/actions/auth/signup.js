@@ -30,11 +30,12 @@ const signup = (req, res, next) => {
         } else if (!err && user) {
           // If the auto activate is enabled.
           if (Webux.config.auth.local.autoActivate) {
-            Webux.db.User
-              .findOneAndUpdate({ email: user.email }, { activated: true })
-              .catch(e => {
-                throw e;
-              });
+            Webux.db.User.findOneAndUpdate(
+              { email: user.email },
+              { activated: true }
+            ).catch(e => {
+              throw e;
+            });
           } else {
             Webux.Auth.activationCode(
               user.email,

@@ -21,7 +21,8 @@ const revoke = async (req, res, next) => {
     const token = req.body.accessToken || req.body.refreshToken;
     const info = await Webux.Auth.revokeToken(
       token,
-      req.user[Webux.config.auth.jwt.id]
+      req.user[Webux.config.auth.jwt.id],
+      Webux.log
     ).catch(e => {
       throw e;
     });

@@ -21,7 +21,8 @@ const lostPassword = async (req, res, next) => {
   try {
     const info = await Webux.Auth.lostPassword(
       req.body.email,
-      lostPasswordFn
+      lostPasswordFn,
+      Webux.log
     ).catch(e => {
       throw e;
     });

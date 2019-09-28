@@ -73,6 +73,7 @@ async function LoadApp() {
   await Webux.InitRedis();
 
   Webux.Auth.checkAuth = require("../api/v1/plugins/auth/isAuth");
+  Webux.setIp = require("../api/v1/helpers/setIp");
 
   Webux.log.info("Application Ready !");
 }

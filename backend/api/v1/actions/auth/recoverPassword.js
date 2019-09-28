@@ -23,7 +23,8 @@ const recoverPassword = async (req, res, next) => {
       req.body.email,
       req.body.code,
       req.body.password,
-      retrievePasswordFn
+      retrievePasswordFn,
+      Webux.log
     ).catch(e => {
       throw e;
     });
