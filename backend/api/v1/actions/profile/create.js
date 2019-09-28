@@ -100,7 +100,7 @@ const socket = client => {
         return;
       }
 
-      Webux.Auth.CheckAuth(data.accessToken, async (err, user) => {
+      Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         if (err || !user) {
           throw err || new Error("Unauthorized");
         }

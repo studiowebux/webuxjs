@@ -37,7 +37,7 @@ const Webux = require("webux-app");
  **/
 const logout = async (req, res, next) => {
   try {
-    const refreshToken = await Webux.Auth.RevokeToken(
+    const refreshToken = await Webux.Auth.revokeToken(
       req.body.refreshToken
     ).catch(e => {
       throw e;
@@ -46,7 +46,7 @@ const logout = async (req, res, next) => {
       throw new Error("Refresh token not removed");
     }
 
-    const accessRemoved = await Webux.Auth.RevokeToken(
+    const accessRemoved = await Webux.Auth.revokeToken(
       req.body.accessToken
     ).catch(e => {
       throw e;
