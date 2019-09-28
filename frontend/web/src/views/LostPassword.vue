@@ -2,7 +2,7 @@
   <div class="container">
     <Error></Error>
     <div class="row justify-content-md-center">
-      <form @keyup.enter.prevent="SendEmail">
+      <form @keyup.enter.prevent="SendEmail" class="col-md-6 col-sm-12">
         <p>
           Enter your email address to get the instruction to reset your
           password.

@@ -1,14 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-md-center">
-      <div
-        v-if="error_message"
-        class="col-md-6 col-sm-12 alert alert-danger"
-        role="alert"
-      >
-        {{ error_message }}
-      </div>
-    </div>
+    <Error></Error>
     <div class="row justify-content-md-center">
       <p>
         Enter your email address associated with the code to update your
@@ -63,6 +55,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import Error from "../components/Error";
 
 export default {
   data() {
@@ -93,6 +86,9 @@ export default {
       }
       this.invalid = null;
     }
+  },
+  components: {
+    Error
   }
 };
 </script>

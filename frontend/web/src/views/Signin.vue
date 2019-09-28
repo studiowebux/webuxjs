@@ -2,7 +2,7 @@
   <div class="container">
     <Error></Error>
     <div class="row justify-content-md-center">
-      <form @keyup.enter="login">
+      <form @keyup.enter="login" class="col-md-6 col-sm-12">
         <div class="form-group">
           <input
             class="form-control form-control-lg mb-2"
