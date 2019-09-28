@@ -72,7 +72,7 @@ async function LoadApp() {
   await Webux.InitJWTStrategy(/*deserializeFn*/);
   await Webux.InitRedis();
 
-  Webux.Auth.CheckAuth = require("../api/v1/plugins/auth/isAuth");
+  Webux.Auth.checkAuth = require("../api/v1/plugins/auth/isAuth");
 
   Webux.log.info("Application Ready !");
 }

@@ -22,7 +22,7 @@ function isAuth(accessToken, callback) {
       Webux.log.debug(accessToken);
       Webux.log.debug(user[Webux.config.auth.jwt.id]);
 
-      Webux.Auth.CheckToken(
+      Webux.Auth.checkToken(
         accessToken,
         user[Webux.config.auth.jwt.id],
         Webux.log
