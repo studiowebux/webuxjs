@@ -24,6 +24,16 @@ const findPart = async query => {
     .lean()
     .select(query.projection || Webux.validators.part.select)
     .limit(query.limit)
+    .populate('statusID', "name color")
+    .populate({
+      path: "userID",
+      select: 'profileID',
+      populate: {
+        path: "profileID",
+        model: "Profile",
+        select: "fullname"
+      }
+    })
     .sort(query.sort)
     .catch(e => {
       throw Webux.errorHandler(422, e);
@@ -31,6 +41,7 @@ const findPart = async query => {
   if (!parts || parts.length === 0) {
     throw Webux.errorHandler(404, "parts not found");
   }
+
   return Promise.resolve(Webux.toObject(parts));
 };
 

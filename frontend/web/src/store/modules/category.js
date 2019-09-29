@@ -22,7 +22,7 @@ const mutations = {
     };
   },
   REMOVE_CATEGORY(state, categoryID) {
-    const category = { ...state.category };
+    let category = { ...state.category };
     delete category[categoryID];
     state.category = category;
   }
@@ -46,7 +46,7 @@ const actions = {
   },
   socket_categoryRemoved({ commit, dispatch }, data) {
     console.log("REMOVE CATEGORY - Using the socket");
-    commit("REMOVE_CATEGORY", data);
+    commit("REMOVE_CATEGORY", data._id);
     dispatch("doneLoading");
   },
   initCategory: ({ commit, dispatch }) => {
@@ -114,6 +114,11 @@ const actions = {
 const getters = {
   category: state => {
     return state.category;
+  },
+  arrCategory: state => {
+    return Object.values(state.category).map(c => {
+      return c;
+    });
   }
 };
 

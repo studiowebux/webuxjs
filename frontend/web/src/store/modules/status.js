@@ -20,7 +20,7 @@ const mutations = {
     };
   },
   REMOVE_STATUS(state, statusID) {
-    const status = { ...state.status };
+    let status = { ...state.status };
     delete status[statusID];
     state.status = status;
   }
@@ -44,7 +44,7 @@ const actions = {
   },
   socket_statusRemoved({ commit, dispatch }, data) {
     console.log("REMOVE STATUS - Using the socket");
-    commit("REMOVE_STATUS", data);
+    commit("REMOVE_STATUS", data._id);
     dispatch("doneLoading");
   }
 };
@@ -52,6 +52,11 @@ const actions = {
 const getters = {
   status: state => {
     return state.status;
+  },
+  arrStatus: state => {
+    return Object.values(state.status).map(s => {
+      return s;
+    });
   }
 };
 

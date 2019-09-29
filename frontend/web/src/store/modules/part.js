@@ -3,14 +3,26 @@ const state = {
 };
 
 const mutations = {
-  INIT_PARTS(state, parts) {
-    state.parts = parts;
+  INIT_PARTS(state, part) {
+    state.parts = part;
   },
   ADD_PART(state, part) {
-    state.parts.push(part);
+    state.parts = {
+      ...state.parts,
+      [part._id]: part
+    };
   },
-  DELETE_PART(state, partsID) {
-    state.parts.splice(partsID, 1);
+  EDIT_PART(state, part) {
+    const updPart = { ...state.parts };
+    updPart[part._id] = part;
+    state.parts = {
+      ...updPart
+    };
+  },
+  REMOVE_PART(state, partID) {
+    let part = { ...state.parts };
+    delete part[partID];
+    state.parts = part;
   }
 };
 

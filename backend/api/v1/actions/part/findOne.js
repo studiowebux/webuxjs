@@ -25,9 +25,11 @@ const findOnePart = async (partID, query) => {
     .populate("statusID")
     .populate({
       path: "userID",
+      select: 'profileID',
       populate: {
         path: "profileID",
-        model: "Profile"
+        model: "Profile",
+        select: "fullname"
       }
     })
     .catch(e => {

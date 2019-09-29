@@ -28,6 +28,7 @@ const partWithoutCategories = async () => {
     description: "Something",
     userID: userID._id,
     statusID: statusID._id,
+    serialNumber: "AAA234",
     pictureURL: path.join(__dirname, "../uploads", "cpu-424812_640.jpg")
   });
   const partCreated = await part.save();
@@ -56,6 +57,7 @@ const partWithCategories = async () => {
     description: "Something else",
     userID: userID._id,
     statusID: statusID,
+    serialNumber: "BBB1234",
     pictureURL: path.join(
       __dirname,
       "../uploads",
@@ -97,7 +99,8 @@ const noPicture = async () => {
     name: "No Picture provided",
     description: "Missing a picture",
     userID: userID._id,
-    statusID: statusID
+    statusID: statusID,
+    serialNumber: "ABC123321",
   });
   const partCreated = await part.save();
 

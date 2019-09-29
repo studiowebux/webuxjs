@@ -2,7 +2,19 @@
   <div class="container">
     <nav class="navbar navbar-light bg-light justify-content-between mb-3">
       <a class="navbar-brand">Parts</a>
-      <form class="form-inline">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#createPart"
+          >
+            <font-awesome-icon icon="plus-circle" />
+          </button>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
         <vue-suggest
           class="asdad"
           pattern="\w+"
@@ -75,7 +87,23 @@
           <div class="card-body">
             <h5 class="card-title">{{ part.name }}</h5>
             <p class="card-text">{{ part.description }}</p>
-            <a href="#" class="card-link">Action 1</a>
+            <p class="card-text">{{ part.serialNumber }}</p>
+            <p class="card-text">{{ part.statusID.name }}</p>
+            <p class="card-text">
+              {{
+                part.userID.profileID
+                  ? part.userID.profileID.fullname
+                  : "Profile not created yet"
+              }}
+            </p>
+            <a
+              href="#"
+              class="card-link"
+              @click="ViewPart(part._id)"
+              data-toggle="modal"
+              data-target="#viewPart"
+              >View</a
+            >
             <a href="#" class="card-link">Action 2</a>
             <a href="#" class="card-link">Action 3</a>
           </div>
@@ -85,28 +113,195 @@
     <div class="row justify-content-md-center" v-else>
       <Error></Error>
     </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="createPart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="createPartLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createPartLabel">Create Part</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form @submit.prevent="CreatePart">
+              <div class="form-group row">
+                <label
+                  for="partName"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    class="form-control form-control-lg mb-2"
+                    v-model="part.name"
+                    type="text"
+                    name="partName"
+                    id="partName"
+                    placeholder="Something"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="partDescription"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Description</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    class="form-control form-control-lg mb-2"
+                    v-model="part.description"
+                    type="text"
+                    name="partDescription"
+                    id="partDescription"
+                    placeholder="Something with more details"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="partSerialNumber"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Serial Number</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    class="form-control form-control-lg mb-2"
+                    v-model="part.serialNumber"
+                    type="text"
+                    name="partSerialNumber"
+                    id="partSerialNumber"
+                    placeholder="A Serial Number"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="partStatus"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Status</label
+                >
+                <div class="col-sm-9">
+                  <multiselect
+                    v-model="part.statusID"
+                    :options="arrStatus"
+                    :multiple="false"
+                    :close-on-select="false"
+                    :clear-on-select="false"
+                    :preserve-search="true"
+                    placeholder="Pick a status"
+                    label="name"
+                    track-by="_id"
+                    :preselect-first="true"
+                  ></multiselect>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label
+                  for="partCategories"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Categories</label
+                >
+                <div class="col-sm-9">
+                  <multiselect
+                    v-model="part.categories"
+                    :options="arrCategory"
+                    :multiple="true"
+                    :close-on-select="false"
+                    :clear-on-select="false"
+                    :preserve-search="true"
+                    placeholder="Pick categories"
+                    label="name"
+                    track-by="_id"
+                    :preselect-first="true"
+                  >
+                    <template
+                      slot="selection"
+                      slot-scope="{ values, search, isOpen }"
+                    >
+                      <span
+                        class="multiselect__single"
+                        v-if="values.length && !isOpen"
+                        >{{ values.length }} options selected</span
+                      >
+                    </template>
+                  </multiselect>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <submit
+              class="btn"
+              text="Create Part"
+              :onClick="CreatePart"
+            ></submit>
+          </div>
+        </div>
+      </div>
+    </div>
+    <part-modal :Edit="EditPart" :part="parts[selectedId]"></part-modal>
   </div>
 </template>
 
 <script>
 import VueSuggest from "vue-simple-suggest/lib";
 import PartImage from "../components/PartImage";
+import PartModal from "../components/PartModal";
 import Error from "../components/Error";
+import Submit from "../components/Submit";
 import http from "../resources/http";
 import { mapGetters } from "vuex";
+import Multiselect from "vue-multiselect";
 
 export default {
   components: {
     VueSuggest,
     PartImage,
-    Error
+    PartModal,
+    Error,
+    Submit,
+    Multiselect
   },
   data() {
     return {
       selected: null,
       model: null,
       mode: "input",
-      loading: false
+      loading: false,
+      value: null,
+      selectedId: null,
+      part: {
+        name: "",
+        description: "",
+        serialNumber: "",
+        statusID: "",
+        categories: []
+      }
     };
   },
 
@@ -116,6 +311,8 @@ export default {
     );
     this.$store.dispatch("isLoading");
     this.$socket.client.emit("findPart");
+    this.$socket.client.emit("findCategory");
+    this.$socket.client.emit("findStatus");
   },
   sockets: {
     connect() {
@@ -123,7 +320,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["parts", "success_message", "isLoading", "doneLoading"])
+    ...mapGetters([
+      "parts",
+      "success_message",
+      "isLoading",
+      "doneLoading",
+      "arrCategory",
+      "arrStatus",
+      "userID"
+    ])
   },
   methods: {
     boldenSuggestion(scope) {
@@ -176,6 +381,31 @@ export default {
             reject(e);
           });
       });
+    },
+    CreatePart() {
+      console.log(this.part);
+      const newPart = {
+        name: this.part.name,
+        description: this.part.description,
+        serialNumber: this.part.serialNumber,
+        statusID: this.part.statusID._id,
+        categoriesID: this.part.categories.map(c => {
+          return c._id;
+        }),
+        userID: this.userID
+      };
+
+      if (!this.part.name || !this.part.description) {
+        return;
+      }
+      this.$socket.client.emit("createPart", newPart);
+    },
+    ViewPart(id) {
+      this.selectedId = id;
+      return;
+    },
+    EditPart() {
+      return;
     }
   }
 };

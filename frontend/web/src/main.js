@@ -6,6 +6,7 @@ import store from "./store";
 import "./resources/socket";
 import "./registerServiceWorker";
 import "./resources/font-awesome";
+import "vue-multiselect/dist/vue-multiselect.min.css";
 import "vue-simple-suggest/dist/styles.css";
 
 Vue.config.productionTip = false;
