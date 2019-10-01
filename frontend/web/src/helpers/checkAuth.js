@@ -1,11 +1,16 @@
 import router from "../router";
 import store from "../store";
 import jwtDecode from "jwt-decode";
+import getCookies from "../resources/getCookies";
 
-export default () => {
+export default async () => {
   console.log("CHECKING AUTH ...");
-  const refreshToken = window.$cookies.get("refreshToken");
-  const userID = window.$cookies.get("userID");
+  const refreshToken = await getCookies("refreshToken").catch(e => {
+    console.error(e);
+  });
+  const userID = await getCookies("userID").catch(e => {
+    console.error(e);
+  });
 
   if (refreshToken && userID) {
     if (store.getters.accessToken) {

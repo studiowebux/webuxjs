@@ -2,6 +2,7 @@ import http from "../../resources/http";
 import jwtDecode from "jwt-decode";
 import router from "../../router";
 import socket from "../../resources/socket";
+import getCookies from "../../resources/getCookies";
 
 /* LOCAL Functions */
 function setCookies(accessToken = null, refreshToken = null, userID = null) {
@@ -74,10 +75,11 @@ const actions = {
     if (!state.timeout) {
       console.log("set timeout...");
       commit("TIMEOUT", true);
-      setTimeout(() => {
+      setTimeout(async () => {
         console.log("SETAUTOREFRESH - TIMEOUT CALLED ! ");
-        const refreshToken = window.$cookies.get("refreshToken");
-        const userID = window.$cookies.get("userID");
+
+        const refreshToken = await getCookies("refreshToken");
+        const userID = await getCookies("userID");
 
         console.log(
           "SETAUTOREFRESH - Dispatch refreshToken with values + " +
@@ -249,39 +251,46 @@ const actions = {
       });
   },
   autoLogin: ({ commit, dispatch, state }) => {
-    console.log("AUTOLOGIN - Get the cookie values");
-    const accessToken = window.$cookies.get("accessToken");
-    const userID = window.$cookies.get("userID");
+    return new Promise(async (resolve, reject) => {
+      try {
+        console.log("AUTOLOGIN - Get the cookie values");
+        const accessToken = await getCookies("accessToken");
+        const userID = await getCookies("userID");
 
-    console.log("AUTOLOGIN - Check if the access Token is present");
+        console.log("AUTOLOGIN - Check if the access Token is present");
 
-    if (!accessToken || !userID) {
-      console.log("AUTOLOGIN - No access token or userID, exit");
-      if (state.userID || state.accessToken) {
-        dispatch("logout");
+        if (!accessToken || !userID) {
+          console.log("AUTOLOGIN - No access token or userID, exit");
+          if (state.userID || state.accessToken) {
+            dispatch("logout");
+          }
+          return reject(new Error("No access token or userID"));
+        }
+
+        const decoded = jwtDecode(accessToken);
+        const expirationDate = decoded.exp;
+        const now = new Date() / 1000;
+
+        if (now >= expirationDate) {
+          console.log("AUTOLOGIN - Access token expired, exit");
+          return reject(new Error("Access token expired"));
+        }
+
+        console.log("AUTOLOGIN - Commit AUTH");
+        commit("AUTH", {
+          accessToken,
+          userID
+        });
+        console.log(
+          "AUTOLOGIN - Dispatch set auto refresh with timeout value of " +
+            (expirationDate - now)
+        );
+        dispatch("setAutoRefresh", expirationDate - now);
+        resolve();
+      } catch (e) {
+        throw e;
       }
-      return;
-    }
-
-    const decoded = jwtDecode(accessToken);
-    const expirationDate = decoded.exp;
-    const now = new Date() / 1000;
-
-    if (now >= expirationDate) {
-      console.log("AUTOLOGIN - Access token expired, exit");
-      return;
-    }
-
-    console.log("AUTOLOGIN - Commit AUTH");
-    commit("AUTH", {
-      accessToken,
-      userID
     });
-    console.log(
-      "AUTOLOGIN - Dispatch set auto refresh with timeout value of " +
-        (expirationDate - now)
-    );
-    dispatch("setAutoRefresh", expirationDate - now);
   },
   lostPassword: ({ dispatch }, email) => {
     dispatch("isLoading");
@@ -325,10 +334,11 @@ const actions = {
         dispatch("doneLoading");
       });
   },
-  logout: ({ commit, dispatch }) => {
+  logout: async ({ commit, dispatch }) => {
     console.log("LOGOUT - Put the cookie values to the variables");
-    const accessToken = window.$cookies.get("accessToken");
-    const refreshToken = window.$cookies.get("refreshToken");
+    const accessToken = await getCookies("accessToken");
+    const refreshToken = await getCookies("refreshToken");
+
     if (accessToken && refreshToken) {
       console.log(
         "LOGOUT - The access token and the refresh token is present in the cookie"

@@ -1,11 +1,16 @@
 import axios from "axios";
+import getCookies from "./getCookies";
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || "http://192.168.2.10:1337/api/v1"
+  baseURL: process.env.VUE_APP_API_URL || "http://127.0.0.1:1337/api/v1"
+  // withCredentials: true
 });
 
-http.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer ${window.$cookies.get("accessToken")}`;
+http.interceptors.request.use(async config => {
+  console.log("Try to set the Authorization header");
+  await getCookies("accessToken").then(value => {
+    config.headers.Authorization = `Bearer ${value}`;
+  });
   return config;
 });
 

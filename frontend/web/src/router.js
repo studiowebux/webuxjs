@@ -81,7 +81,8 @@ const router = new Router({
       // this generates a separate chunk (profile.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "profile" */ "./views/Profile.vue")
+        import(/* webpackChunkName: "profile" */ "./views/Profile.vue"),
+      meta: { isAuth: true }
     },
     {
       path: "/part",
@@ -89,7 +90,9 @@ const router = new Router({
       // route level code-splitting
       // this generates a separate chunk (part.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "part" */ "./views/Part.vue")
+      component: () =>
+        import(/* webpackChunkName: "part" */ "./views/Part.vue"),
+      meta: { isAuth: true }
     },
     {
       path: "*",
@@ -105,9 +108,13 @@ const router = new Router({
   ]
 });
 
-router.beforeEach((to, from, next) => {
-  store.dispatch("autoLogin");
+router.beforeEach(async (to, from, next) => {
   if (to.matched.some(record => record.meta.isAuth)) {
+    await store.dispatch("autoLogin").catch(() => {
+      next("/signin");
+    });
+    console.log("AUto login done !");
+    
     console.log("before entering in the route, check if the userID is present");
     if (store.getters.userID) {
       console.log("User id present");

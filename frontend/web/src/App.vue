@@ -11,6 +11,7 @@
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
 import socket from "./resources/socket";
+import getCookies from "./resources/getCookies";
 
 export default {
   name: "app",
@@ -76,17 +77,30 @@ export default {
   },
   created() {
     console.log("App has been created");
-    if (this.$store.getters.accessToken) {
-      console.log("APP - Open the socket connection");
-      socket.open();
-      socket.emit("authentication", {
-        accessToken: window.$cookies.get("accessToken")
+    console.log("APP - Check cookie in app.vue");
+    getCookies("accessToken")
+      .then(value => {
+        console.log("APP - cookie value : ");
+        console.log(value);
+        if (value) {
+          console.log("APP - Open the socket connection");
+          socket.open();
+
+          socket.emit("authentication", {
+            accessToken: value
+          });
+
+          socket.on("authenticated", data => {
+            console.log("APP - Authenticated !!");
+            console.log(data);
+          });
+        } else {
+          console.error("APP - No access Token available");
+        }
+      })
+      .catch(e => {
+        console.error(e);
       });
-      socket.on("authenticated", data => {
-        console.log("APP - Authenticated !!");
-        console.log(data);
-      });
-    }
   }
 };
 </script>
