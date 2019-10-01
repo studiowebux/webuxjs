@@ -23,6 +23,10 @@ const mutations = {
     let part = { ...state.parts };
     delete part[partID];
     state.parts = part;
+  },
+  GET_ONE(state, part) {
+    console.log(part);
+    state.parts[part._id] = part;
   }
 };
 
@@ -30,6 +34,12 @@ const actions = {
   socket_partFound({ commit, dispatch }, data) {
     console.log("GET PARTS - Using the socket");
     commit("INIT_PARTS", data);
+    dispatch("doneLoading");
+  },
+
+  socket_partOneFound({ commit, dispatch }, data) {
+    console.log("GET ONE PART - Using the socket");
+    commit("GET_ONE", data);
     dispatch("doneLoading");
   },
   socket_partCreated({ commit, dispatch }, data) {

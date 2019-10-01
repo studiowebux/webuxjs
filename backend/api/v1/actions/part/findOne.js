@@ -137,7 +137,7 @@ const socket = client => {
         client.emit("gotError", "Part with ID not found");
       }
 
-      client.emit("partFound", obj);
+      client.emit("partOneFound", obj);
     } catch (e) {
       client.emit("gotError", e);
     }

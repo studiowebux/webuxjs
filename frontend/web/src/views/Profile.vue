@@ -8,7 +8,7 @@
     </div>
     <div v-else-if="getProfile">
       <div class="row justify-content-md-center">
-        <div class="card">
+        <div class="card p-3 ma-10 shadow p-3 ma-6">
           <div class="card-body">
             <h5 class="card-title">My Profile</h5>
             <template v-if="!editing">
