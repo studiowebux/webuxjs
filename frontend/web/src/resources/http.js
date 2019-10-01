@@ -10,7 +10,7 @@ http.interceptors.request.use(async config => {
   console.log("Try to set the Authorization header");
   const value = await getCookies("accessToken");
   if (!value) {
-    return;
+    return config;
   }
   config.headers.Authorization = `Bearer ${value}`;
 

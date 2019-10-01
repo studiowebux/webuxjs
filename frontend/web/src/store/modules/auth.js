@@ -10,7 +10,9 @@ function setCookies(accessToken = null, refreshToken = null, userID = null) {
     window.$cookies.set(
       "accessToken",
       accessToken.token,
-      accessToken.expiresIn
+      0, // accessToken.expiresIn,
+      "/",
+      "demo.webux.lab"
     );
   }
 
@@ -18,12 +20,20 @@ function setCookies(accessToken = null, refreshToken = null, userID = null) {
     window.$cookies.set(
       "refreshToken",
       refreshToken.token,
-      refreshToken.expiresIn
+      0, // refreshToken.expiresIn,
+      "/",
+      "demo.webux.lab"
     );
   }
 
   if (userID) {
-    window.$cookies.set("userID", userID.id, userID.expiresIn);
+    window.$cookies.set(
+      "userID",
+      userID.id,
+      0, // userID.expiresIn,
+      "/",
+      "demo.webux.lab"
+    );
   }
 
   return;

@@ -3,4 +3,4 @@ import VueCookies from "vue-cookies";
 
 Vue.use(VueCookies);
 
-VueCookies.config(0, "/", "demo.webux.lab");
+VueCookies.config("24h");
