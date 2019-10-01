@@ -114,7 +114,7 @@ router.beforeEach(async (to, from, next) => {
       next("/signin");
     });
     console.log("AUto login done !");
-    
+
     console.log("before entering in the route, check if the userID is present");
     if (store.getters.userID) {
       console.log("User id present");

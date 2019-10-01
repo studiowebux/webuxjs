@@ -62,7 +62,10 @@ const mutations = {
 const actions = {
   socket_unauthorized: ({ dispatch }, data) => {
     console.log(data);
-    dispatch("setError", "You are not authenticated");
+    dispatch(
+      "setError",
+      "You are not authenticated, unable to connect to the socket"
+    );
     dispatch("doneLoading");
     dispatch("logout");
   },

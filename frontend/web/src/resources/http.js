@@ -8,9 +8,12 @@ const http = axios.create({
 
 http.interceptors.request.use(async config => {
   console.log("Try to set the Authorization header");
-  await getCookies("accessToken").then(value => {
-    config.headers.Authorization = `Bearer ${value}`;
-  });
+  const value = await getCookies("accessToken");
+  if (!value) {
+    return;
+  }
+  config.headers.Authorization = `Bearer ${value}`;
+
   return config;
 });
 
