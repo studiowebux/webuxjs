@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "./store";
 import Home from "./views/Home.vue";
+import getCookies from "./resources/getCookies";
 
 Vue.use(Router);
 
@@ -109,14 +110,18 @@ const router = new Router({
 });
 
 router.beforeEach(async (to, from, next) => {
+  console.log(to)
+  console.log(from)
   if (to.matched.some(record => record.meta.isAuth)) {
     console.log("before entering in the route, check if the userID is present");
-    if (store.getters.userID) {
+    const userID = await getCookies('userID');
+    if (store.getters.userID || userID) {
       console.log(
         "User id present, you are allowed to continue your journey !"
       );
       store.dispatch("resetMsg");
-      return next();
+      next();
+      return;
     }
 
     console.log("User id not present, auth required to continue, please login");

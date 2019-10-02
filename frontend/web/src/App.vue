@@ -93,8 +93,10 @@ export default {
     if (accessToken) {
       if (!store.getters.userID || !store.getters.accessToken) {
         console.log("Vuex isn't initialized, maybe a refresh occured");
+        store.dispatch("isLoading");
         await store.dispatch("autoLogin").catch(() => {
           console.error("Maybe an infinite loop ?");
+          store.dispatch("logout");
         });
         console.log("AUto login done !");
       }

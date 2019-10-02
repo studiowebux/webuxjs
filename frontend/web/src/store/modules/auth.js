@@ -67,7 +67,7 @@ const actions = {
       "You are not authenticated, unable to connect to the socket"
     );
     dispatch("doneLoading");
-    ////dispatch("logout");
+    dispatch("logout");
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
@@ -205,7 +205,7 @@ const actions = {
       console.log(
         "REFRESHTOKEN - Dispatch logout now, because in 15 seconds the user will have to login again"
       );
-      //dispatch("logout");
+      dispatch("logout");
       return;
     }
 
@@ -246,7 +246,7 @@ const actions = {
           "REFRESHTOKEN - An error occurs while refreshing the token,"
         );
         console.log("REFRESHTOKEN - dispatch logout");
-        //dispatch("logout");
+        dispatch("logout");
         dispatch("setError", error);
       })
       .finally(() => {
@@ -265,7 +265,7 @@ const actions = {
         if (!accessToken || !userID) {
           console.log("AUTOLOGIN - No access token or userID, exit");
           if (state.userID || state.accessToken) {
-            //dispatch("logout");
+            dispatch("logout");
           }
           return reject(new Error("No access token or userID"));
         }
@@ -289,6 +289,7 @@ const actions = {
             (expirationDate - now)
         );
         dispatch("setAutoRefresh", expirationDate - now);
+        dispatch("doneLoading");
         resolve();
       } catch (e) {
         throw e;
