@@ -11,6 +11,7 @@
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
 import socket from "./resources/socket";
+import store from "./store";
 import getCookies from "./resources/getCookies";
 
 export default {
@@ -75,32 +76,42 @@ export default {
   methods: {
     ...mapActions(["logout"])
   },
-  created() {
+  async created() {
     console.log("App has been created");
     console.log("APP - Check cookie in app.vue");
-    getCookies("accessToken")
-      .then(value => {
-        console.log("APP - cookie value : ");
-        console.log(value);
-        if (value) {
-          console.log("APP - Open the socket connection");
-          socket.open();
-
-          socket.emit("authentication", {
-            accessToken: value
-          });
-
-          socket.on("authenticated", data => {
-            console.log("APP - Authenticated !!");
-            console.log(data);
-          });
-        } else {
-          console.error("APP - No access Token available");
-        }
-      })
-      .catch(e => {
+    let accessToken = null;
+    if (!store.getters.accessToken) {
+      accessToken = await getCookies("accessToken").catch(e => {
         console.error(e);
       });
+    } else {
+      accessToken = store.getters.accessToken;
+    }
+
+    console.log("APP - accessToken value : ");
+    console.log(accessToken);
+    if (accessToken) {
+      if (!store.getters.userID || !store.getters.accessToken) {
+        console.log("Vuex isn't initialized, maybe a refresh occured");
+        await store.dispatch("autoLogin").catch(() => {
+          console.error("Maybe an infinite loop ?");
+        });
+        console.log("AUto login done !");
+      }
+      console.log("APP - Open the socket connection");
+      socket.open();
+
+      socket.emit("authentication", {
+        accessToken: accessToken
+      });
+
+      socket.on("authenticated", data => {
+        console.log("APP - Authenticated !!");
+        console.log(data);
+      });
+    } else {
+      console.error("APP - No access Token available");
+    }
   }
 };
 </script>

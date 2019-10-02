@@ -110,22 +110,19 @@ const router = new Router({
 
 router.beforeEach(async (to, from, next) => {
   if (to.matched.some(record => record.meta.isAuth)) {
-    await store.dispatch("autoLogin").catch(() => {
-      next("/signin");
-    });
-    console.log("AUto login done !");
-
     console.log("before entering in the route, check if the userID is present");
     if (store.getters.userID) {
-      console.log("User id present");
+      console.log(
+        "User id present, you are allowed to continue your journey !"
+      );
       store.dispatch("resetMsg");
-      next();
-      return;
+      return next();
     }
 
-    console.log("User id not present");
+    console.log("User id not present, auth required to continue, please login");
     next("/signin");
   } else {
+    console.log("No Auth require");
     next();
   }
 });

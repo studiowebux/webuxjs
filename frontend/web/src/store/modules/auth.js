@@ -10,9 +10,7 @@ function setCookies(accessToken = null, refreshToken = null, userID = null) {
     window.$cookies.set(
       "accessToken",
       accessToken.token,
-      0, // accessToken.expiresIn,
-      "/",
-      "demo.webux.lab"
+      accessToken.expiresIn
     );
   }
 
@@ -20,20 +18,12 @@ function setCookies(accessToken = null, refreshToken = null, userID = null) {
     window.$cookies.set(
       "refreshToken",
       refreshToken.token,
-      0, // refreshToken.expiresIn,
-      "/",
-      "demo.webux.lab"
+      refreshToken.expiresIn
     );
   }
 
   if (userID) {
-    window.$cookies.set(
-      "userID",
-      userID.id,
-      0, // userID.expiresIn,
-      "/",
-      "demo.webux.lab"
-    );
+    window.$cookies.set("userID", userID.id, userID.expiresIn);
   }
 
   return;
@@ -77,7 +67,7 @@ const actions = {
       "You are not authenticated, unable to connect to the socket"
     );
     dispatch("doneLoading");
-    dispatch("logout");
+    ////dispatch("logout");
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
@@ -215,7 +205,7 @@ const actions = {
       console.log(
         "REFRESHTOKEN - Dispatch logout now, because in 15 seconds the user will have to login again"
       );
-      dispatch("logout");
+      //dispatch("logout");
       return;
     }
 
@@ -256,7 +246,7 @@ const actions = {
           "REFRESHTOKEN - An error occurs while refreshing the token,"
         );
         console.log("REFRESHTOKEN - dispatch logout");
-        dispatch("logout");
+        //dispatch("logout");
         dispatch("setError", error);
       })
       .finally(() => {
@@ -275,7 +265,7 @@ const actions = {
         if (!accessToken || !userID) {
           console.log("AUTOLOGIN - No access token or userID, exit");
           if (state.userID || state.accessToken) {
-            dispatch("logout");
+            //dispatch("logout");
           }
           return reject(new Error("No access token or userID"));
         }
