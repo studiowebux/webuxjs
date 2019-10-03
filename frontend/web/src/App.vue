@@ -11,7 +11,7 @@
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
 import socket from "./resources/socket";
-// import store from "./store";
+import store from "./store";
 // import getCookies from "./resources/getCookies";
 
 export default {
@@ -80,7 +80,7 @@ export default {
     socket.on("authenticated", data => {
       console.log("APP - Authenticated !!");
       console.log(data);
-      store.dispatch("set_init")
+      store.dispatch("setInit")
     });
   }
 };
