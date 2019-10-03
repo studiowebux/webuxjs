@@ -35,7 +35,8 @@ const state = {
   accessToken: null,
   userID: null,
   connections: null,
-  timeout: false
+  timeout: false,
+  initialized: false
 };
 
 const mutations = {
@@ -53,6 +54,10 @@ const mutations = {
   },
   SET_CONNECTIONS(state, connections) {
     state.connections = connections;
+  },
+  SET_INIT(state) {
+    console.log("********* Vuex Initialized ! ***********");
+    state.initialized = true;
   },
   TIMEOUT(state, status) {
     state.timeout = status;
@@ -289,6 +294,7 @@ const actions = {
             (expirationDate - now)
         );
         dispatch("setAutoRefresh", expirationDate - now);
+        commit("SET_INIT");
         dispatch("doneLoading");
         resolve();
       } catch (e) {
