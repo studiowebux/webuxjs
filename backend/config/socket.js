@@ -11,7 +11,7 @@ module.exports = {
     "isAuth.js"
   )),
   accessKey: "accessToken",
-  timeout: 3000,
+  timeout: 5000,
   options: {
     path: "/socket.io",
     redis: {

@@ -113,9 +113,14 @@ const connectSocket = () => {
   console.log("Router - Open the socket connection");
   socket.open();
 
-  socket.emit("authentication", {
-    accessToken: store.getters.accessToken
-  });
+  if (store.getters.accessToken) {
+    console.log("emit authentication with " + store.getters.accessToken)
+    socket.emit("authentication", {
+      accessToken: store.getters.accessToken
+    });
+  } else {
+    console.log("*** The access token isn't available ***");
+  }
 };
 
 router.beforeEach(async (to, from, next) => {

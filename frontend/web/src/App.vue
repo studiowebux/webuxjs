@@ -82,45 +82,6 @@ export default {
       console.log(data);
     });
   }
-  // async created() {
-  //   console.log("App has been created");
-  //   console.log("APP - Check cookie in app.vue");
-  //   let accessToken = null;
-  //   if (!store.getters.accessToken) {
-  //     accessToken = await getCookies("accessToken").catch(e => {
-  //       console.error(e);
-  //     });
-  //   } else {
-  //     accessToken = store.getters.accessToken;
-  //   }
-
-  //   console.log("APP - accessToken value : ");
-  //   console.log(accessToken);
-  //   if (accessToken) {
-  //     if (!store.getters.userID || !store.getters.accessToken) {
-  //       console.log("Vuex isn't initialized, maybe a refresh occured");
-  //       store.dispatch("isLoading");
-  //       await store.dispatch("autoLogin").catch(() => {
-  //         console.error("Maybe an infinite loop ?");
-  //         store.dispatch("logout");
-  //       });
-  //       console.log("AUto login done !");
-  //     }
-  //     // console.log("APP - Open the socket connection");
-  //     // socket.open();
-
-  //     // socket.emit("authentication", {
-  //     //   accessToken: accessToken
-  //     // });
-
-  //     // socket.on("authenticated", data => {
-  //     //   console.log("APP - Authenticated !!");
-  //     //   console.log(data);
-  //     // });
-  //   } else {
-  //     console.error("APP - No access Token available");
-  //   }
-  // }
 };
 </script>
 
