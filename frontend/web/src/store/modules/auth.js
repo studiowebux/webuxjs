@@ -72,7 +72,7 @@ const actions = {
       "You are not authenticated, unable to connect to the socket"
     );
     dispatch("doneLoading");
-    dispatch("logout");
+    //dispatch("logout");
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
@@ -264,6 +264,9 @@ const actions = {
         console.log("AUTOLOGIN - Get the cookie values");
         const accessToken = await getCookies("accessToken");
         const userID = await getCookies("userID");
+        
+        console.log(accessToken)
+        console.log(userID)
 
         console.log("AUTOLOGIN - Check if the access Token is present");
 

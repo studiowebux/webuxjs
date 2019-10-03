@@ -78,6 +78,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      
       if (!client.auth) {
         client.emit("unauthorized", { message: "Unauthorized" });
         return;
