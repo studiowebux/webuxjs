@@ -80,6 +80,7 @@ export default {
     socket.on("authenticated", data => {
       console.log("APP - Authenticated !!");
       console.log(data);
+      store.dispatch("set_init")
     });
   }
 };

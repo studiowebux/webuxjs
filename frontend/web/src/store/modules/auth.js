@@ -74,6 +74,9 @@ const actions = {
     dispatch("doneLoading");
     //dispatch("logout");
   },
+  setInit: ({ commit }) => {
+    commit("SET_INIT");
+  },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
     console.log(
@@ -264,9 +267,9 @@ const actions = {
         console.log("AUTOLOGIN - Get the cookie values");
         const accessToken = await getCookies("accessToken");
         const userID = await getCookies("userID");
-        
-        console.log(accessToken)
-        console.log(userID)
+
+        console.log(accessToken);
+        console.log(userID);
 
         console.log("AUTOLOGIN - Check if the access Token is present");
 
@@ -297,7 +300,7 @@ const actions = {
             (expirationDate - now)
         );
         dispatch("setAutoRefresh", expirationDate - now);
-        commit("SET_INIT");
+        //commit("SET_INIT");
         dispatch("doneLoading");
         resolve();
       } catch (e) {

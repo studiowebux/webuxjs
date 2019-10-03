@@ -110,17 +110,24 @@ const router = new Router({
 });
 
 const connectSocket = () => {
-  console.log("Router - Open the socket connection");
-  socket.open();
+  return new Promise((resolve, reject) => {
+    try {
+      console.log("Router - Open the socket connection");
+      socket.open();
 
-  if (store.getters.accessToken) {
-    console.log("emit authentication with " + store.getters.accessToken)
-    socket.emit("authentication", {
-      accessToken: store.getters.accessToken
-    });
-  } else {
-    console.log("*** The access token isn't available ***");
-  }
+      if (store.getters.accessToken) {
+        console.log("emit authentication with " + store.getters.accessToken);
+        socket.emit("authentication", {
+          accessToken: store.getters.accessToken
+        });
+        resolve();
+      } else {
+        console.log("*** The access token isn't available ***");
+      }
+    } catch (e) {
+      throw e;
+    }
+  });
 };
 
 router.beforeEach(async (to, from, next) => {
@@ -136,7 +143,6 @@ router.beforeEach(async (to, from, next) => {
           "User id present, you are allowed to continue your journey !"
         );
         store.dispatch("resetMsg");
-        connectSocket();
         next();
         return;
       }
@@ -155,7 +161,16 @@ router.beforeEach(async (to, from, next) => {
     store
       .dispatch("autoLogin")
       .then(() => {
-        checkAuth();
+        connectSocket()
+          .then(() => {
+            checkAuth();
+            return;
+          })
+          .catch(e => {
+            console.error(e);
+            next("/signin");
+            return;
+          });
       })
       .catch(e => {
         console.error(e);
