@@ -10,7 +10,6 @@
 <script>
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
-import socket from "./resources/socket";
 
 export default {
   name: "app",
@@ -75,8 +74,7 @@ export default {
     ...mapActions(["logout"])
   },
   created() {
-    console.log("APP mounted, opening the socket channel");
-    socket.open();
+    console.log("APP mounted,");
   }
 };
 </script>

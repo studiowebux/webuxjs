@@ -66,6 +66,7 @@ const mutations = {
 
 const actions = {
   setInit: ({ commit }) => {
+    console.log("The app is initialized");
     commit("SET_INIT");
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
@@ -132,11 +133,6 @@ const actions = {
           "SIGNIN - Init the socket.io with access token " + user.accessToken
         );
         socket.open();
-        socket.emit("authentication", { accessToken: user.accessToken });
-        socket.on("authenticated", data => {
-          console.log(data);
-          console.log("SIGNIN - Authenticated !");
-        });
         router.replace("/").catch(() => {});
       })
       .catch(error => {
@@ -176,14 +172,6 @@ const actions = {
 
         console.log("SIGNUP - Init the socket.io");
         socket.open();
-        socket.emit("authentication", {
-          accessToken: response.data.tokens.access
-        });
-
-        socket.on("authenticated", data => {
-          console.log(data);
-          console.log("SIGNUP - Authenticated !");
-        });
         router.replace("/").catch(() => {});
       })
       .catch(error => {
@@ -291,7 +279,7 @@ const actions = {
             (expirationDate - now)
         );
         dispatch("setAutoRefresh", expirationDate - now);
-        //commit("SET_INIT");
+        dispatch("setInit");
         dispatch("doneLoading");
         resolve();
       } catch (e) {

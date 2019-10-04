@@ -119,6 +119,7 @@ router.beforeEach(async (to, from, next) => {
         console.log(
           "User id present, you are allowed to continue your journey !"
         );
+        socket.open();
         store.dispatch("resetMsg");
         next();
         return;
