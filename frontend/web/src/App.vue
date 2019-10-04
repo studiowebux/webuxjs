@@ -76,13 +76,7 @@ export default {
   methods: {
     ...mapActions(["logout"])
   },
-  created() {
-    socket.on("authenticated", data => {
-      console.log("APP - Authenticated !!");
-      console.log(data);
-      store.dispatch("setInit")
-    });
-  }
+  created() {}
 };
 </script>
 

@@ -109,32 +109,8 @@ const router = new Router({
   ]
 });
 
-const connectSocket = () => {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log("Router - Open the socket connection");
-      socket.open();
-
-      if (store.getters.accessToken) {
-        console.log("emit authentication with " + store.getters.accessToken);
-        socket.emit("authentication", {
-          accessToken: store.getters.accessToken
-        });
-        // todo: this is here !! if it takes more than few seconds to execute the sokcet client will be call before the authenticstion and will fail
-        resolve();
-      } else {
-        console.log("*** The access token isn't available ***");
-      }
-    } catch (e) {
-      throw e;
-    }
-  });
-};
-
 router.beforeEach(async (to, from, next) => {
   const checkAuth = () => {
-    console.log(to);
-    console.log(from);
     if (to.matched.some(record => record.meta.isAuth)) {
       console.log(
         "before entering in the route, check if the userID is present"
@@ -162,22 +138,15 @@ router.beforeEach(async (to, from, next) => {
     store
       .dispatch("autoLogin")
       .then(() => {
-        connectSocket()
-          .then(() => {
-            checkAuth();
-            return;
-          })
-          .catch(e => {
-            console.error(e);
-            next("/signin");
-            return;
-          });
+        socket.open();
+        checkAuth();
       })
       .catch(e => {
         console.error(e);
         checkAuth();
       });
   } else {
+    socket.open();
     checkAuth();
   }
 });
