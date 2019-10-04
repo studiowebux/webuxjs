@@ -87,18 +87,14 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (statusID, status) => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await updateOneStatus(statusID, status);
       if (!obj) {
-        client.emit("gotError", "Status with ID not updated");
+        throw new Error("Status with ID not updated");
       }
 
       io.emit("statusUpdated", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

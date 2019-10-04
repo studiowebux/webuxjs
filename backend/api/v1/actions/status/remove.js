@@ -58,18 +58,14 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async statusID => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await removeOneStatus(statusID);
       if (!obj) {
-        client.emit("gotError", "Status with ID not deleted");
+        throw new Error("Status with ID not deleted");
       }
 
       io.emit("statusRemoved", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

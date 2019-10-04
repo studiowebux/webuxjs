@@ -60,18 +60,14 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async profileID => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await removeOneProfile(profileID);
       if (!obj) {
-        client.emit("gotError", "Profile with ID not deleted");
+        throw new Error("Profile with ID not deleted");
       }
 
       client.emit("profileRemoved", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

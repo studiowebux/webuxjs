@@ -85,12 +85,12 @@ const socket = client => {
       }
       const obj = await findCategory({});
       if (!obj) {
-        client.emit("gotError", "Category not found");
+        throw new Error("Category not found");
       }
 
       client.emit("categoryFound", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

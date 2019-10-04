@@ -84,10 +84,6 @@ const route = async (req, res, next) => {
 const socket = client => {
   return data => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
 
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         try {
@@ -110,12 +106,12 @@ const socket = client => {
 
           client.emit("profileUpdated", obj);
         } catch (e) {
-          client.emit("gotError", e);
+          client.emit("gotError", e.message);
         }
       });
     } catch (e) {
       Webux.log.error(e);
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

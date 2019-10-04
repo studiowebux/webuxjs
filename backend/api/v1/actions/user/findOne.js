@@ -75,18 +75,14 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async userID => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await findOneUser(userID, {});
       if (!obj) {
-        client.emit("gotError", "User with ID not found");
+        throw new Error("User with ID not found");
       }
 
       client.emit("userFound", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

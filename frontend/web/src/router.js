@@ -120,6 +120,7 @@ const connectSocket = () => {
         socket.emit("authentication", {
           accessToken: store.getters.accessToken
         });
+        // todo: this is here !! if it takes more than few seconds to execute the sokcet client will be call before the authenticstion and will fail
         resolve();
       } else {
         console.log("*** The access token isn't available ***");

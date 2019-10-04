@@ -79,18 +79,14 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async (userID, user) => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await updateOneUser(userID, user);
       if (!obj) {
-        client.emit("gotError", "User with ID not updated");
+        throw new Error("User with ID not updated");
       }
 
       client.emit("userUpdated", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

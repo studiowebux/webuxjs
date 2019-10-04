@@ -95,10 +95,6 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async data => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
 
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         if (err || !user) {
@@ -111,18 +107,18 @@ const socket = client => {
         };
 
         const obj = await createProfile(profile).catch(e => {
-          client.emit("gotError", e);
+          client.emit("gotError", e.message);
           return;
         });
 
         if (!obj) {
-          client.emit("gotError", "Profile not created");
+          throw new Error("Profile not created");
         }
 
         client.emit("profileCreated", obj);
       });
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

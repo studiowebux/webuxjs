@@ -79,10 +79,6 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async accessToken => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
 
       Webux.Auth.checkAuth(accessToken, async (err, user) => {
         if (err || !user) {
@@ -93,18 +89,18 @@ const socket = client => {
           user[Webux.config.auth.jwt.id],
           {}
         ).catch(e => {
-          client.emit("gotError", e);
+          client.emit("gotError", e.message);
           return;
         });
 
         if (!obj) {
-          client.emit("gotError", "Profile with ID not found");
+          throw new Error("Profile with ID not found");
         }
 
         client.emit("profileFound", obj);
       });
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

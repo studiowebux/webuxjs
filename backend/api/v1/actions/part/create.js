@@ -93,18 +93,14 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async part => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await createPart(part);
       if (!obj) {
-        client.emit("gotError", "Part not created");
+        throw new Error("Part not created");
       }
 
       io.emit("partCreated", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

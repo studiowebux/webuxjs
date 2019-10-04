@@ -56,18 +56,14 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async partID => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await removeOnePart(partID);
       if (!obj) {
-        client.emit("gotError", "Part with ID not deleted");
+        throw new Error("Part with ID not deleted");
       }
 
       io.emit("partRemoved", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

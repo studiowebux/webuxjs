@@ -128,18 +128,14 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async partID => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await findOnePart(partID, {});
       if (!obj) {
-        client.emit("gotError", "Part with ID not found");
+        throw new Error("Part with ID not found");
       }
 
       client.emit("partOneFound", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

@@ -70,22 +70,18 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized" });
-        return;
-      }
       const obj = await findProfile({}).catch(e => {
-        client.emit("gotError", e);
+        client.emit("gotError", e.message);
         return;
       });
 
       if (!obj) {
-        client.emit("gotError", "Profile not found");
+        throw new Error("Profile not found");
       }
 
       client.emit("profileFound", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };

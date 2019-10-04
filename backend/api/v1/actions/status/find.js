@@ -80,12 +80,12 @@ const socket = client => {
       }
       const obj = await findStatus({});
       if (!obj) {
-        client.emit("gotError", "Status not found");
+        throw new Error("Status not found");
       }
 
       client.emit("statusFound", obj);
     } catch (e) {
-      client.emit("gotError", e);
+      client.emit("gotError", e.message);
     }
   };
 };
