@@ -7,7 +7,6 @@ const http = axios.create({
 });
 
 http.interceptors.request.use(async config => {
-  console.log("Try to set the Authorization header");
   const value = await getCookies("accessToken");
   if (!value) {
     return config;
@@ -20,7 +19,6 @@ http.interceptors.request.use(async config => {
 http.interceptors.response.use(
   function(response) {
     // Do something with response data
-    console.log(response);
     return response;
   },
   function(error) {

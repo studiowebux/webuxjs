@@ -25,7 +25,6 @@ const mutations = {
     state.parts = part;
   },
   GET_ONE(state, part) {
-    console.log(part);
     state.parts[part._id] = part;
   }
 };

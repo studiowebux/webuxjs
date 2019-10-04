@@ -123,7 +123,7 @@ export default {
       }
     };
   },
-  created() {
+  mounted() {
     // this.initCategory(); to use the API call.
     console.log("try to retrieve the categories");
     this.$store.dispatch("isLoading");

@@ -2,7 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "./store";
 import Home from "./views/Home.vue";
-import socket from "./resources/socket";
 
 Vue.use(Router);
 
@@ -112,24 +111,14 @@ const router = new Router({
 router.beforeEach(async (to, from, next) => {
   const checkAuth = () => {
     if (to.matched.some(record => record.meta.isAuth)) {
-      console.log(
-        "before entering in the route, check if the userID is present"
-      );
       if (store.getters.userID) {
-        console.log(
-          "User id present, you are allowed to continue your journey !"
-        );
         store.dispatch("resetMsg");
         next();
         return;
       }
 
-      console.log(
-        "User id not present, auth required to continue, please login"
-      );
       next("/signin");
     } else {
-      console.log("No Auth require");
       next();
     }
   };

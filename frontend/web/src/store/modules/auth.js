@@ -3,40 +3,16 @@ import jwtDecode from "jwt-decode";
 import router from "../../router";
 import socket from "../../resources/socket";
 import getCookies from "../../resources/getCookies";
-
-/* LOCAL Functions */
-function setCookies(accessToken = null, refreshToken = null, userID = null) {
-  if (accessToken) {
-    window.$cookies.set(
-      "accessToken",
-      accessToken.token,
-      accessToken.expiresIn
-    );
-  }
-
-  if (refreshToken) {
-    window.$cookies.set(
-      "refreshToken",
-      refreshToken.token,
-      refreshToken.expiresIn
-    );
-  }
-
-  if (userID) {
-    window.$cookies.set("userID", userID.id, userID.expiresIn);
-  }
-
-  return;
-}
+import setCookies from "../../resources/setCookies";
 
 /* STORE Functions */
 
 const state = {
   accessToken: null,
   userID: null,
-  connections: null,
-  timeout: false,
-  initialized: false
+  connections: null, // Not implemented yet.
+  timeout: false, // if the timeout has been set to auto refresh the access token.
+  initialized: false // it will 'block' the router and wait to get the vuex initialized
 };
 
 const mutations = {
@@ -56,7 +32,6 @@ const mutations = {
     state.connections = connections;
   },
   SET_INIT(state) {
-    console.log("********* Vuex Initialized ! ***********");
     state.initialized = true;
   },
   TIMEOUT(state, status) {
@@ -66,7 +41,6 @@ const mutations = {
 
 const actions = {
   setInit: ({ commit }) => {
-    console.log("The app is initialized");
     socket.open();
     commit("SET_INIT");
   },
