@@ -6,12 +6,7 @@
         <form>
           <div class="row">
             <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Name"
-                v-model="newCategory.name"
-              />
+              <input type="text" class="form-control" placeholder="Name" v-model="newCategory.name" />
             </div>
             <div class="col">
               <input
@@ -34,9 +29,7 @@
         </form>
       </div>
       <div class="col-md-2">
-        <button class="btn btn-success" @click="createCategory()">
-          Add New Category
-        </button>
+        <button class="btn btn-success" @click="createCategory()">Add New Category</button>
       </div>
     </div>
     <div class="row">

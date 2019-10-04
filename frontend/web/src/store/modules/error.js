@@ -28,6 +28,7 @@ const mutations = {
 
 const actions = {
   socket_gotError: ({ commit }, errorMSG) => {
+    console.error(errorMSG)
     commit("SET_ERROR", errorMSG.message || errorMSG);
     commit("DONE_LOADING");
   },

@@ -10,6 +10,7 @@
 <script>
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
+import socket from './resources/socket'
 
 export default {
   name: "app",
@@ -75,6 +76,15 @@ export default {
   },
   created() {
     console.log("APP mounted,");
+    socket.open();
+  },
+  sockets: {
+    connect() {
+      console.log("Connection with socket.io server established");
+    },
+    categoryFound() {
+      console.log("THISN IS A TEST !");
+    }
   }
 };
 </script>

@@ -67,6 +67,7 @@ const mutations = {
 const actions = {
   setInit: ({ commit }) => {
     console.log("The app is initialized");
+    socket.open();
     commit("SET_INIT");
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
@@ -132,7 +133,7 @@ const actions = {
         console.log(
           "SIGNIN - Init the socket.io with access token " + user.accessToken
         );
-        socket.open();
+        dispatch("setInit");
         router.replace("/").catch(() => {});
       })
       .catch(error => {
@@ -171,7 +172,7 @@ const actions = {
         dispatch("setAutoRefresh", decoded.exp - now);
 
         console.log("SIGNUP - Init the socket.io");
-        socket.open();
+        dispatch("setInit");
         router.replace("/").catch(() => {});
       })
       .catch(error => {
