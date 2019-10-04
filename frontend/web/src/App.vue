@@ -74,17 +74,9 @@ export default {
   methods: {
     ...mapActions(["logout"])
   },
-  mounted() {
+  created() {
     console.log("APP mounted, opening the socket channel");
     socket.open();
-  },
-  sockets: {
-    connect(){
-      console.log("Connection with socket.io server established")
-    },
-    categoryFound(){
-      console.log("THISN IS A TEST !")
-    }
   }
 };
 </script>
