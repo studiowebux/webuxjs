@@ -4,11 +4,10 @@ import Vue from "vue";
 import store from "../store";
 
 let URL = process.env.VUE_APP_IO_URL || "http://127.0.0.1:1337";
-let path = process.env.VUE_APP_IO_PATH || "/socket.io";
 
-const options = { path, transports: ["websocket"], autoConnect: false };
+const options = { transports: ["websocket"], autoConnect: false };
 
-const socket = SocketIO(URL, options);
+let socket = SocketIO(URL, options);
 
 Vue.use(VueSocketIO, socket, {
   store,

@@ -11,8 +11,6 @@
 import Menu from "./components/Menu";
 import { mapActions } from "vuex";
 import socket from "./resources/socket";
-import store from "./store";
-// import getCookies from "./resources/getCookies";
 
 export default {
   name: "app",
@@ -76,7 +74,18 @@ export default {
   methods: {
     ...mapActions(["logout"])
   },
-  created() {}
+  mounted() {
+    console.log("APP mounted, opening the socket channel");
+    socket.open();
+  },
+  sockets: {
+    connect(){
+      console.log("Connection with socket.io server established")
+    },
+    categoryFound(){
+      console.log("THISN IS A TEST !")
+    }
+  }
 };
 </script>
 

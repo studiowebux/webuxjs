@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import store from "./store";
-import socket from "./resources/socket";
 import Home from "./views/Home.vue";
+import socket from "./resources/socket";
 
 Vue.use(Router);
 
@@ -138,7 +138,6 @@ router.beforeEach(async (to, from, next) => {
     store
       .dispatch("autoLogin")
       .then(() => {
-        socket.open();
         checkAuth();
       })
       .catch(e => {
@@ -146,7 +145,6 @@ router.beforeEach(async (to, from, next) => {
         checkAuth();
       });
   } else {
-    socket.open();
     checkAuth();
   }
 });

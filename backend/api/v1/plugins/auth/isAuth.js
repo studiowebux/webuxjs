@@ -12,9 +12,6 @@ const jwt = require("jsonwebtoken");
  */
 function isAuth(accessToken, callback) {
   try {
-    console.log("My token")
-    console.log(accessToken)
-    console.log("---")
     jwt.verify(accessToken, Webux.config.auth.jwt.accessSecret, (err, user) => {
       if (err || !user) {
         Webux.log.error("No user found...");

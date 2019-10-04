@@ -73,11 +73,6 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
-      console.log(client)
-      if (!client.auth) {
-        client.emit("unauthorized", { message: "Unauthorized", location: "find status" });
-        return;
-      }
       const obj = await findStatus({});
       if (!obj) {
         throw new Error("Status not found");
