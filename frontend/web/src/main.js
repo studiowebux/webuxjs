@@ -1,9 +1,12 @@
 import Vue from "vue";
-import App from "./App.vue";
+
+import "./resources/socket";
 import "./resources/cookies";
 import router from "./router";
 import store from "./store";
-import "./resources/socket";
+
+import App from "./App.vue";
+
 import "./registerServiceWorker";
 import "./resources/font-awesome";
 import "vue-multiselect/dist/vue-multiselect.min.css";

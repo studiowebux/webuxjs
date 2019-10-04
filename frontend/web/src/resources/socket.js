@@ -11,10 +11,7 @@ const socket = SocketIO(URL, options);
 
 Vue.use(VueSocketIO, socket, {
   store,
-  actionPrefix: "socket_",
-  eventToActionTransformer: str => {
-    return str;
-  }
+  actionPrefix: "socket_"
 });
 
 export default socket;
