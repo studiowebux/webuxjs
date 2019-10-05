@@ -13,15 +13,33 @@
           <template v-if="!editing">
             <p class="card-text">Your Fullname: {{ getProfile.fullname }}</p>
             <p class="card-text">Your Role: Not implemented yet</p>
-            <button class="btn btn-primary" @click="editMode" :disabled="isLoading">Edit</button>
+            <button
+              class="btn btn-primary"
+              @click="editMode"
+              :disabled="isLoading"
+            >
+              Edit
+            </button>
           </template>
 
           <template v-else>
             <p class="card-text">
               <label for="fullname">Your Fullname</label>
-              <input name="fullname" type="text" class="form-control" v-model="fullname" required />
+              <input
+                name="fullname"
+                type="text"
+                class="form-control"
+                v-model="fullname"
+                required
+              />
             </p>
-            <button @click="updateProfile" class="btn btn-success" :disabled="isLoading">Save</button>
+            <button
+              @click="updateProfile"
+              class="btn btn-success"
+              :disabled="isLoading"
+            >
+              Save
+            </button>
           </template>
         </div>
       </div>

@@ -91,15 +91,21 @@
             <h5 class="card-title">{{ part.name }}</h5>
             <p class="card-text">{{ part.description }}</p>
             <p class="card-text">{{ part.serialNumber }}</p>
-            <p class="card-text">{{ part.statusID ? part.statusID.name : "None" }}</p>
+            <p class="card-text">
+              {{ part.statusID ? part.statusID.name : "None" }}
+            </p>
             <p class="card-text">
               {{
-              part.userID && part.userID.profileID
-              ? part.userID.profileID.fullname
-              : "Profile not created yet"
+                part.userID && part.userID.profileID
+                  ? part.userID.profileID.fullname
+                  : "Profile not created yet"
               }}
             </p>
-            <a href="#" class="btn btn-warning col-md-6" @click.prevent="DeletePart(part._id)">
+            <a
+              href="#"
+              class="btn btn-warning col-md-6"
+              @click.prevent="DeletePart(part._id)"
+            >
               <font-awesome-icon icon="trash-alt" />
             </a>
             <a
@@ -132,14 +138,23 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="createPartLabel">Create Part</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form @submit.prevent="CreatePart">
               <div class="form-group row">
-                <label for="partName" class="col-sm-3 col-form-label form-control-lg mb-2">Name</label>
+                <label
+                  for="partName"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Name</label
+                >
                 <div class="col-sm-9">
                   <input
                     class="form-control form-control-lg mb-2"
@@ -155,7 +170,8 @@
                 <label
                   for="partDescription"
                   class="col-sm-3 col-form-label form-control-lg mb-2"
-                >Description</label>
+                  >Description</label
+                >
                 <div class="col-sm-9">
                   <input
                     class="form-control form-control-lg mb-2"
@@ -172,7 +188,8 @@
                 <label
                   for="partSerialNumber"
                   class="col-sm-3 col-form-label form-control-lg mb-2"
-                >Serial Number</label>
+                  >Serial Number</label
+                >
                 <div class="col-sm-9">
                   <input
                     class="form-control form-control-lg mb-2"
@@ -186,7 +203,11 @@
               </div>
 
               <div class="form-group row">
-                <label for="partStatus" class="col-sm-3 col-form-label form-control-lg mb-2">Status</label>
+                <label
+                  for="partStatus"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Status</label
+                >
                 <div class="col-sm-9">
                   <multiselect
                     v-model="part.statusID"
@@ -207,7 +228,8 @@
                 <label
                   for="partCategories"
                   class="col-sm-3 col-form-label form-control-lg mb-2"
-                >Categories</label>
+                  >Categories</label
+                >
                 <div class="col-sm-9">
                   <multiselect
                     v-model="part.categories"
@@ -221,11 +243,15 @@
                     track-by="_id"
                     :preselect-first="true"
                   >
-                    <template slot="selection" slot-scope="{ values, search, isOpen }">
+                    <template
+                      slot="selection"
+                      slot-scope="{ values, search, isOpen }"
+                    >
                       <span
                         class="multiselect__single"
                         v-if="values.length && !isOpen"
-                      >{{ values.length }} options selected</span>
+                        >{{ values.length }} options selected</span
+                      >
                     </template>
                   </multiselect>
                 </div>
@@ -233,13 +259,27 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <submit class="btn" text="Create Part" :onClick="CreatePart"></submit>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <submit
+              class="btn"
+              text="Create Part"
+              :onClick="CreatePart"
+            ></submit>
           </div>
         </div>
       </div>
     </div>
-    <part-modal v-if="selectedId" :Edit="EditPart" :partId="selectedId"></part-modal>
+    <part-modal
+      v-if="selectedId"
+      :Edit="EditPart"
+      :partId="selectedId"
+    ></part-modal>
   </div>
 </template>
 

@@ -32,7 +32,14 @@
               >
                 <font-awesome-icon icon="trash-alt" />
               </button>
-              <button v-else type="button" class="btn btn-primary" @click="save(line)">Save</button>
+              <button
+                v-else
+                type="button"
+                class="btn btn-primary"
+                @click="save(line)"
+              >
+                Save
+              </button>
             </div>
           </td>
         </tr>

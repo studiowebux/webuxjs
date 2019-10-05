@@ -1,14 +1,16 @@
 <template>
   <div id="app">
     <div class="container-fluid">
-      <w-menu :entries="entries"></w-menu>
+      <w-menu :entries="entries" />
       <router-view />
+      <w-footer />
     </div>
   </div>
 </template>
 
 <script>
-import Menu from "./components/Menu";
+import Menu from "./components/layouts/Menu";
+import Footer from "./components/layouts/Footer";
 import { mapActions } from "vuex";
 
 export default {
@@ -68,7 +70,8 @@ export default {
     };
   },
   components: {
-    wMenu: Menu
+    wMenu: Menu,
+    wFooter: Footer
   },
   methods: {
     ...mapActions(["logout"])

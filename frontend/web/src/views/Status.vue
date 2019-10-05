@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <add-form :create="createStatus" header="Add New Status" :newValue="newStatus"></add-form>
+    <add-form
+      :create="createStatus"
+      header="Add New Status"
+      :newValue="newStatus"
+    ></add-form>
     <div class="row">
       <div class="col">
         <w-table

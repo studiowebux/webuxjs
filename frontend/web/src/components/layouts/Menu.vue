@@ -1,9 +1,9 @@
 <template>
-  <div class="mb-2 mt-3">
+  <div class="mb-2">
     <div class="mt-5">
       <img src="/img/logo.png" alt="Logo" class="logo" />
     </div>
-    <nav class="nav navbar-expand-md navbar-light bg-light">
+    <nav class="nav navbar-expand-md navbar bg-light mt-2">
       <div class="container">
         <button
           class="navbar-toggler"
@@ -20,28 +20,28 @@
           <ul class="navbar-nav mx-auto nav-pills">
             <li class="nav-item" v-for="entry in entries" :key="entry.name">
               <template v-if="entry.auth && accessToken">
-                <router-link v-if="!entry.action" class="nav-link" :to="entry.to">
-                  {{
-                  entry.name
-                  }}
+                <router-link
+                  v-if="!entry.action"
+                  class="nav-link"
+                  :to="entry.to"
+                >
+                  {{ entry.name }}
                 </router-link>
                 <a v-else href="#" class="nav-link" @click="entry.action">
-                  {{
-                  entry.name
-                  }}
+                  {{ entry.name }}
                 </a>
               </template>
 
               <template v-if="!entry.auth && !accessToken">
-                <router-link v-if="!entry.action" class="nav-link" :to="entry.to">
-                  {{
-                  entry.name
-                  }}
+                <router-link
+                  v-if="!entry.action"
+                  class="nav-link"
+                  :to="entry.to"
+                >
+                  {{ entry.name }}
                 </router-link>
                 <a v-else href="#" class="nav-link" @click="entry.action">
-                  {{
-                  entry.name
-                  }}
+                  {{ entry.name }}
                 </a>
               </template>
             </li>

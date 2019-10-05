@@ -49,7 +49,6 @@ const actions = {
     if (!state.timeout) {
       commit("TIMEOUT", true);
       setTimeout(async () => {
-
         const refreshToken = await getCookies("refreshToken");
         const userID = await getCookies("userID");
 

@@ -1,12 +1,17 @@
 <template>
   <div class="row justify-content-md-center actions shadow p-3 mb-2">
-    <h5 class="col-md-12">{{header}}</h5>
+    <h5 class="col-md-12">{{ header }}</h5>
     <Error class="col-md-3"></Error>
     <div class="col-md-9">
       <form>
         <div class="row">
           <div class="col-md-3 col-sm-12 mb-2">
-            <input type="text" class="form-control" placeholder="Name" v-model="newValue.name" />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name"
+              v-model="newValue.name"
+            />
           </div>
           <div class="col-md-5 col-sm-12 mb-2">
             <input
