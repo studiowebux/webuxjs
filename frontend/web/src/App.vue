@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <w-menu :entries="entries" />
       <router-view />
-      <w-footer />
     </div>
+    <w-footer />
   </div>
 </template>
 
@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss">
 body {
-  margin-bottom: 140px;
+  height: 100%;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -94,5 +94,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: auto !important;
+  min-height: 100%;
 }
 </style>
