@@ -1,5 +1,5 @@
 <template>
-  <footer class="content-justify-center bg-light pt-3">
+  <footer class="content-justify-center bg-light pt-3 fixed-bottom">
     <div class="container-fluid text-center text-md-left">
       <div class="row">
         <div class="col-md-4 mx-auto">
@@ -42,12 +42,4 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="mb-2">
-    <div class="mt-5">
+  <div class="mb-2 pa-2">
+    <div class="mt-2">
       <img src="/img/logo.png" alt="Logo" class="logo" />
     </div>
-    <nav class="nav navbar-expand-md navbar bg-light mt-2">
+    <nav class="nav navbar-expand-md navbar-light bg-light mt-2">
       <div class="container">
         <button
-          class="navbar-toggler"
+          class="navbar-toggler text-left"
           type="button"
           data-toggle="collapse"
           data-target="#menu"
@@ -71,7 +71,6 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  padding: 30px;
   a {
     font-weight: bold;
     color: #2c3e50;

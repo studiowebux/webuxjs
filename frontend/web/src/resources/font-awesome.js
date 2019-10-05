@@ -5,10 +5,18 @@ import {
   faTimesCircle,
   faPlusCircle,
   faTrashAlt,
-  faEye
+  faEye,
+  faEyeSlash
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faPencilAlt, faTimesCircle, faPlusCircle, faTrashAlt, faEye);
+library.add(
+  faPencilAlt,
+  faTimesCircle,
+  faPlusCircle,
+  faTrashAlt,
+  faEye,
+  faEyeSlash
+);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
