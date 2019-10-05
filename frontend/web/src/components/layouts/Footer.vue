@@ -42,10 +42,12 @@
   </footer>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  height: 60px;
+  line-height: 60px;
 }
 </style>
