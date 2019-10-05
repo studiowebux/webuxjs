@@ -1,30 +1,53 @@
 <template>
-  <div>
+  <div class="mb-2 mt-3">
     <div class="mt-5">
       <img src="/img/logo.png" alt="Logo" class="logo" />
     </div>
-    <nav class="nav justify-content-center">
-      <ul class="nav nav-pills">
-        <li class="nav-item" v-for="entry in entries" :key="entry.name">
-          <template v-if="entry.auth && accessToken">
-            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{
-              entry.name
-            }}</router-link>
-            <a v-else href="#" class="nav-link" @click="entry.action">{{
-              entry.name
-            }}</a>
-          </template>
+    <nav class="nav navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#menu"
+          aria-controls="menu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav mx-auto nav-pills">
+            <li class="nav-item" v-for="entry in entries" :key="entry.name">
+              <template v-if="entry.auth && accessToken">
+                <router-link v-if="!entry.action" class="nav-link" :to="entry.to">
+                  {{
+                  entry.name
+                  }}
+                </router-link>
+                <a v-else href="#" class="nav-link" @click="entry.action">
+                  {{
+                  entry.name
+                  }}
+                </a>
+              </template>
 
-          <template v-if="!entry.auth && !accessToken">
-            <router-link v-if="!entry.action" class="nav-link" :to="entry.to">{{
-              entry.name
-            }}</router-link>
-            <a v-else href="#" class="nav-link" @click="entry.action">{{
-              entry.name
-            }}</a>
-          </template>
-        </li>
-      </ul>
+              <template v-if="!entry.auth && !accessToken">
+                <router-link v-if="!entry.action" class="nav-link" :to="entry.to">
+                  {{
+                  entry.name
+                  }}
+                </router-link>
+                <a v-else href="#" class="nav-link" @click="entry.action">
+                  {{
+                  entry.name
+                  }}
+                </a>
+              </template>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </div>
 </template>

@@ -46,30 +46,16 @@ const actions = {
   },
   setAutoRefresh: ({ dispatch, commit, state }, timer) => {
     const timeout = Math.ceil(timer - 15) * 1000;
-    console.log(
-      "SETAUTOREFRESH - Create the timeout function with value of " + timeout
-    );
-    console.log(state);
     if (!state.timeout) {
-      console.log("set timeout...");
       commit("TIMEOUT", true);
       setTimeout(async () => {
-        console.log("SETAUTOREFRESH - TIMEOUT CALLED ! ");
 
         const refreshToken = await getCookies("refreshToken");
         const userID = await getCookies("userID");
 
-        console.log(
-          "SETAUTOREFRESH - Dispatch refreshToken with values + " +
-            refreshToken +
-            " || " +
-            userID
-        );
         commit("TIMEOUT", false);
         dispatch("refreshToken", { refreshToken, userID });
       }, timeout);
-    } else {
-      console.log("Timeout already there...");
     }
   },
   signIn: ({ commit, dispatch }, credentials) => {

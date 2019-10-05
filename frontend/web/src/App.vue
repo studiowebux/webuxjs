@@ -76,8 +76,6 @@ export default {
   sockets: {
     connect() {
       console.log("Connection with socket.io server established");
-    }, categoryFound(){
-      console.log("test !")
     }
   }
 };

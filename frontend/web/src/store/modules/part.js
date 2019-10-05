@@ -53,7 +53,7 @@ const actions = {
   },
   socket_partRemoved({ commit, dispatch }, data) {
     console.log("REMOVE PART - Using the socket");
-    commit("REMOVE_PART", data);
+    commit("REMOVE_PART", data._id);
     dispatch("doneLoading");
   },
   initParts: ({ commit }, parts) => {

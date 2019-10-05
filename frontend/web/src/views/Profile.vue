@@ -1,53 +1,32 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <Error></Error>
-    <div v-if="isLoading">
-      <div class="row justify-content-md-center">
+    <div v-if="isLoading" class="row justify-content-md-center">
+      <div class="col">
         <spinner></spinner>
       </div>
     </div>
-    <div v-else-if="getProfile">
-      <div class="row justify-content-md-center">
-        <div class="card p-3 ma-10 shadow p-3 ma-6">
-          <div class="card-body">
-            <h5 class="card-title">My Profile</h5>
-            <template v-if="!editing">
-              <p class="card-text">Your Fullname: {{ getProfile.fullname }}</p>
-              <p class="card-text">Your Role: Not implemented yet</p>
-              <button
-                class="btn btn-primary"
-                @click="editMode"
-                :disabled="isLoading"
-              >
-                Edit
-              </button>
-            </template>
+    <div v-else-if="getProfile" class="row justify-content-md-center">
+      <div class="card p-3 ma-10 shadow p-3 ma-6 col-md-6 col-sm-12">
+        <div class="card-body">
+          <h5 class="card-title">My Profile</h5>
+          <template v-if="!editing">
+            <p class="card-text">Your Fullname: {{ getProfile.fullname }}</p>
+            <p class="card-text">Your Role: Not implemented yet</p>
+            <button class="btn btn-primary" @click="editMode" :disabled="isLoading">Edit</button>
+          </template>
 
-            <template v-else>
-              <p class="card-text">
-                <label for="fullname">Your Fullname</label>
-                <input
-                  name="fullname"
-                  type="text"
-                  class="form-control"
-                  v-model="fullname"
-                  required
-                />
-              </p>
-              <button
-                @click="updateProfile"
-                class="btn btn-success"
-                :disabled="isLoading"
-              >
-                Save
-              </button>
-            </template>
-          </div>
+          <template v-else>
+            <p class="card-text">
+              <label for="fullname">Your Fullname</label>
+              <input name="fullname" type="text" class="form-control" v-model="fullname" required />
+            </p>
+            <button @click="updateProfile" class="btn btn-success" :disabled="isLoading">Save</button>
+          </template>
         </div>
       </div>
     </div>
-    <div v-else>
-      <div class="row justify-content-md-center"></div>
+    <div v-else class="row justify-content-md-center">
       <h1>Create my profile</h1>
       <form>
         <div class="row justify-content-center">

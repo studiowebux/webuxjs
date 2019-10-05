@@ -1,44 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-end actions">
-      <Error></Error>
-      <div class="col-md-6">
-        <form>
-          <div class="row">
-            <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Name"
-                v-model="newStatus.name"
-              />
-            </div>
-            <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Description"
-                v-model="newStatus.description"
-              />
-            </div>
-            <div class="col">
-              <input
-                type="color"
-                class="form-control"
-                id="color"
-                name="color"
-                v-model="newStatus.color"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-success" @click="createStatus()">
-          Add New Status
-        </button>
-      </div>
-    </div>
+    <add-form :create="createStatus" header="Add New Status" :newValue="newStatus"></add-form>
     <div class="row">
       <div class="col">
         <w-table
@@ -58,7 +20,8 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
-import Error from "../components/Error";
+import AddForm from "../components/AddForm";
+
 import { mapGetters } from "vuex";
 
 export default {
@@ -66,7 +29,7 @@ export default {
   components: {
     wTable: Table,
     wSpinner: Spinner,
-    Error
+    AddForm
   },
   methods: {
     createStatus() {

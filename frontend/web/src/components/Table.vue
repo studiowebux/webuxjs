@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-12">
+  <div class="table-responsive">
     <table class="table table-striped shadow">
       <thead>
         <tr>
@@ -30,16 +30,9 @@
                 class="btn btn-danger"
                 @click="remove(line._id)"
               >
-                Remove
+                <font-awesome-icon icon="trash-alt" />
               </button>
-              <button
-                v-else
-                type="button"
-                class="btn btn-primary"
-                @click="save(line)"
-              >
-                Save
-              </button>
+              <button v-else type="button" class="btn btn-primary" @click="save(line)">Save</button>
             </div>
           </td>
         </tr>

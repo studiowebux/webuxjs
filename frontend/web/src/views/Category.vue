@@ -1,37 +1,6 @@
 <template>
   <div class="container">
-    <div class="row justify-content-end actions">
-      <Error></Error>
-      <div class="col-md-6">
-        <form>
-          <div class="row">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Name" v-model="newCategory.name" />
-            </div>
-            <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Description"
-                v-model="newCategory.description"
-              />
-            </div>
-            <div class="col">
-              <input
-                type="color"
-                class="form-control"
-                id="color"
-                name="color"
-                v-model="newCategory.color"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-success" @click="createCategory()">Add New Category</button>
-      </div>
-    </div>
+    <add-form :create="createCategory" header="Add New Category" :newValue="newCategory"></add-form>
     <div class="row">
       <div class="col">
         <w-table
@@ -51,7 +20,7 @@
 <script>
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
-import Error from "../components/Error";
+import AddForm from "../components/AddForm";
 import { mapGetters /*mapActions*/ } from "vuex";
 
 export default {
@@ -59,7 +28,7 @@ export default {
   components: {
     wTable: Table,
     wSpinner: Spinner,
-    Error
+    AddForm
   },
   methods: {
     // ...mapActions([
