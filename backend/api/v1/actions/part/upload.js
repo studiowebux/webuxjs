@@ -17,18 +17,25 @@
 const Webux = require("webux-app");
 
 // action
-const upload = async (partID, filename) => {
+const upload = async (partID, file) => {
   const oldPicture = await Webux.db.Part.findById(partID)
     .select("pictureURL")
     .catch(e => {
       throw Webux.errorHandler(422, e);
     });
+
   if (oldPicture && oldPicture.pictureURL) {
-    try {
-      Webux.fileUpload.DeleteFile(oldPicture.pictureURL);
-    } catch (e) {
-      console.error(e);
-    }
+    Webux.fileUpload.DeleteFile(oldPicture.pictureURL);
+  }
+
+  const filename = await Webux.fileUpload.PrepareFile(
+    Webux.config.upload,
+    file,
+    partID
+  );
+
+  if (!filename) {
+    return next(Webux.errorHandler(422, "Part with ID not updated."));
   }
 
   const partUpdated = await Webux.db.Part.findByIdAndUpdate(
@@ -80,17 +87,7 @@ const upload = async (partID, filename) => {
  */
 const route = async (req, res, next) => {
   try {
-    const filename = await Webux.fileUpload.PrepareFile(
-      Webux.config.upload,
-      req.files,
-      req.params.id
-    );
-
-    if (!filename) {
-      return next(Webux.errorHandler(422, "Part with ID not updated."));
-    }
-
-    const partUpdated = await upload(req.params.id, filename);
+    const partUpdated = await upload(req.params.id, req.files);
 
     if (!partUpdated) {
       return next(Webux.errorHandler(422, "Part with ID not updated."));

@@ -4,7 +4,6 @@ const state = {
 
 const mutations = {
   INIT_PARTS(state, part) {
-    console.log(part)
     state.parts = part;
   },
   ADD_PART(state, part) {

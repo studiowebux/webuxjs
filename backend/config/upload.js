@@ -16,6 +16,6 @@ module.exports = {
     "image/bmp",
     "image/webp"
   ],
-  filetype: ".png",
+  filetype: "image", // or document
   key: "picture"
 };
