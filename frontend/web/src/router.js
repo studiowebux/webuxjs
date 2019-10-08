@@ -95,6 +95,16 @@ const router = new Router({
       meta: { isAuth: true }
     },
     {
+      path: "/part/:id",
+      name: "onePart",
+      // route level code-splitting
+      // this generates a separate chunk (onePart.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "onePart" */ "./views/OnePart.vue"),
+      meta: { isAuth: true }
+    },
+    {
       path: "*",
       name: "not-found",
       // route level code-splitting

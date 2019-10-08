@@ -48,7 +48,7 @@ const findOnePart = async (partID, query) => {
   let object = null;
   if (partCategory) {
     object = part.toObject();
-    object.categories = Webux.toObject(partCategory.categoriesID);
+    object.categoriesID = Webux.toObject(partCategory.categoriesID);
   }
 
   return Promise.resolve(object || part);

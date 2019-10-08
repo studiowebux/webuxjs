@@ -15,7 +15,7 @@
             <spinner></spinner>
           </div>
           <div v-else>
-            <form @submit.prevent="Edit" v-if="editing">
+            <form @submit.prevent="Save" v-if="editing">
               <div class="form-group row">
                 <label
                   for="partName"
@@ -80,13 +80,12 @@
                     v-model="part.statusID"
                     :options="arrStatus"
                     :multiple="false"
-                    :close-on-select="false"
+                    :close-on-select="true"
                     :clear-on-select="false"
                     :preserve-search="true"
                     placeholder="Pick a status"
                     label="name"
                     track-by="_id"
-                    :preselect-first="true"
                   ></multiselect>
                 </div>
               </div>
@@ -99,7 +98,7 @@
                 >
                 <div class="col-sm-9">
                   <multiselect
-                    v-model="part.categories"
+                    v-model="part.categoriesID"
                     :options="arrCategory"
                     :multiple="true"
                     :close-on-select="false"
@@ -108,7 +107,6 @@
                     placeholder="Pick categories"
                     label="name"
                     track-by="_id"
-                    :preselect-first="true"
                   >
                     <template
                       slot="selection"
@@ -123,9 +121,22 @@
                   </multiselect>
                 </div>
               </div>
+
+              <hr />
+
+              <div class="form-group row">
+                <label
+                  for="partPicture"
+                  class="col-sm-3 col-form-label form-control-lg mb-2"
+                  >Picture</label
+                >
+                <div class="col-sm-9">
+                  <upload :partID="partId"></upload>
+                </div>
+              </div>
             </form>
 
-            <div class="row justify-content-md-center mt-3" v-if="!editing">
+            <div class="row justify-content-center mt-3" v-if="!editing">
               <div
                 class="card shadow-lg p-3 mb-5 bg-white rounded"
                 style="width:90%"
@@ -178,15 +189,21 @@
                       <h5>Categories</h5>
                     </div>
                     <div class="col-md-8">
-                      <ul v-if="parts[partId].categories" class="list-inline">
+                      <ul
+                        v-if="
+                          parts[partId].categoriesID &&
+                            Object.keys(parts[partId].categoriesID).length > 0
+                        "
+                        class="list-inline"
+                      >
                         <li
                           class="list-inline-item"
-                          v-for="category of parts[partId].categories"
+                          v-for="category of parts[partId].categoriesID"
                           :key="category._id"
                         >
-                          <span class="badge badge-primary">
-                            {{ category.name }}
-                          </span>
+                          <span class="badge badge-primary">{{
+                            category.name
+                          }}</span>
                         </li>
                       </ul>
                       <p v-else>No categories</p>
@@ -197,6 +214,12 @@
             </div>
           </div>
         </div>
+        <div class="row justify-content-center">
+          <Success />
+        </div>
+        <div class="row justify-content-center">
+          <Error />
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
@@ -205,20 +228,25 @@
           <button
             type="button"
             class="btn btn-warning"
-            v-if="editing"
-            @click="editing = !editing"
+            v-if="editing && userID === parts[partId].userID._id"
+            @click="isEditing()"
           >
             Cancel
           </button>
 
           <button
             class="btn btn-primary"
-            v-if="!editing"
-            @click.stop="editing = !editing"
+            v-if="!editing && userID === parts[partId].userID._id"
+            @click.stop="isEditing()"
           >
             Edit
           </button>
-          <submit v-else class="btn" text="Edit Part" :onClick="Edit"></submit>
+          <submit
+            v-if="editing && userID === parts[partId].userID._id"
+            class="btn"
+            text="Edit Part"
+            :onClick="Save"
+          ></submit>
         </div>
       </div>
     </div>
@@ -230,6 +258,9 @@ import Multiselect from "vue-multiselect";
 import { mapGetters } from "vuex";
 import Submit from "./Submit";
 import Spinner from "./Spinner";
+import Upload from "./Upload";
+import Error from "./Error";
+import Success from "./Success";
 
 export default {
   props: {
@@ -244,7 +275,8 @@ export default {
         description: "",
         serialNumber: "",
         statusID: "",
-        categoriesID: []
+        categoriesID: [],
+        userID: ""
       }
     };
   },
@@ -257,11 +289,32 @@ export default {
         statusID: "",
         categoriesID: []
       };
+    },
+    Save() {
+      this.Edit(this.part);
+      this.editing = false;
+      return;
+    },
+    isEditing() {
+      this.editing = !this.editing;
+      const PART = Object.assign({}, this.parts[this.partId]); // the local part became equal to the props one.
+
+      this.part.name = PART.name;
+      this.part.description = PART.description;
+      this.part.serialNumber = PART.serialNumber;
+      this.part.statusID = { _id: PART.statusID._id, name: PART.statusID.name };
+      this.part.categoriesID = PART.categoriesID
+        ? Object.keys(PART.categoriesID).map(category => {
+            return { _id: category, name: PART.categoriesID[category].name };
+          })
+        : [];
+      this.part.userID = PART.userID._id;
     }
   },
   watch: {
     partId: function(newVal) {
       this.$store.dispatch("isLoading");
+      this.$store.dispatch("resetSuccess");
       this.$socket.client.emit("findOnePart", newVal);
       this.resetForm();
       this.editing = false;
@@ -286,7 +339,10 @@ export default {
   components: {
     Multiselect,
     Submit,
-    Spinner
+    Spinner,
+    Upload,
+    Error,
+    Success
   }
 };
 </script>

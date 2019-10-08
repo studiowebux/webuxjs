@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Error></Error>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <form @keyup.enter.prevent="SendEmail" class="col-md-6 col-sm-12">
         <p>
           Enter your email address to get the instruction to reset your
@@ -21,7 +21,7 @@
         ></Submit>
       </form>
     </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <div
         class="col-md-6 col-sm-12 alert alert-success"
         role="alert"

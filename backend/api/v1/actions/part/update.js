@@ -17,19 +17,53 @@
 const Webux = require("webux-app");
 
 // action
-const updateOnePart = async (partID, part) => {
+const updateOnePart = async (partID, userID, part) => {
   await Webux.isValid.Custom(Webux.validators.part.MongoID, partID);
   await Webux.isValid.Custom(Webux.validators.part.Update, part);
 
-  const partUpdated = await Webux.db.Part.findByIdAndUpdate(partID, part, {
-    new: true
-  }).catch(e => {
-    throw Webux.errorHandler(422, e);
-  });
+  const partUpdated = await Webux.db.Part.findOneAndUpdate(
+    { _id: partID, userID: userID },
+    part,
+    {
+      new: true
+    }
+  )
+    .populate("statusID")
+    .populate({
+      path: "userID",
+      select: "profileID",
+      populate: {
+        path: "profileID",
+        model: "Profile",
+        select: "fullname"
+      }
+    })
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
   if (!partUpdated) {
     throw Webux.errorHandler(422, "part not updated");
   }
-  return Promise.resolve(partUpdated);
+
+  const partCategory = await Webux.db.PartCategory.findByIdAndUpdate(
+    partID,
+    { partID: partID, categoriesID: part.categoriesID },
+    { new: true, upsert: true }
+  )
+    .populate("categoriesID")
+    .lean()
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+
+  let object = null;
+
+  if (partCategory) {
+    object = partUpdated.toObject();
+    object.categoriesID = Webux.toObject(partCategory.categoriesID);
+  }
+
+  return Promise.resolve(object || partUpdated);
 };
 
 // route
@@ -70,7 +104,7 @@ const updateOnePart = async (partID, part) => {
  */
 const route = async (req, res, next) => {
   try {
-    const obj = await updateOnePart(req.params.id, req.body.part);
+    const obj = await updateOnePart(req.params.id, req.user._id, req.body.part);
     if (!obj) {
       return next(Webux.errorHandler(422, "Part with ID not updated."));
     }
@@ -85,7 +119,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (partID, part) => {
     try {
-      const obj = await updateOnePart(partID, part);
+      const obj = await updateOnePart(partID, client.user._id, part);
       if (!obj) {
         throw new Error("Part with ID not updated");
       }

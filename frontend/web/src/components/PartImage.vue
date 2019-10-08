@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     loadImage() {
-      console.log("try to load the image");
       http
         .get("/part/" + this.id + "/picture", {
           responseType: "arraybuffer"
@@ -38,8 +37,7 @@ export default {
           this.link =
             "data:" + response.headers["content-type"] + ";base64," + buffer;
         })
-        .catch(e => {
-          console.error(e);
+        .catch(() => {
           this.text = "No Picture";
         })
         .finally(() => {

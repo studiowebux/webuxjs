@@ -17,14 +17,31 @@
 const Webux = require("webux-app");
 
 // action
-const removeOnePart = async partID => {
+const removeOnePart = async (partID, userID) => {
   await Webux.isValid.Custom(Webux.validators.part.MongoID, partID);
 
-  const partRemoved = await Webux.db.Part.findByIdAndRemove(partID).catch(e => {
+  const partRemoved = await Webux.db.Part.findOneAndRemove({
+    _id: partID,
+    userID: userID
+  }).catch(e => {
     throw Webux.errorHandler(422, e);
   });
   if (!partRemoved) {
     throw Webux.errorHandler(422, "part not removed");
+  }
+
+  if(partRemoved.pictureURL){
+    Webux.fileUpload.DeleteFile(partRemoved.pictureURL);
+  }
+
+  const partCategoriesRemoved = await Webux.db.PartCategory.findOneAndRemove({
+    partID
+  }).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+
+  if (!partCategoriesRemoved) {
+    throw Webux.errorHandler(422, "part categories not removed");
   }
   return Promise.resolve(partRemoved);
 };
@@ -33,7 +50,7 @@ const removeOnePart = async partID => {
 /**
  * @apiGroup Part
  * @api {delete} /api/v1/part/:id Delete a part
- * @apiParam {string} id 
+ * @apiParam {string} id
  * @apiDescription Delete a part
  * @apiName Delete a part
  * @apiSuccessExample {json} Success-Response:
@@ -41,7 +58,7 @@ const removeOnePart = async partID => {
  */
 const route = async (req, res, next) => {
   try {
-    const obj = await removeOnePart(req.params.id);
+    const obj = await removeOnePart(req.params.id, req.user._id);
     if (!obj) {
       return next(Webux.errorHandler(422, "Part with ID not deleted."));
     }
@@ -56,7 +73,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async partID => {
     try {
-      const obj = await removeOnePart(partID);
+      const obj = await removeOnePart(partID, client.user._id);
       if (!obj) {
         throw new Error("Part with ID not deleted");
       }

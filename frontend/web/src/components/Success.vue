@@ -1,6 +1,6 @@
 <template>
-  <div v-if="error_message" class="alert alert-danger" role="alert">
-    {{ error_message }}
+  <div v-if="success_message" class="alert alert-success" role="alert">
+    {{ success_message }}
     <font-awesome-icon icon="times-circle" class="float-right" @click="Hide" />
   </div>
 </template>
@@ -9,12 +9,12 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["error_message"])
+    ...mapGetters(["success_message"])
   },
   methods: {
-    ...mapActions(["resetError"]),
+    ...mapActions(["resetSuccess"]),
     Hide() {
-      this.resetError();
+      this.resetSuccess();
     }
   }
 };

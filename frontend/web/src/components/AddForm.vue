@@ -1,5 +1,5 @@
 <template>
-  <div class="container justify-content-md-center actions shadow p-3 mb-2">
+  <div class="container justify-content-center actions shadow p-3 mb-2">
     <div class="row">
       <h5 class="col-md-10">{{ header }}</h5>
       <div class="col-md-2 pull-right">
@@ -41,7 +41,9 @@
             </div>
 
             <div class="col-md-2 col-sm-12 mb-2 justify-content-end">
-              <button class="btn btn-success" @click="create()">Add</button>
+              <button class="btn btn-success" @click.prevent="create()">
+                Add
+              </button>
             </div>
           </div>
         </form>

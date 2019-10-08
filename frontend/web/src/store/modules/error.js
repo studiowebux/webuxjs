@@ -6,13 +6,21 @@ const state = {
 
 const mutations = {
   SET_ERROR(state, error) {
-    state.error_message = error;
+    if (error && error.errmsg) {
+      // for mongoDB
+      state.error_message = error.errmsg;
+    } else {
+      state.error_message = error;
+    }
   },
   RESET_ERROR(state) {
     state.error_message = "";
   },
   SET_SUCCESS(state, success) {
     state.success_message = success;
+  },
+  RESET_SUCCESS(state) {
+    state.success_message = "";
   },
   RESET_MSG(state) {
     state.error_message = "";
@@ -39,6 +47,9 @@ const actions = {
   },
   setSuccess: ({ commit }, successMSG) => {
     commit("SET_SUCCESS", successMSG);
+  },
+  resetSuccess: ({ commit }) => {
+    commit("RESET_SUCCESS");
   },
   resetMsg: ({ commit }) => {
     commit("RESET_MSG");

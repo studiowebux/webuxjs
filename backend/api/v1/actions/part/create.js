@@ -15,6 +15,7 @@
 "use strict";
 
 const Webux = require("webux-app");
+const { findOnePart } = require("./findOne");
 
 // action
 
@@ -39,7 +40,15 @@ const createPart = async part => {
     throw Webux.errorHandler(422, "Categories not linked");
   }
 
-  return Promise.resolve(partCreated);
+  const newPart = await findOnePart(partCreated._id.toString(), {}).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
+
+  if (!newPart) {
+    throw Webux.errorHandler(422, "Fail to get the newly created part");
+  }
+
+  return Promise.resolve(newPart);
 };
 
 // route
@@ -76,7 +85,7 @@ const createPart = async part => {
  *             "__v": 0
  *         }
  *     }
-**/
+ **/
 const route = async (req, res, next) => {
   try {
     const obj = await createPart(req.body.part);

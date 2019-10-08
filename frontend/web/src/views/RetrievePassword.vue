@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Error></Error>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <p>
         Enter your email address associated with the code to update your
         password.
@@ -41,7 +41,7 @@
         Update Password
       </button>
     </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <div
         class="col-md-6 col-sm-12 alert alert-success"
         role="alert"

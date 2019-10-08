@@ -4,6 +4,7 @@ const state = {
 
 const mutations = {
   INIT_PARTS(state, part) {
+    console.log(part)
     state.parts = part;
   },
   ADD_PART(state, part) {
@@ -43,13 +44,16 @@ const actions = {
   },
   socket_partCreated({ commit, dispatch }, data) {
     console.log("CREATE PART - Using the socket");
+    // TODO : the user fullname must be mapped properly
     commit("ADD_PART", data);
     dispatch("doneLoading");
+    dispatch("setSuccess", "Part successfully added");
   },
   socket_partUpdated({ commit, dispatch }, data) {
     console.log("UPDATE PART - Using the socket");
     commit("EDIT_PART", data);
     dispatch("doneLoading");
+    dispatch("setSuccess", "Part successfully updated");
   },
   socket_partRemoved({ commit, dispatch }, data) {
     console.log("REMOVE PART - Using the socket");
@@ -61,6 +65,9 @@ const actions = {
   },
   addPart: ({ commit }, parts) => {
     commit("ADD_PART", parts);
+  },
+  updatePart: ({ commit }, part) => {
+    commit("EDIT_PART", part);
   },
   deletePart: ({ commit }, partID) => {
     commit("DELETE_PART", partID);

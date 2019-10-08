@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Error></Error>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <form @keyup.enter="login" class="col-md-6 col-sm-12">
         <div class="form-group">
           <input
@@ -23,7 +23,7 @@
         </div>
       </form>
     </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <router-link class="col-md-12" to="/lost-password"
         >Lost Password ?</router-link
       >

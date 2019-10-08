@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Error></Error>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-center">
       <form @keyup.enter="register" class="col-md-6 col-sm-12">
         <div class="form-group">
           <input

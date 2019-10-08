@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <Error></Error>
-    <div v-if="isLoading" class="row justify-content-md-center">
+    <div v-if="isLoading" class="row justify-content-center">
       <div class="col">
         <spinner></spinner>
       </div>
     </div>
-    <div v-else-if="getProfile" class="row justify-content-md-center">
+    <div v-else-if="getProfile" class="row justify-content-center">
       <div class="card p-3 ma-10 shadow p-3 ma-6 col-md-6 col-sm-12">
         <div class="card-body">
           <h5 class="card-title">My Profile</h5>
@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div v-else class="row justify-content-md-center">
+    <div v-else class="row justify-content-center">
       <h1>Create my profile</h1>
       <form>
         <div class="row justify-content-center">

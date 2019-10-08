@@ -2,7 +2,7 @@ import axios from "axios";
 import getCookies from "./getCookies";
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || "http://demo.webux.lab/api"
+  baseURL: process.env.VUE_APP_API_URL || "http://127.0.0.1:1337/api/v1"
   // withCredentials: true
 });
 

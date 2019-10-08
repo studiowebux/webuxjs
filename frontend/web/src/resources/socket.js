@@ -3,7 +3,7 @@ import VueSocketIO from "vue-socket.io-extended";
 import Vue from "vue";
 import store from "../store";
 
-const URL = process.env.VUE_APP_IO_URL || "http://demo.webux.lab";
+const URL = process.env.VUE_APP_IO_URL || "http://127.0.0.1:1337";
 
 const options = { transports: ["websocket"], autoConnect: false };
 
