@@ -38,6 +38,7 @@ services:
       - "./app/logs:/usr/src/app/log"
       - "./app/defaults:/usr/src/app/defaults"
       - "./app/uploads:/usr/src/app/uploads"
+      - "./app/.tmp:/usr/src/app/.tmp"
       - "./app/locales:/usr/src/app/locales"
     restart: always
     links:

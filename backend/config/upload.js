@@ -8,7 +8,7 @@ module.exports = {
   },
   abortOnLimit: true,
   safeFileNames: true,
-  size: 200,
+  size: 400,
   mimeTypes: [
     "image/gif",
     "image/png",
