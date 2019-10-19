@@ -11,21 +11,16 @@ const mutations = {
 const actions = {
   socket_profileFound: ({ commit, dispatch }, data) => {
     console.log("PROFILE FOUND");
-    console.log(data);
     commit("INIT_PROFILE", data);
     dispatch("doneLoading");
   },
   socket_profileCreated: ({ commit, dispatch }, data) => {
     console.log("PROFILE Created");
-
-    console.log(data);
     commit("INIT_PROFILE", data.profileID); // because the populate using mongoose wraps the user in profileID
     dispatch("doneLoading");
   },
   socket_profileUpdated: ({ commit, dispatch }, data) => {
     console.log("PROFILE Updated !");
-
-    console.log(data);
     commit("INIT_PROFILE", data);
     dispatch("doneLoading");
   }

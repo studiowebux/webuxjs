@@ -1,41 +1,42 @@
-# WebuxJS
+# WebuxJS - A Studio Webux Toolbox with NodeJS & Express
 
-This is the framework for Studio Webux Projects
+This is the Toolbox Demo for Studio Webux Projects
 
 ## Installation
 
 ```bash
-npm i --save webuxjs
+git clone https://github.com/studiowebux/webuxjs.git
+
+cd webuxjs/backend
+npm install
+
+cd ../frontend/web
+npm install
 ```
 
 ## Usage
 
-this module covers a lot of stuffs,
+### Start the Application
 
-firstly,
-the index.js file is the entry point.
-it loads the app/index.js file, that one contains the whole application. Meaning, it will call the modules required by the application, you can update that file like you want.
+First Terminal, start the backend instance
 
-secondly,
-the api/
-it contains the application logics
-
-thirdly,
-the rest of the directories are there to support the application.
-
-I will write a more detailled documentation that cover the modules plus the framework.
-
-### How to customize everything for your needs
-
-you can fork the webux-app project on github [webux-app](https://github.com/studiowebux/webux-app), and add/update and remove stuffs.
-
-If you add something, you can also share it with everyone, by creating a pull request.
-
-## Docker compose
-
-From the root directory,
-
+```bash
+cd webuxjs/backend
+npm start
 ```
+
+Second Terminal, start the frontend instance
+
+```bash
+cd webuxjs/frontend/web
+npm run serve
+```
+
+### Docker compose Usage
+
+From the root project directory,
+
+```bash
 docker-compose up --build -d
 ```
 

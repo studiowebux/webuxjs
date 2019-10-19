@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <add-form
-      :create="createCategory"
-      header="Add New Category"
-      :newValue="newCategory"
-    ></add-form>
+    <add-form :create="createCategory" header="Add New Category" :newValue="newCategory"></add-form>
     <div class="row">
       <div class="col">
         <w-table
@@ -66,7 +62,6 @@ export default {
           color: line.color.replace("#", "")
         }
       };
-      //this.editCategory(updCategory);
 
       this.$store.dispatch("isLoading");
       this.$socket.client.emit(
@@ -76,7 +71,6 @@ export default {
       );
     },
     removeCategory(id) {
-      console.log(id);
       this.$store.dispatch("isLoading");
       this.$socket.client.emit("removeCategory", id);
     }
@@ -98,7 +92,6 @@ export default {
   },
   mounted() {
     // this.initCategory(); to use the API call.
-    console.log("try to retrieve the categories");
     this.$store.dispatch("isLoading");
     this.$socket.client.emit("findCategory");
   },

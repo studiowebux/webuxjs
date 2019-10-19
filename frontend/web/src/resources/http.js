@@ -18,12 +18,9 @@ http.interceptors.request.use(async config => {
 
 http.interceptors.response.use(
   function(response) {
-    // Do something with response data
     return response;
   },
   function(error) {
-    // Do something with response error
-    console.error(error);
     let msg = "";
     if (error.response) {
       msg =

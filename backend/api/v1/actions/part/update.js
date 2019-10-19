@@ -114,8 +114,7 @@ const route = async (req, res, next) => {
   }
 };
 
-// socket with auth
-
+// socket
 const socket = (client, io) => {
   return async (partID, part) => {
     try {

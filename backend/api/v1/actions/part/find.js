@@ -90,7 +90,7 @@ const route = async (req, res, next) => {
 
 // socket with auth
 
-const socket = client => {
+const socket = (client) => {
   return async () => {
     try {
       const obj = await findPart({});

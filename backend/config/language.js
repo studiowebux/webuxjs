@@ -3,5 +3,6 @@ module.exports = {
   directory: "locales",
   default: "en",
   autoReload: true,
-  syncFiles: true
+  syncFiles: true,
+  debug: false
 };

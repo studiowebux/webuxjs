@@ -129,9 +129,6 @@ export default {
     Error
   },
   created() {
-    console.log(
-      "Try to find my profile if exist, otherwise show to the user how to create a profile ..."
-    );
     this.$store.dispatch("isLoading");
     this.$socket.client.emit("findOneProfile", this.accessToken);
   },

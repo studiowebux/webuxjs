@@ -60,7 +60,6 @@ export default {
       });
     },
     removeStatus(id) {
-      console.log(id);
       this.$store.dispatch("isLoading");
       this.$socket.client.emit("removeStatus", id);
     }
@@ -82,7 +81,6 @@ export default {
   },
   created() {
     // this.initStatus(); to use the API call.
-    console.log("try to retrieve the status");
     this.$store.dispatch("isLoading");
     this.$socket.client.emit("findStatus");
   },
