@@ -3,6 +3,7 @@ FROM node:lts-jessie AS backendbuilder
 
 WORKDIR /usr/src/app
 COPY ./package.json .
+COPY ./package-lock.json .
 
 RUN npm install --production
 

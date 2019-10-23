@@ -3,6 +3,7 @@ FROM node:lts-jessie AS frontendbuilder
 
 WORKDIR /home/node/app
 COPY ./web/package.json .
+COPY ./web/package-lock.json .
 
 ## Need the development tools too.
 RUN npm install
