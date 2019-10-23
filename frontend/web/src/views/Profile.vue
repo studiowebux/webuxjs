@@ -6,7 +6,7 @@
         <spinner></spinner>
       </div>
     </div>
-    <!-- <div v-else-if="getProfile" class="row justify-content-center">
+    <div v-else-if="getProfile" class="row justify-content-center">
       <div class="card p-3 ma-10 shadow p-3 ma-6 col-6">
         <div class="card-body">
           <h5 class="card-title">My Profile</h5>
@@ -43,12 +43,14 @@
           </template>
         </div>
       </div>
-    </div> -->
-    <div v-else class="row justify-content-center">
-      <h1>Create my profile</h1>
-      <form>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
+    </div>
+    <div v-else class="card offset-3 col-6 text-center">
+      <div class="card-title">
+        <h1 class="mt-2">Create my profile</h1>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
             <label for="fullname">Your Fullname</label>
             <input
               name="fullname"
@@ -59,14 +61,14 @@
               required
             />
           </div>
-        </div>
 
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <submit class="m-5" text="Save" :onClick="createProfile"></submit>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <submit class="m-5" text="Save" :onClick="createProfile"></submit>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </template>
