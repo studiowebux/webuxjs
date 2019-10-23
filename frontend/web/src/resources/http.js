@@ -21,6 +21,7 @@ http.interceptors.response.use(
     return response;
   },
   function(error) {
+    console.error(error);
     let msg = "";
     if (error.response) {
       msg =

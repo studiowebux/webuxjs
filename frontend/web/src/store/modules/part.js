@@ -1,10 +1,12 @@
 const state = {
-  parts: {}
+  parts: {},
+  partInit: false
 };
 
 const mutations = {
   INIT_PARTS(state, part) {
     state.parts = part;
+    state.partInit = true;
   },
   ADD_PART(state, part) {
     state.parts = {

@@ -15,7 +15,6 @@
 "use strict";
 
 const Webux = require("webux-app");
-const jwt = require("jsonwebtoken");
 
 // action
 const findOneProfile = async (userID, query) => {
@@ -79,7 +78,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async accessToken => {
     try {
-      Webux.log.verbose("Request to find one profile");
+      // Webux.log.verbose("Request to find one profile");
       Webux.Auth.checkAuth(accessToken, async (err, user) => {
         if (err || !user) {
           throw err || new Error("Unauthorized");

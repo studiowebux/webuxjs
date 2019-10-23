@@ -157,6 +157,7 @@ import http from "../resources/http";
 import { mapGetters } from "vuex";
 
 export default {
+  name: "part",
   components: {
     VueSuggest,
     PartImage,
@@ -185,10 +186,18 @@ export default {
   },
 
   created() {
-    this.$store.dispatch("isLoading");
-    this.$socket.client.emit("findPart");
-    this.$socket.client.emit("findCategory");
-    this.$socket.client.emit("findStatus");
+    if (!this.$store.getters.partInit) {
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("findPart");
+    }
+    if (!this.$store.getters.categoryInit) {
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("findCategory");
+    }
+    if (!this.$store.getters.statusInit) {
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("findStatus");
+    }
   },
   sockets: {
     connect() {

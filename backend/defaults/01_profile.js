@@ -18,7 +18,7 @@ const Webux = require("webux-app");
 
 const administrator = async () => {
   const profile = new Webux.db.Profile({
-    fullname: "Administrator"
+    fullname: "Administrator Account"
   });
   const profileCreated = await profile.save();
 

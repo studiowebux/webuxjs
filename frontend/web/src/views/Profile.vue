@@ -6,8 +6,8 @@
         <spinner></spinner>
       </div>
     </div>
-    <div v-else-if="getProfile" class="row justify-content-center">
-      <div class="card p-3 ma-10 shadow p-3 ma-6 col-md-6">
+    <!-- <div v-else-if="getProfile" class="row justify-content-center">
+      <div class="card p-3 ma-10 shadow p-3 ma-6 col-6">
         <div class="card-body">
           <h5 class="card-title">My Profile</h5>
           <template v-if="!editing">
@@ -43,7 +43,7 @@
           </template>
         </div>
       </div>
-    </div>
+    </div> -->
     <div v-else class="row justify-content-center">
       <h1>Create my profile</h1>
       <form>
@@ -78,6 +78,7 @@ import Spinner from "../components/Spinner";
 import Error from "../components/Error";
 
 export default {
+  name: "profile",
   data() {
     return {
       fullname: "",
@@ -123,18 +124,24 @@ export default {
       this.editing = false;
     }
   },
+  sockets: {
+    connect() {
+      console.log("Profile - Socket.io connected");
+    },
+    profileFound(data) {
+      console.log(data);
+    }
+  },
   components: {
     Submit,
     Spinner,
     Error
   },
-  created() {
-    this.$store.dispatch("isLoading");
-    this.$socket.client.emit("findOneProfile", this.accessToken);
-  },
-  sockets: {
-    connect() {
-      console.log("Profile - Socket.io connected");
+  mounted() {
+    if (!this.$store.getters.profileInit) {
+      console.log("called !");
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("findOneProfile", this.accessToken);
     }
   }
 };

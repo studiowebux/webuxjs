@@ -87,6 +87,7 @@ import { mapGetters } from "vuex";
 import Spinner from "../components/Spinner";
 
 export default {
+  name: "onePart",
   components: {
     Spinner
   },

@@ -1,12 +1,14 @@
 import http from "../../resources/http";
 
 const state = {
-  category: {}
+  category: {},
+  categoryInit: false
 };
 
 const mutations = {
   INIT_CATEGORY(state, category) {
     state.category = category;
+    state.categoryInit = true;
   },
   ADD_CATEGORY(state, category) {
     state.category = {

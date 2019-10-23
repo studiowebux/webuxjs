@@ -39,6 +39,7 @@ import Submit from "../components/Submit";
 import Error from "../components/Error";
 
 export default {
+  name: "lostPassword",
   data() {
     return {
       email: null

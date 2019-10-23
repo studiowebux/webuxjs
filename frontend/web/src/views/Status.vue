@@ -25,7 +25,6 @@
 import Table from "../components/Table";
 import Spinner from "../components/Spinner";
 import AddForm from "../components/AddForm";
-
 import { mapGetters } from "vuex";
 
 export default {
@@ -79,10 +78,12 @@ export default {
       }
     };
   },
-  created() {
+  mounted() {
     // this.initStatus(); to use the API call.
-    this.$store.dispatch("isLoading");
-    this.$socket.client.emit("findStatus");
+    if (!this.$store.getters.statusInit) {
+      this.$store.dispatch("isLoading");
+      this.$socket.client.emit("findStatus");
+    }
   },
   sockets: {
     connect() {

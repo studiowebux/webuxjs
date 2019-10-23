@@ -51,6 +51,7 @@ import Error from "../components/Error";
 import checkAuth from "../helpers/checkAuth";
 
 export default {
+  name: "signup",
   data() {
     return {
       user: {

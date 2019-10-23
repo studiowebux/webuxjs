@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <div class="container-fluid content">
+    <div class="container-fluid wContent">
       <w-menu :entries="entries" />
       <router-view />
     </div>
-
-    <w-footer class="w-footer" />
+    <w-footer class="wFooter" />
   </div>
 </template>
 
@@ -96,13 +95,13 @@ export default {
   min-height: 100vh;
 }
 
-.content {
+.wContent {
   height: 100%;
   margin-bottom: auto;
   padding-bottom: 130px;
 }
 
-.w-footer {
+.wFooter {
   height: 130px;
   position: absolute;
   bottom: 0;

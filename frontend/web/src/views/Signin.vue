@@ -38,6 +38,7 @@ import Error from "../components/Error";
 import checkAuth from "../helpers/checkAuth";
 
 export default {
+  name: "signin",
   data() {
     return {
       user: {

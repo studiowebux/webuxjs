@@ -1,10 +1,12 @@
 const state = {
-  status: {}
+  status: {},
+  statusInit: false
 };
 
 const mutations = {
   INIT_STATUS(state, status) {
     state.status = status;
+    state.statusInit = true;
   },
   ADD_STATUS(state, status) {
     state.status = {

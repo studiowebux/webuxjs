@@ -58,6 +58,7 @@ import { mapActions, mapGetters } from "vuex";
 import Error from "../components/Error";
 
 export default {
+  name: "retrievePassword",
   data() {
     return {
       email: null,

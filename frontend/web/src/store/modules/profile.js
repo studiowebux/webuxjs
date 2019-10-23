@@ -1,10 +1,12 @@
 const state = {
-  profile: null
+  profile: null,
+  profileInit: false
 };
 
 const mutations = {
   INIT_PROFILE(state, profile) {
     state.profile = profile;
+    state.profileInit = true;
   }
 };
 
