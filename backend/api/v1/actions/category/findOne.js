@@ -70,6 +70,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async categoryID => {
     try {
+      Webux.log.verbose("Request to find one category");
       const obj = await findOneCategory(categoryID, {});
       if (!obj) {
         throw new Error("Category with ID not found");

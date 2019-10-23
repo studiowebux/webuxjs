@@ -59,6 +59,7 @@ const route = async (req, res, next) => {
 
 const socket = client => {
   return async profileID => {
+    Webux.log.verbose("Request to remove a profile");
     try {
       const obj = await removeOneProfile(profileID);
       if (!obj) {

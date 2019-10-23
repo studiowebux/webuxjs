@@ -87,6 +87,8 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (statusID, status) => {
     try {
+
+      Webux.log.verbose("Request to update a status");
       const obj = await updateOneStatus(statusID, status);
       if (!obj) {
         throw new Error("Status with ID not updated");

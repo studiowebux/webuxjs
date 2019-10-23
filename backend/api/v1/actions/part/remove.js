@@ -73,6 +73,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async partID => {
     try {
+      Webux.log.verbose("Request to remove a part");
       const obj = await removeOnePart(partID, client.user._id);
       if (!obj) {
         throw new Error("Part with ID not deleted");

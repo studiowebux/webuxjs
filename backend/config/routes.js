@@ -1,5 +1,15 @@
 const Webux = require("webux-app"); // to access the Webux.query()
 
+/**
+ * Disable a resource
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+function Disabled(req, res, next) {
+  return res.forbidden("Resource disabled");
+}
+
 module.exports = {
   "/": {
     resources: {
@@ -30,7 +40,7 @@ module.exports = {
         },
         {
           method: "post",
-          middlewares: [Webux.isAuth],
+          middlewares: [Disabled, Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/create").route
         }
       ],
@@ -48,12 +58,12 @@ module.exports = {
         },
         {
           method: "put",
-          middlewares: [Webux.isAuth],
+          middlewares: [Disabled, Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/update").route
         },
         {
           method: "delete",
-          middlewares: [Webux.isAuth],
+          middlewares: [Disabled, Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/user/remove").route
         }
       ]
@@ -93,7 +103,7 @@ module.exports = {
         },
         {
           method: "delete",
-          middlewares: [Webux.isAuth],
+          middlewares: [Disabled, Webux.isAuth],
           action: require(__dirname + "/../api/v1/actions/profile/remove").route
         }
       ]

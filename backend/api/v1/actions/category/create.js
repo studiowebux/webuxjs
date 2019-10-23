@@ -78,6 +78,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async category => {
     try {
+      Webux.log.verbose("Request for category creation");
       const obj = await createCategory(category);
       if (!obj) {
         throw new Error("Category not created");

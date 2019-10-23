@@ -1,6 +1,6 @@
 module.exports = {
   type: "json",
-  blacklist: ["password", "accessToken", "refreshToken"],
+  blacklist: ["password", "passwordCheck", "accessToken", "refreshToken"],
   format: {
     method: ":method",
     url: ":url",

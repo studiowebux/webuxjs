@@ -79,7 +79,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async status => {
     try {
-
+      Webux.log.verbose("Request to create a status");
       const obj = await createStatus(status);
       if (!obj) {
         throw new Error("Status not created");

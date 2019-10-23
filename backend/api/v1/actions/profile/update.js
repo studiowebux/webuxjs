@@ -84,7 +84,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return data => {
     try {
-
+      Webux.log.verbose("Request to update a profile");
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         try {
           if (err || !user) {

@@ -95,7 +95,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async data => {
     try {
-
+      Webux.log.verbose("Request to create a profile");
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         if (err || !user) {
           throw err || new Error("Unauthorized");

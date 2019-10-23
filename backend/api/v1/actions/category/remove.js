@@ -58,6 +58,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async categoryID => {
     try {
+      Webux.log.verbose("Request to delete a category");
       const obj = await removeOneCategory(categoryID);
       if (!obj) {
         throw new Error("Category with ID not deleted");

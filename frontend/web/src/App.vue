@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <div class="container-fluid">
+    <div class="container-fluid content">
       <w-menu :entries="entries" />
       <router-view />
     </div>
-    <w-footer />
+
+    <w-footer class="w-footer" />
   </div>
 </template>
 
@@ -84,17 +85,27 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  height: 100%;
-}
+<style lang="scss" scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: auto !important;
-  min-height: 100%;
+  position: relative;
+  min-height: 100vh;
+}
+
+.content {
+  height: 100%;
+  margin-bottom: auto;
+  padding-bottom: 130px;
+}
+
+.w-footer {
+  height: 130px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 </style>

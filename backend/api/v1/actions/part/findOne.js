@@ -128,6 +128,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async partID => {
     try {
+      Webux.log.verbose("Request to find one part");
       const obj = await findOnePart(partID, {});
       if (!obj) {
         throw new Error("Part with ID not found");

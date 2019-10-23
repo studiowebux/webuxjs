@@ -70,6 +70,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Request to find a profile");
       const obj = await findProfile({}).catch(e => {
         client.emit("gotError", e.message);
         return;

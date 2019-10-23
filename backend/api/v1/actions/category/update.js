@@ -86,6 +86,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (categoryID, category) => {
     try {
+      Webux.log.verbose("Request to update a category");
       const obj = await updateOneCategory(categoryID, category);
       if (!obj) {
         throw new Error("Category with ID not updated");

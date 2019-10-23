@@ -93,6 +93,7 @@ const route = async (req, res, next) => {
 const socket = (client) => {
   return async () => {
     try {
+      Webux.log.verbose("Request to find parts");
       const obj = await findPart({});
       if (!obj) {
         throw new Error("Part not found");

@@ -71,6 +71,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async statusID => {
     try {
+      Webux.log.verbose("Request to find one status");
       const obj = await findOneStatus(statusID, {});
       if (!obj) {
         throw new Error("Status with ID not found");

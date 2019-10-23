@@ -118,6 +118,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (partID, part) => {
     try {
+      Webux.log.verbose("Request to update a part");
       const obj = await updateOnePart(partID, client.user._id, part);
       if (!obj) {
         throw new Error("Part with ID not updated");

@@ -73,6 +73,8 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+
+      Webux.log.verbose("Request to find status");
       const obj = await findStatus({});
       if (!obj) {
         throw new Error("Status not found");

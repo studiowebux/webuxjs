@@ -21,7 +21,7 @@ const Webux = require("webux-app");
 // action
 const removeOneUser = async userID => {
   await Webux.isValid.Custom(Webux.validators.user.MongoID, userID);
-  
+
   const userRemoved = await Webux.db.User.findByIdAndRemove(userID).catch(e => {
     throw Webux.errorHandler(422, e);
   });
@@ -35,7 +35,7 @@ const removeOneUser = async userID => {
 /**
  * @apiGroup User
  * @api {delete} /api/v1/user/:id Delete a user
- * @apiParam {string} id 
+ * @apiParam {string} id
  * @apiDescription Delete a user
  * @apiName Delete a user
  * @apiSuccessExample {json} Success-Response:
@@ -58,6 +58,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async userID => {
     try {
+      Webux.log.verbose("Request to remove a user");
       const obj = await removeOneUser(userID);
       if (!obj) {
         throw new Error("User with ID not deleted");

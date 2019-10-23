@@ -58,6 +58,8 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async statusID => {
     try {
+
+      Webux.log.verbose("Request to remove a status");
       const obj = await removeOneStatus(statusID);
       if (!obj) {
         throw new Error("Status with ID not deleted");

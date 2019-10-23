@@ -78,6 +78,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async user => {
     try {
+      Webux.log.verbose("Request to create a user");
       const obj = await createUser(user);
       if (!obj) {
         throw new Error("User not created");

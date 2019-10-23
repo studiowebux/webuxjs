@@ -79,6 +79,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async (userID, user) => {
     try {
+      Webux.log.verbose("Request to update a user");
       const obj = await updateOneUser(userID, user);
       if (!obj) {
         throw new Error("User with ID not updated");

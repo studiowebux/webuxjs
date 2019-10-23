@@ -102,6 +102,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async part => {
     try {
+      Webux.log.verbose("Request for part creation");
       const obj = await createPart(part);
       if (!obj) {
         throw new Error("Part not created");

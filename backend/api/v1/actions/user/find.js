@@ -75,6 +75,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Request to find users");
       const obj = await findUser({});
       if (!obj) {
         throw new Error("User not found");
