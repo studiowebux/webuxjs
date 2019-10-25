@@ -19,6 +19,7 @@ const { lostPasswordFn } = require("../../plugins/auth/accountPassword");
 
 const lostPassword = async (req, res, next) => {
   try {
+    Webux.log.verbose("Lost Password Called");
     const info = await Webux.Auth.lostPassword(
       req.body.email,
       lostPasswordFn,

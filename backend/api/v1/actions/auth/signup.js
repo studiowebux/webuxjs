@@ -25,11 +25,13 @@ const signup = (req, res, next) => {
     },
     (err, user) => {
       try {
+        Webux.log.verbose("Try to Sign Up the User");
         if (err) {
           throw Webux.errorHandler(422, "Incorrect Credentials", {}, err);
         } else if (!err && user) {
           // If the auto activate is enabled.
           if (Webux.config.auth.local.autoActivate) {
+            Webux.log.verbose("The account will be automatically activated");
             Webux.db.User.findOneAndUpdate(
               { email: user.email },
               { activated: true }
@@ -44,6 +46,7 @@ const signup = (req, res, next) => {
               Webux.log
             )
               .then(code => {
+                Webux.log.verbose("Generate and Send Activation Code Called");
                 Webux.log.debug(code);
               })
               .catch(e => {
@@ -52,6 +55,7 @@ const signup = (req, res, next) => {
           }
           // Auto login is enabled.
           if (Webux.config.auth.local.autoLogonOnRegister) {
+            Webux.log.verbose("Auto Login the User Called");
             req.login(user, {
               session: false
             });

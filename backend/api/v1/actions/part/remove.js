@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const removeOnePart = async (partID, userID) => {
+  Webux.log.verbose("Remove One Part - Action Called");
   await Webux.isValid.Custom(Webux.validators.part.MongoID, partID);
 
   const partRemoved = await Webux.db.Part.findOneAndRemove({
@@ -58,6 +59,7 @@ const removeOnePart = async (partID, userID) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Remove One Part - Route Called");
     const obj = await removeOnePart(req.params.id, req.user._id);
     if (!obj) {
       return next(Webux.errorHandler(422, "Part with ID not deleted."));
@@ -73,6 +75,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async partID => {
     try {
+      Webux.log.verbose("Remove One Part - Socket Called");
       const obj = await removeOnePart(partID, client.user._id);
       if (!obj) {
         throw new Error("Part with ID not deleted");

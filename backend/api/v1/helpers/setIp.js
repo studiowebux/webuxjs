@@ -4,6 +4,8 @@
  * @param {Object} req Express req object
  */
 function setIp(req) {
+
+  Webux.log.verbose("HELPER | Set IP Called");
   return (
     req.headers["x-forwarded-for"] ||
     req.connection.remoteAddress ||

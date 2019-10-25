@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findOnePart = async (partID, query) => {
+  Webux.log.verbose("Find One Part - Action Called");
   await Webux.isValid.Custom(Webux.validators.part.MongoID, partID);
 
   const part = await Webux.db.Part.findById(partID)
@@ -25,7 +26,7 @@ const findOnePart = async (partID, query) => {
     .populate("statusID")
     .populate({
       path: "userID",
-      select: 'profileID',
+      select: "profileID",
       populate: {
         path: "profileID",
         model: "Profile",
@@ -113,6 +114,7 @@ const findOnePart = async (partID, query) => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find One Part - Route Called");
     const obj = await findOnePart(req.params.id, req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Part with ID not found."));
@@ -128,6 +130,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async partID => {
     try {
+      Webux.log.verbose("Find One Part - Socket Called");
       const obj = await findOnePart(partID, {});
       if (!obj) {
         throw new Error("Part with ID not found");

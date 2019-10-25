@@ -19,6 +19,7 @@ const { MongoID, Update } = require("../../validations/status");
 
 // action
 const updateOneStatus = async (statusID, status) => {
+  Webux.log.verbose("Update One Status - Action Called");
   await Webux.isValid.Custom(Webux.validators.status.MongoID, statusID);
   await Webux.isValid.Custom(Webux.validators.status.Update, status);
 
@@ -72,6 +73,7 @@ const updateOneStatus = async (statusID, status) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Update One Status - Route Called");
     const obj = await updateOneStatus(req.params.id, req.body.status);
     if (!obj) {
       return next(Webux.errorHandler(422, "Status with ID not updated."));
@@ -87,6 +89,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (statusID, status) => {
     try {
+      Webux.log.verbose("Update One Status - Socket Called");
       const obj = await updateOneStatus(statusID, status);
       if (!obj) {
         throw new Error("Status with ID not updated");

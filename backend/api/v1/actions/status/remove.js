@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const removeOneStatus = async statusID => {
+  Webux.log.verbose("Remove One Status - Action Called");
   await Webux.isValid.Custom(Webux.validators.status.MongoID, statusID);
 
   const statusRemoved = await Webux.db.Status.findByIdAndRemove(statusID).catch(
@@ -43,6 +44,7 @@ const removeOneStatus = async statusID => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Remove One Status - Route Called");
     const obj = await removeOneStatus(req.params.id);
     if (!obj) {
       return next(Webux.errorHandler(422, "Status with ID not deleted."));
@@ -58,6 +60,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async statusID => {
     try {
+      Webux.log.verbose("Remove One Status - Socket Called");
       const obj = await removeOneStatus(statusID);
       if (!obj) {
         throw new Error("Status with ID not deleted");

@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findProfile = async query => {
+  Webux.log.verbose("Find Profile - Action Called");
   const profiles = await Webux.db.Profile.find({})
     .lean()
     .select(query.projection || Webux.constants.profile.select)
@@ -55,6 +56,7 @@ const findProfile = async query => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find Profile - Route Called");
     const obj = await findProfile(req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Profile not found."));
@@ -70,6 +72,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Find Profile - Socket Called");
       const obj = await findProfile({}).catch(e => {
         client.emit("gotError", e.message);
         return;

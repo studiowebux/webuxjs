@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const removeOneCategory = async categoryID => {
+  Webux.log.verbose("Remove One Category - Action Called");
   await Webux.isValid.Custom(Webux.validators.category.MongoID, categoryID);
 
   const categoryRemoved = await Webux.db.Category.findByIdAndRemove(
@@ -43,6 +44,7 @@ const removeOneCategory = async categoryID => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Remove One Category - Route Called");
     const obj = await removeOneCategory(req.params.id);
     if (!obj) {
       return next(Webux.errorHandler(422, "Category with ID not deleted."));
@@ -58,6 +60,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async categoryID => {
     try {
+      Webux.log.verbose("Remove One Category - Socket Called");
       const obj = await removeOneCategory(categoryID);
       if (!obj) {
         throw new Error("Category with ID not deleted");

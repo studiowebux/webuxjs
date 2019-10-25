@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const createUser = async user => {
+  Webux.log.verbose("Create User - Action Called");
   await Webux.isValid.Custom(Webux.validators.user.Create, user);
 
   const userCreated = await Webux.db.User.create(user).catch(e => {
@@ -64,6 +65,7 @@ const createUser = async user => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Create User - Route Called");
     const obj = await createUser(req.body.user);
     if (!obj) {
       return next(Webux.errorHandler(422, "User not created"));
@@ -78,6 +80,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async user => {
     try {
+      Webux.log.verbose("Create User - Socket Called");
       const obj = await createUser(user);
       if (!obj) {
         throw new Error("User not created");

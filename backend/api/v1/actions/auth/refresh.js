@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 const refresh = async (req, res, next) => {
   try {
+    Webux.log.verbose("Refresh Token Called");
     const newAccess = await Webux.Auth.refreshAccessToken(
       Webux.config.auth.jwt,
       req.body.refreshToken,

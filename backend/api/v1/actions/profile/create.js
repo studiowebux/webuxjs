@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const createProfile = async profile => {
+  Webux.log.verbose("Create Profile - Action Called");
   await Webux.isValid.Custom(Webux.validators.profile.Create, profile);
 
   const profileCreated = await Webux.db.Profile.create(profile).catch(e => {
@@ -77,6 +78,7 @@ const createProfile = async profile => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Create Profile - Route Called");
     const profile = {
       ...req.body.profile,
       userID: req.user[Webux.config.auth.jwt.id]
@@ -95,11 +97,15 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async data => {
     try {
-
+      Webux.log.verbose("Create Profile - Socket Called");
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         if (err || !user) {
           throw err || new Error("Unauthorized");
         }
+
+        Webux.log.verbose(
+          "Create Profile, UserID Valid, try to set the Profile information"
+        );
 
         const profile = {
           fullname: data.fullname,

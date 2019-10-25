@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const updateOneCategory = async (categoryID, category) => {
+  Webux.log.verbose("Update One Category - Action Called");
   await Webux.isValid.Custom(Webux.validators.category.MongoID, categoryID);
   await Webux.isValid.Custom(Webux.validators.category.Update, category);
 
@@ -71,6 +72,7 @@ const updateOneCategory = async (categoryID, category) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Update One Category - Route Called");
     const obj = await updateOneCategory(req.params.id, req.body.category);
     if (!obj) {
       return next(Webux.errorHandler(422, "Category with ID not updated."));
@@ -86,6 +88,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (categoryID, category) => {
     try {
+      Webux.log.verbose("Update One Category - Socket Called");
       const obj = await updateOneCategory(categoryID, category);
       if (!obj) {
         throw new Error("Category with ID not updated");

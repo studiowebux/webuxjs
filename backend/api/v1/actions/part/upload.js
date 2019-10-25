@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const upload = async (partID, file) => {
+  Webux.log.verbose("Upload a Picture - Action Called");
   const oldPicture = await Webux.db.Part.findById(partID)
     .select("pictureURL")
     .catch(e => {
@@ -87,6 +88,7 @@ const upload = async (partID, file) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Upload a Picture - Route Called");
     const partUpdated = await upload(req.params.id, req.files);
 
     if (!partUpdated) {

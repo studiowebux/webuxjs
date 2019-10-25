@@ -24,11 +24,13 @@ const signin = (req, res, next) => {
     },
     (err, user) => {
       try {
+        Webux.log.verbose("Try to Authenticate The User locally");
         if (err) {
           return next(
             Webux.errorHandler(400, "Incorrect Credentials", {}, error)
           );
         } else if (!err && user) {
+          Webux.log.verbose("Sign in Called");
           req.login(user, {
             session: false
           });

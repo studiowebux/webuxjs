@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const updateOneProfile = async (profileID, profile) => {
+  Webux.log.verbose("Update One Profile - Action Called");
   await Webux.isValid.Custom(Webux.validators.profile.MongoID, profileID);
   await Webux.isValid.Custom(Webux.validators.profile.Update, profile);
 
@@ -69,6 +70,7 @@ const updateOneProfile = async (profileID, profile) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Update One Profile - Route Called");
     const obj = await updateOneProfile(req.params.id, req.body.profile);
     if (!obj) {
       return next(Webux.errorHandler(422, "Profile with ID not updated."));
@@ -84,12 +86,16 @@ const route = async (req, res, next) => {
 const socket = client => {
   return data => {
     try {
-
+      Webux.log.verbose("Update One Profile - Socket Called");
       Webux.Auth.checkAuth(data.accessToken, async (err, user) => {
         try {
           if (err || !user) {
             throw err || new Error("Unauthorized");
           }
+
+          Webux.log.verbose(
+            "UserID valid, try to Update the Profile information"
+          );
 
           const profile = {
             fullname: data.fullname,

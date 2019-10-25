@@ -19,6 +19,7 @@ const jwt = require("jsonwebtoken");
 
 // action
 const findOneProfile = async (userID, query) => {
+  Webux.log.verbose("Find One Profile - Action Called");
   await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
 
   const myUser = await Webux.db.User.findById(userID)
@@ -64,6 +65,7 @@ const findOneProfile = async (userID, query) => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find One Profile - Route Called");
     const obj = await findOneProfile(req.params.id, req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Profile with ID not found."));
@@ -79,11 +81,13 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async accessToken => {
     try {
-
+      Webux.log.verbose("Find One Profile - Socket Called");
       Webux.Auth.checkAuth(accessToken, async (err, user) => {
         if (err || !user) {
           throw err || new Error("Unauthorized");
         }
+
+        Webux.log.verbose("UserID valid, try to get the Profile");
 
         const obj = await findOneProfile(
           user[Webux.config.auth.jwt.id],

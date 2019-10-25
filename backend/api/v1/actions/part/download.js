@@ -19,11 +19,13 @@ const path = require("path");
 
 // action
 const download = async partID => {
-  const part = await Webux.db.Part.findOne({ _id: partID }, "_id pictureURL").catch(
-    e => {
-      throw Webux.errorHandler(422, e);
-    }
-  );
+  Webux.log.verbose("Download Part Picture - Action Called");
+  const part = await Webux.db.Part.findOne(
+    { _id: partID },
+    "_id pictureURL"
+  ).catch(e => {
+    throw Webux.errorHandler(422, e);
+  });
   if (!part) {
     throw Webux.errorHandler(422, "part not found");
   }
@@ -43,6 +45,7 @@ const download = async partID => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Download Part Picture - Route Called");
     const pictureURL = await download(req.params.id);
 
     if (!pictureURL) {

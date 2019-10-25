@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findStatus = async query => {
+  Webux.log.verbose("Find Status - Action Called");
   const status = await Webux.db.Status.find({})
     .lean()
     .select(query.projection || Webux.constants.status.select)
@@ -58,6 +59,7 @@ const findStatus = async query => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find Status - Route Called");
     const obj = await findStatus(req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Status not found."));
@@ -73,6 +75,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Find Status - Socket Called");
       const obj = await findStatus({});
       if (!obj) {
         throw new Error("Status not found");

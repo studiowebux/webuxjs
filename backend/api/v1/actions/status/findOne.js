@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findOneStatus = async (statusID, query) => {
+  Webux.log.verbose("Find One Status - Action Called");
   await Webux.isValid.Custom(Webux.validators.status.MongoID, statusID);
 
   const status = await Webux.db.Status.findById(statusID)
@@ -56,6 +57,7 @@ const findOneStatus = async (statusID, query) => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find One Status - Route Called");
     const obj = await findOneStatus(req.params.id, req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Status with ID not found."));
@@ -71,6 +73,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async statusID => {
     try {
+      Webux.log.verbose("Find One Status - Socket Called");
       const obj = await findOneStatus(statusID, {});
       if (!obj) {
         throw new Error("Status with ID not found");

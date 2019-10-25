@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findOneCategory = async (categoryID, query) => {
+  Webux.log.verbose("Find One Category - Action Called");
   await Webux.isValid.Custom(Webux.validators.category.MongoID, categoryID);
 
   const category = await Webux.db.Category.findById(categoryID)
@@ -55,6 +56,7 @@ const findOneCategory = async (categoryID, query) => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find One Category - Route Called");
     const obj = await findOneCategory(req.params.id, req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Category with ID not found."));
@@ -70,6 +72,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async categoryID => {
     try {
+      Webux.log.verbose("Find One Category - Socket Called");
       const obj = await findOneCategory(categoryID, {});
       if (!obj) {
         throw new Error("Category with ID not found");

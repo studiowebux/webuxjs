@@ -103,6 +103,9 @@ const actions = {
       });
   },
   signUp: ({ commit, dispatch }, user) => {
+    if (!user.email || !user.password) {
+      return;
+    }
     dispatch("isLoading");
     http
       .post("/auth/signup", { email: user.email, password: user.password })
@@ -249,6 +252,9 @@ const actions = {
   },
   lostPassword: ({ dispatch }, email) => {
     dispatch("isLoading");
+    if (!email) {
+      return;
+    }
     http
       .post("/auth/lost-password", { email })
       .then(response => {
@@ -263,8 +269,14 @@ const actions = {
   },
   retrievePassword: ({ dispatch }, user) => {
     dispatch("isLoading");
+    if (!user.email || !user.password) {
+      return;
+    }
     http
-      .post("/auth/retrieve-password", user)
+      .post("/auth/retrieve-password", {
+        email: user.email,
+        password: user.password
+      })
       .then(response => {
         dispatch("setSuccess", response.data.info);
       })

@@ -20,6 +20,7 @@ const Webux = require("webux-app");
 
 // action
 const removeOneUser = async userID => {
+  Webux.log.verbose("Remove One User - Action Called");
   await Webux.isValid.Custom(Webux.validators.user.MongoID, userID);
   
   const userRemoved = await Webux.db.User.findByIdAndRemove(userID).catch(e => {
@@ -43,6 +44,7 @@ const removeOneUser = async userID => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Remove One User - Route Called");
     const obj = await removeOneUser(req.params.id);
     if (!obj) {
       return next(Webux.errorHandler(422, "User with ID not deleted."));
@@ -58,6 +60,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async userID => {
     try {
+      Webux.log.verbose("Remove One User - Socket Called");
       const obj = await removeOneUser(userID);
       if (!obj) {
         throw new Error("User with ID not deleted");

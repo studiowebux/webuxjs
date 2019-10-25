@@ -19,6 +19,7 @@ const { retrievePasswordFn } = require("../../plugins/auth/accountPassword");
 
 const recoverPassword = async (req, res, next) => {
   try {
+    Webux.log.verbose("Recover Password Called");
     const info = await Webux.Auth.retrievePassword(
       req.body.email,
       req.body.code,

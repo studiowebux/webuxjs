@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findCategory = async query => {
+  Webux.log.verbose("Find Category - Action Called");
   const categories = await Webux.db.Category.find({})
     .lean()
     .select(query.projection || Webux.constants.category.select)
@@ -63,6 +64,7 @@ const findCategory = async query => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find Category - Route Called");
     const obj = await findCategory(req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Category not found."));
@@ -78,6 +80,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Find Category - Socket Called");
       const obj = await findCategory({});
       if (!obj) {
         throw new Error("Category not found");

@@ -38,6 +38,7 @@ const { accountActivationFn } = require("../../plugins/auth/accountActivation");
  **/
 const activateAccount = async (req, res, next) => {
   try {
+    Webux.log.verbose("Activate Account Called");
     const info = await Webux.Auth.activateAccount(
       req.body.email,
       req.body.code,

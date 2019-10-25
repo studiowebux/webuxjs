@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const createStatus = async status => {
+  Webux.log.verbose("Create Status - Action Called");
   await Webux.isValid.Custom(Webux.validators.status.Create, status);
 
   const statusCreated = await Webux.db.Status.create(status).catch(e => {
@@ -65,6 +66,7 @@ const createStatus = async status => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Create Status - Route Called");
     const obj = await createStatus(req.body.status);
     if (!obj) {
       return next(Webux.errorHandler(422, "Status not created"));
@@ -79,7 +81,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async status => {
     try {
-
+      Webux.log.verbose("Create Status - Socket Called");
       const obj = await createStatus(status);
       if (!obj) {
         throw new Error("Status not created");

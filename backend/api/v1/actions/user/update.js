@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const updateOneUser = async (userID, user) => {
+  Webux.log.verbose("Update One User - Action Called");
   await Webux.isValid.Custom(Webux.validators.user.MongoID, userID);
   await Webux.isValid.Custom(Webux.validators.user.Update, user);
 
@@ -64,6 +65,7 @@ const updateOneUser = async (userID, user) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Update One User - Route Called");
     const obj = await updateOneUser(req.params.id, req.body.user);
     if (!obj) {
       return next(Webux.errorHandler(422, "User with ID not updated."));
@@ -79,6 +81,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async (userID, user) => {
     try {
+      Webux.log.verbose("Update One User - Socket Called");
       const obj = await updateOneUser(userID, user);
       if (!obj) {
         throw new Error("User with ID not updated");

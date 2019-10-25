@@ -20,6 +20,7 @@ const { findOnePart } = require("./findOne");
 // action
 
 const createPart = async part => {
+  Webux.log.verbose("Create Part - Action Called");
   await Webux.isValid.Custom(Webux.validators.part.Create, part);
 
   const partCreated = await Webux.db.Part.create(part).catch(e => {
@@ -88,6 +89,7 @@ const createPart = async part => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Create Part - Route Called");
     const obj = await createPart(req.body.part);
     if (!obj) {
       return next(Webux.errorHandler(422, "Part not created"));
@@ -101,6 +103,7 @@ const route = async (req, res, next) => {
 // socket with auth
 const socket = (client, io) => {
   return async part => {
+    Webux.log.verbose("Create Part - Socket Called");
     try {
       const obj = await createPart(part);
       if (!obj) {

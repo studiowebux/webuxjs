@@ -37,6 +37,7 @@ const Webux = require("webux-app");
  **/
 const logout = async (req, res, next) => {
   try {
+    Webux.log.verbose("Logout Called");
     const refreshToken = await Webux.Auth.revokeToken(
       req.body.refreshToken,
       Webux.log

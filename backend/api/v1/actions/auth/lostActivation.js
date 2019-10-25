@@ -37,6 +37,7 @@ const { lostActivationFn } = require("../../plugins/auth/accountActivation");
  **/
 const lostActivation = async (req, res, next) => {
   try {
+    Webux.log.verbose("Lost Activation Code Called");
     const info = await Webux.Auth.activationCode(
       req.body.email,
       lostActivationFn,

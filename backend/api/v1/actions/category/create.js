@@ -18,6 +18,8 @@ const Webux = require("webux-app");
 
 // action
 const createCategory = async category => {
+
+  Webux.log.verbose("Create Category - Action Called");
   await Webux.isValid.Custom(Webux.validators.category.Create, category);
 
   const categoryCreated = await Webux.db.Category.create(category).catch(e => {
@@ -64,6 +66,7 @@ const createCategory = async category => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Create Category - Route Called");
     const obj = await createCategory(req.body.category);
     if (!obj) {
       return next(Webux.errorHandler(422, "Category not created"));
@@ -78,6 +81,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async category => {
     try {
+      Webux.log.verbose("Create Category - Socket Called");
       const obj = await createCategory(category);
       if (!obj) {
         throw new Error("Category not created");

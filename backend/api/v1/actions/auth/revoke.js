@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 const revoke = async (req, res, next) => {
   try {
+    Webux.log.verbose("Revoke Token Called");
     const token = req.body.accessToken || req.body.refreshToken;
     const info = await Webux.Auth.revokeToken(
       token,

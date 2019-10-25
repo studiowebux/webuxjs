@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const findOneUser = async (userID, query) => {
+  Webux.log.verbose("Find One User - Action Called");
   await Webux.isValid.Custom(Webux.validators.user.MongoID, userID);
   const user = await Webux.db.User.findById(userID)
     .select(query.projection || Webux.constants.user.select)
@@ -60,6 +61,7 @@ const findOneUser = async (userID, query) => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find One User - Route Called");
     const obj = await findOneUser(req.params.id, req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "User with ID not found."));
@@ -75,6 +77,7 @@ const route = async (req, res, next) => {
 const socket = client => {
   return async userID => {
     try {
+      Webux.log.verbose("Find One User - Socket Called");
       const obj = await findOneUser(userID, {});
       if (!obj) {
         throw new Error("User with ID not found");

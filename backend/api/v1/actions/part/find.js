@@ -18,16 +18,16 @@ const Webux = require("webux-app");
 
 // action
 const findPart = async query => {
-  Webux.log.debug(query)
+  Webux.log.verbose("Find Part - Action Called");
   const filter = query.filter || {};
   const parts = await Webux.db.Part.find(filter)
     .lean()
     .select(query.projection || Webux.validators.part.select)
     .limit(query.limit)
-    .populate('statusID', "name color")
+    .populate("statusID", "name color")
     .populate({
       path: "userID",
-      select: 'profileID',
+      select: "profileID",
       populate: {
         path: "profileID",
         model: "Profile",
@@ -78,6 +78,7 @@ const findPart = async query => {
  **/
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Find Part - Route Called");
     const obj = await findPart(req.query);
     if (!obj) {
       return next(Webux.errorHandler(404, "Part not found."));
@@ -90,9 +91,10 @@ const route = async (req, res, next) => {
 
 // socket with auth
 
-const socket = (client) => {
+const socket = client => {
   return async () => {
     try {
+      Webux.log.verbose("Find Part - Socket Called");
       const obj = await findPart({});
       if (!obj) {
         throw new Error("Part not found");

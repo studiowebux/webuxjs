@@ -98,11 +98,11 @@ export default {
 .wContent {
   height: 100%;
   margin-bottom: auto;
-  padding-bottom: 130px;
+  padding-bottom: 150px;
 }
 
 .wFooter {
-  height: 130px;
+  height: 150px;
   position: absolute;
   bottom: 0;
   width: 100%;

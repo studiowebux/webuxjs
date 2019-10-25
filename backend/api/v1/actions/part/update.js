@@ -18,6 +18,7 @@ const Webux = require("webux-app");
 
 // action
 const updateOnePart = async (partID, userID, part) => {
+  Webux.log.verbose("Update One Part - Action Called");
   await Webux.isValid.Custom(Webux.validators.part.MongoID, partID);
   await Webux.isValid.Custom(Webux.validators.part.Update, part);
 
@@ -104,6 +105,7 @@ const updateOnePart = async (partID, userID, part) => {
  */
 const route = async (req, res, next) => {
   try {
+    Webux.log.verbose("Update One Part - Route Called");
     const obj = await updateOnePart(req.params.id, req.user._id, req.body.part);
     if (!obj) {
       return next(Webux.errorHandler(422, "Part with ID not updated."));
@@ -118,6 +120,7 @@ const route = async (req, res, next) => {
 const socket = (client, io) => {
   return async (partID, part) => {
     try {
+      Webux.log.verbose("Update One Part - Socket Called");
       const obj = await updateOnePart(partID, client.user._id, part);
       if (!obj) {
         throw new Error("Part with ID not updated");
