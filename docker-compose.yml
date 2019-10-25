@@ -159,12 +159,11 @@ services:
       - ./app/elk/elasticsearch/data:/usr/share/elasticsearch/data
 
   elasticsearch:
-    # build:
-    #   context: ./ELK/elasticsearch/
-    #   args:
-    #     ELK_VERSION: 6.4.2
-
-    image: hub.webux.lab/webuxjs-elasticsearch:latest
+    build:
+      context: ./ELK/elasticsearch/
+      args:
+        ELK_VERSION: 6.4.2
+    # image: hub.webux.lab/webuxjs-elasticsearch:latest
     volumes:
       - ./app/elk/elasticsearch/data:/usr/share/elasticsearch/data
     ports:
@@ -178,12 +177,12 @@ services:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
 
   logstash:
-    # build:
-    #   context: ./ELK/logstash/
-    #   args:
-    #     ELK_VERSION: 6.4.2
+    build:
+      context: ./ELK/logstash/
+      args:
+        ELK_VERSION: 6.4.2
 
-    image: hub.webux.lab/webuxjs-logstash:latest
+    # image: hub.webux.lab/webuxjs-logstash:latest
     ports:
       - "5000:5000"
       - "5000:5000/udp"
@@ -194,28 +193,27 @@ services:
       - elasticsearch
 
   kibana:
-    # build:
-    #   context: ./ELK/kibana/
-    #   args:
-    #     ELK_VERSION: 6.4.2
+    build:
+      context: ./ELK/kibana/
+      args:
+        ELK_VERSION: 6.4.2
 
-    image: hub.webux.lab/webuxjs-kibana:latest
+    # image: hub.webux.lab/webuxjs-kibana:latest
     ports:
       - "5601:5601"
     depends_on:
       - elasticsearch
 
   app:
-    # build:
-    #   context: ./frontend
-    image: hub.webux.lab/webuxjs-frontend:latest
+    build:
+      context: ./frontend
+    #image: hub.webux.lab/webuxjs-frontend:latest
     environment:
       - URL=http://demo.webux.lab/api
       - NODE_ENV=production
       - VUE_APP_API_URL=http://demo.webux.lab/api
       - VUE_APP_BASE_URL=/
       - VUE_APP_IO_URL=http://demo.webux.lab
-      - VUE_APP_IO_PATH=/socket.io
     ports:
       - "80:80"
       - "443:443"
