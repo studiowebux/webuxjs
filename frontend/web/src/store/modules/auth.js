@@ -105,7 +105,7 @@ const actions = {
   signUp: ({ commit, dispatch }, user) => {
     dispatch("isLoading");
     http
-      .post("/auth/signup", user)
+      .post("/auth/signup", { email: user.email, password: user.password })
       .then(response => {
         const userID = response.data._id;
         const decoded = jwtDecode(response.data.tokens.access);
