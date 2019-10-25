@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-4 mx-auto">
           <ul class="list-unstyled">
-            <li>Version : 1.1.0</li>
+            <li>Version : 1.1.1</li>
           </ul>
         </div>
         <div class="col-md-4 mx-auto">

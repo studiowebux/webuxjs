@@ -1,10 +1,12 @@
 const state = {
-  status: {}
+  status: {},
+  statusInit: false
 };
 
 const mutations = {
   INIT_STATUS(state, status) {
     state.status = status;
+    state.statusInit = true;
   },
   ADD_STATUS(state, status) {
     state.status = {
@@ -57,6 +59,9 @@ const getters = {
     return Object.values(state.status).map(s => {
       return s;
     });
+  },
+  statusInit: state => {
+    return state.statusInit;
   }
 };
 
