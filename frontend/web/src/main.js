@@ -9,6 +9,7 @@ import App from "./App.vue";
 
 import "./registerServiceWorker";
 import "./resources/font-awesome";
+import "vue-swatches/dist/vue-swatches.min.css";
 import "vue-multiselect/dist/vue-multiselect.min.css";
 import "vue-simple-suggest/dist/styles.css";
 import "./assets/_variables.scss";

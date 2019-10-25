@@ -92,17 +92,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   position: relative;
-  min-height: 100vh;
+  min-height: 300vh;
 }
 
 .wContent {
   height: 100%;
   margin-bottom: auto;
-  padding-bottom: 150px;
+  padding-bottom: 130px;
 }
 
 .wFooter {
-  height: 150px;
+  height: 130px;
   position: absolute;
   bottom: 0;
   width: 100%;

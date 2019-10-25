@@ -48,7 +48,7 @@ footer {
     padding-top: 15px;
     margin-bottom: 0px;
   }
-  margin-top: 20px;
+  margin-top: 50px;
   width: 100%;
   height: 150px;
   line-height: 20px;

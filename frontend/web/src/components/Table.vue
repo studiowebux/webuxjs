@@ -1,5 +1,5 @@
 <template>
-  <div class="table-responsive">
+  <div class="table">
     <table class="table table-striped shadow">
       <thead>
         <tr>
@@ -21,6 +21,21 @@
                 {{ isColor(h) ? "" : line[h] }}
                 <font-awesome-icon v-if="!isColor(h)" icon="pencil-alt" />
               </span>
+              <div v-else-if="isColor(h)">
+                <swatches
+                  v-model="line[h]"
+                  show-fallback
+                  fallback-input-type="color"
+                >
+                  <input
+                    slot="trigger"
+                    :value="line[h]"
+                    class="form__input__element"
+                    readonly
+                    :style="[{ 'background-color': line[h] }]"
+                  />
+                </swatches>
+              </div>
               <input v-else type="text" v-model="line[h]" />
             </div>
             <div class="actions" v-else>
@@ -49,7 +64,12 @@
 </template>
 
 <script>
+import Swatches from "vue-swatches";
+
 export default {
+  components: {
+    Swatches
+  },
   props: {
     head: Array,
     rows: Object,
