@@ -1,5 +1,5 @@
 # Compile the frontend react app
-FROM node:10-jessie AS frontendbuilder
+FROM node:latest AS frontendbuilder
 
 WORKDIR /home/node/app
 COPY ./web/package.json .
@@ -10,7 +10,7 @@ RUN npm install -g @vue/cli
 
 COPY ./web .
 
-# In production the env. will apply and the console.log will be removed.
+# In production the .env.production will apply and the console.log will be removed.
 ENV NODE_ENV=production
 
 RUN npm run build

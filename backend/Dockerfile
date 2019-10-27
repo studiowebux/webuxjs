@@ -1,5 +1,5 @@
 # Install the node modules
-FROM node:10-jessie AS backendbuilder
+FROM node:latest AS backendbuilder
 
 WORKDIR /usr/src/app
 COPY ./package.json .
@@ -8,7 +8,7 @@ RUN npm install --production
 
 
 # create the container to host the backend.
-FROM node:10-jessie
+FROM node:latest
 
 WORKDIR /usr/src/app
 
