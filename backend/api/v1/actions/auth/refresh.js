@@ -25,7 +25,9 @@ const refresh = async (req, res, next) => {
       req.body.userID,
       Webux.setIp(req),
       Webux.log
-    );
+    ).catch(e => {
+      throw e;
+    });
 
     if (!newAccess) {
       throw new Error("No access token provided");
@@ -38,7 +40,7 @@ const refresh = async (req, res, next) => {
     return next(
       Webux.errorHandler(
         403,
-        "An error occur while refreshing the token" + e.message,
+        "An error occurs while refreshing the token : " + e.message,
         {},
         e
       )

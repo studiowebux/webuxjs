@@ -16,7 +16,7 @@
   "author": "Studio Webux S.E.N.C",
   "license": "SEE LICENSE IN license.txt",
   "dependencies": {
-    "@hapi/joi": "^15.1.1",
+    "@hapi/joi": "^16.1.7",
     "async": "^3.1.0",
     "bcrypt": "^3.0.6",
     "path": "^0.12.7",
