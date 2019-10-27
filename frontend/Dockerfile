@@ -1,5 +1,5 @@
 # Compile the frontend react app
-FROM node:lts-jessie AS frontendbuilder
+FROM node:10-jessie AS frontendbuilder
 
 WORKDIR /home/node/app
 COPY ./web/package.json .

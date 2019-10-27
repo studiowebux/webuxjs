@@ -92,7 +92,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   position: relative;
-  min-height: 300vh;
+  min-height: 100vh;
 }
 
 .wContent {
@@ -104,6 +104,7 @@ export default {
 .wFooter {
   height: 130px;
   position: absolute;
+  margin-top: 50px;
   bottom: 0;
   width: 100%;
 }
