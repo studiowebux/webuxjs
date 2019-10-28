@@ -18,34 +18,29 @@ const Webux = require("webux-app");
 
 // action
 const findOneProfile = async (userID, query) => {
-  try {
-    Webux.log.verbose("Find One Profile - Action Called");
-    await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
+  Webux.log.verbose("Find One Profile - Action Called");
+  await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
 
-    const myUser = await Webux.db.User.findById(userID)
-      .select("profileID")
-      .catch(e => {
-        throw Webux.errorHandler(422, e);
-      });
+  const myUser = await Webux.db.User.findById(userID)
+    .select("profileID")
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
 
-    if (!myUser) {
-      throw Webux.errorHandler(404, "profile not found");
-    }
-
-    const profile = await Webux.db.Profile.findById(myUser.profileID)
-      .select(query.projection || Webux.constants.profile.select)
-      .catch(e => {
-        throw Webux.errorHandler(422, e);
-      });
-    if (!profile) {
-      throw Webux.errorHandler(404, "profile not found");
-    }
-
-    return Promise.resolve(profile);
-  } catch (e) {
-    console.error(e);
-    process.exit(4);
+  if (!myUser) {
+    throw Webux.errorHandler(404, "profile not found");
   }
+
+  const profile = await Webux.db.Profile.findById(myUser.profileID)
+    .select(query.projection || Webux.constants.profile.select)
+    .catch(e => {
+      throw Webux.errorHandler(422, e);
+    });
+  if (!profile) {
+    throw Webux.errorHandler(404, "profile not found");
+  }
+
+  return Promise.resolve(profile);
 };
 
 // route
