@@ -44,11 +44,15 @@
         </div>
       </div>
     </div>
-    <div v-else class="row justify-content-center">
-      <h1>Create my profile</h1>
-      <form>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
+    <div v-else class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <h1>Create my profile</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="card p-3 ma-10 shadow p-3 ma-6 col-md-6 col-sm-12">
+          <form class>
             <label for="fullname">Your Fullname</label>
             <input
               name="fullname"
@@ -58,15 +62,19 @@
               v-model="fullname"
               required
             />
-          </div>
-        </div>
 
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <submit class="m-5" text="Save" :onClick="createProfile"></submit>
-          </div>
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <submit
+                  class="m-5"
+                  text="Save"
+                  :onClick="createProfile"
+                ></submit>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </template>

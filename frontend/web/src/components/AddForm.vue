@@ -31,13 +31,19 @@
               />
             </div>
             <div class="col-md-2 col-sm-12 mb-2">
-              <input
-                type="color"
-                class="form-control"
-                id="color"
-                name="color"
+              <swatches
                 v-model="newValue.color"
-              />
+                show-fallback
+                fallback-input-type="color"
+                id="color"
+              >
+                <span
+                  slot="trigger"
+                  class="form__input__element dot"
+                  readonly
+                  :style="[{ 'background-color': newValue.color }]"
+                ></span>
+              </swatches>
             </div>
 
             <div class="col-md-2 col-sm-12 mb-2 justify-content-end">
@@ -53,6 +59,7 @@
 </template>
 
 <script>
+import Swatches from "vue-swatches";
 import Error from "../components/Error";
 
 export default {
@@ -62,6 +69,7 @@ export default {
     header: String
   },
   components: {
+    Swatches,
     Error
   },
   data() {
@@ -71,3 +79,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.dot {
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
