@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   sort: [
-    "profile",
     "connection",
+    "profile",
     "user",
     "status",
     "category",

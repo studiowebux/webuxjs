@@ -15,32 +15,58 @@
 "use strict";
 
 const Webux = require("webux-app");
-const jwt = require("jsonwebtoken");
 
 // action
 const findOneProfile = async (userID, query) => {
-  Webux.log.verbose("Find One Profile - Action Called");
-  await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
+  try {
+    console.log(
+      "-----------------00000-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0"
+    );
+    console.log(Webux);
+    Webux.log.verbose("Find One Profile - Action Called");
+    console.log(
+      "-----------------00000-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0-0-0-0-0-0-00-0"
+    );
+    console.log(Webux);
+    Webux.log.debug("VALIDATORS");
+    Webux.log.debug(webux);
+    Webux.log.debug(Webux.validators);
+    Webux.log.debug("VALIDTOR");
+    Webux.log.debug(Webux.validators.profile.MongoID);
+    Webux.log.debug("USER ID : ");
+    Webux.log.debug(userID);
+    await Webux.isValid.Custom(Webux.validators.profile.MongoID, userID);
 
-  const myUser = await Webux.db.User.findById(userID)
-    .select("profileID")
-    .catch(e => {
-      throw Webux.errorHandler(422, e);
-    });
+    Webux.log.debug(userID);
+    const myUser = await Webux.db.User.findById(userID)
+      .select("profileID")
+      .catch(e => {
+        throw Webux.errorHandler(422, e);
+      });
 
-  if (!myUser) {
-    throw Webux.errorHandler(404, "profile not found");
+    if (!myUser) {
+      throw Webux.errorHandler(404, "profile not found");
+    }
+
+    Webux.log.debug("User Found !");
+
+    Webux.log.debug(myUser.profileID);
+    const profile = await Webux.db.Profile.findById(myUser.profileID)
+      .select(query.projection || Webux.constants.profile.select)
+      .catch(e => {
+        throw Webux.errorHandler(422, e);
+      });
+    if (!profile) {
+      throw Webux.errorHandler(404, "profile not found");
+    }
+
+    Webux.log.debug("Profile Found !");
+
+    return Promise.resolve(profile);
+  } catch (e) {
+    console.error(e);
+    process.exit(4);
   }
-
-  const profile = await Webux.db.Profile.findById(myUser.profileID)
-    .select(query.projection || Webux.constants.profile.select)
-    .catch(e => {
-      throw Webux.errorHandler(422, e);
-    });
-  if (!profile) {
-    throw Webux.errorHandler(404, "profile not found");
-  }
-  return Promise.resolve(profile);
 };
 
 // route
@@ -66,10 +92,14 @@ const findOneProfile = async (userID, query) => {
 const route = async (req, res, next) => {
   try {
     Webux.log.verbose("Find One Profile - Route Called");
+    console.log(req.params.id);
     const obj = await findOneProfile(req.params.id, req.query);
     if (!obj) {
+      console.log("profile not found");
       return next(Webux.errorHandler(404, "Profile with ID not found."));
     }
+
+    console.log(obj);
     return res.success(obj);
   } catch (e) {
     next(e);
@@ -83,11 +113,15 @@ const socket = client => {
     try {
       Webux.log.verbose("Find One Profile - Socket Called");
       Webux.Auth.checkAuth(accessToken, async (err, user) => {
+        Webux.log.debug(err);
+        Webux.log.debug(user);
         if (err || !user) {
           throw err || new Error("Unauthorized");
         }
 
         Webux.log.verbose("UserID valid, try to get the Profile");
+        Webux.log.debug([Webux.config.auth.jwt.id]);
+        Webux.log.debug(user[Webux.config.auth.jwt.id]);
 
         const obj = await findOneProfile(
           user[Webux.config.auth.jwt.id],
