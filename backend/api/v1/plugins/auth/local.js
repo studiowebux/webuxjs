@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 const deserializeFn = user => {
   return new Promise((resolve, reject) => {

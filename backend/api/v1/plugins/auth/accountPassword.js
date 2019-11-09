@@ -1,6 +1,6 @@
 // This file contains the basic usage of the account password feature.
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 const bcrypt = require("bcrypt");
 
 const lostPasswordFn = (email, code) => {

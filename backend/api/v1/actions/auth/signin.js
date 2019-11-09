@@ -14,7 +14,7 @@
 
 "use strict";
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 const signin = (req, res, next) => {
   Webux.Auth.passport.authenticate(

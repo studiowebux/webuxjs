@@ -16,7 +16,7 @@
 
 // TODO : REMOVE THIS FUNCTION
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 // action
 const removeOneProfile = async profileID => {

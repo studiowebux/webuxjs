@@ -7,8 +7,8 @@
     </p>
     <h3>Installed modules</h3>
     <ul>
-      <li>webux-app</li>
-      <li>webux-generator</li>
+      <li>@studiowebux/app</li>
+      <li>@studiowebux/generator</li>
       <li>Docker</li>
       <li>And much more ...</li>
     </ul>

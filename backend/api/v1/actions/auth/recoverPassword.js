@@ -14,7 +14,7 @@
 
 "use strict";
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 const { retrievePasswordFn } = require("../../plugins/auth/accountPassword");
 
 const recoverPassword = async (req, res, next) => {

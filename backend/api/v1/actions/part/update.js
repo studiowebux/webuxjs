@@ -14,7 +14,7 @@
 
 "use strict";
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 // action
 const updateOnePart = async (partID, userID, part) => {

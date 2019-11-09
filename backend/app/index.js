@@ -15,7 +15,7 @@
 "use strict";
 
 const path = require("path");
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 const { loginFn, registerFn } = require("../api/v1/plugins/auth/local");
 // const { deserializeFn } = require("../api/v1/plugins/auth/local"); // if required
 const jwtOptions = require(path.join(__dirname, "..", "config", "auth")).jwt;

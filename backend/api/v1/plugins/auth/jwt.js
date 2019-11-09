@@ -1,4 +1,4 @@
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 let redis;
 let client;
 

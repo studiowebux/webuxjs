@@ -1,4 +1,4 @@
-const Webux = require("webux-app"); // to access the Webux.query()
+const Webux = require("@studiowebux/app"); // to access the Webux.query()
 
 module.exports = {
   "/": {

@@ -1,4 +1,4 @@
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 /**
  * Return the IP of the client

@@ -1,6 +1,6 @@
 // This file contains the basic usage of the account activation feature.
 
-const Webux = require("webux-app");
+const Webux = require("@studiowebux/app");
 
 const activationCodeFn = (email, code) => {
   return new Promise(async (resolve, reject) => {
